@@ -1,0 +1,25 @@
+.address-row
+{
+	padding : 1% 1% 1% 1% ;
+}
+.address-row>input
+{
+	border: 2px solid #e2e2e2;
+	padding : 4px 4px 4px 4px ;
+	border-radius : 5px;
+	
+}
+.address-area
+{
+	padding: 2% 2% 2% 2%;
+    margin: 1% 1% 2% 17%;
+    box-shadow: 0 0 10px 3px #c1aaaa;
+    border-radius: 11px;
+    display: inline-block;
+    width: 71%;
+}
+.product-area>button
+{
+	display : inline-block;
+	position : absolute;
+}

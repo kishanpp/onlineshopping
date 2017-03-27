@@ -1,0 +1,52 @@
+.product-area
+{
+	    height: 60%;
+    width: 79%;
+    display: inline-block;
+    margin: -25% 2% 2% 18%;
+    box-shadow: 3px 2px 13px 0px #e8b7b7;
+	padding : 1% 1% 1% 1% ;
+	border-radius : 8px;
+	background-image: linear-gradient(to right,rgba(255, 255, 255, 0) 0,rgba(39, 18, 172, 0.06) 75%);
+}
+.product-area>img
+{
+	width : 15%;
+	height : 90%;
+	    margin : 0% 10% 0% 3% ;
+}
+
+
+
+
+
+.info-area
+{
+	position : absolute;
+	
+	
+	padding : 1% 1% 1% 1% ;
+	width :50%;
+	height :auto;
+	display: inline-block;
+	 margin: 0% 2% 15% 0%;
+	 
+	 
+	border-left: 1px;
+    border-right: 0px;
+	border-top: 0px;
+	border-bottom: 0px;
+    border-color: #ece2e2;
+    border-style: solid;
+
+}
+
+
+
+
+
+
+
+
+
+
