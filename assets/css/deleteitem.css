@@ -1,0 +1,73 @@
+.deleteitem
+{
+	margin : 2% 11% 0% 9% ;
+	display : inline-block;
+	height: 40%;
+	position : absolute;
+	width : 60%;
+}
+
+
+.deleteitem>h3
+{
+	margin : 0% 0% 2% 25% ;
+}
+.submit
+{
+	margin : 2% 0% 0% 35% ;
+}
+.deleteitem>form input[type=submit]
+{
+	background-color: rgba(218, 223, 224, 0.2);
+        box-shadow: 2px 2px 8px 0px #cabbbb;
+    border: none;
+	margin : 20% 0% 0% 5% ;
+}
+.pcategory
+{
+	margin : 20px 0% 3% 17% ;
+	position: absolute;
+}
+
+select[name=ptype]
+{
+	    border: none;
+    margin: 12% 0% 0% -24%;
+	background-color : inherit;
+}
+select[name=psubtype]
+{
+	border : none;
+	margin : 0% 0% 0% 20% ;
+	background-color : inherit;
+}
+#ptypereq
+{
+	display:none;
+	margin : 1px 0% 0% -24% ;
+	    font-style: oblique;
+}
+#psubtypereq
+{
+	display:none;
+	margin : 0px -15% 0% 20% ;
+	    font-style: oblique;
+}
+.psubcategory
+{
+	margin : 37px 0% 0% 58% ;
+	position: absolute;
+	
+}
+body
+{
+	
+	background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1JRVeYy_4EaHYcgAvBtBPW5t1qXpQOhKoCHiznkfOFgneiE5);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+h5
+{
+	    background-color: #f8f8f8;
+		border-radius : 5px;
+}

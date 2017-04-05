@@ -1,0 +1,113 @@
+.cart-products-area
+{
+	 display: inline-block;
+    box-shadow: 3px 5px 20px 1px rgba(148, 118, 110, 0.71);
+    margin: -25% 0% 2% 17%;
+	padding : 2% 2% 2% 2% ;
+    width: 82%;
+    min-height: 50%;
+	    
+		border-radius : 10px;
+		    background: url(https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSgCyczzOVYsvg0Cuu61bI37gbydMGW4kjdqeEp-iR2hIBMSfbP);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 230px 150px;
+}
+.products
+{
+	display : inline-block;
+	margin : 1% 0% 3% 1%;
+	width : 47%;
+	   
+}
+
+.products>div
+{
+	margin:-17% 0% 0% 13% ;
+	width:90%;
+}
+.products>img
+{
+	height: 13%;
+	width : 10%;
+	margin : 0% 0% 0% 0% ;
+}
+.pname
+{
+	width:100%; 
+	height	: 5%;
+    display: inline-block;
+}
+.pqty
+{
+	margin: 0% 0% 0% 0%;
+    display: inline-block;
+}
+.discountedprice
+{
+	font-size: 20px;
+    font-weight: 500;
+}
+.pprice
+{
+	text-decoration: line-through;
+    color: #878787;
+}
+.discount{
+	color: #878787;
+}
+#buy-all-product
+{
+	box-shadow: 5px 5px 15px 0px #b19696;
+    margin: 0% 0% -1% 40%;
+	//text-shadow: 7px 3px 9px #404635;
+}
+
+#remove-from-cart
+{
+    box-shadow: 4px 3px 12px 0px #736f6f;
+    margin : -13% 0% 0% 65% ;
+}
+.totalamount
+{
+	background-color: #dee7e0;
+    border-radius: 13px;
+    padding: 1% 3% 1% 3%;
+    
+    margin: -2% 0% 0% 22%;
+}
+.paymentdetails
+{
+	margin : 5% 0% 2% 2% ;
+	display : block;
+	width : 300px;
+	box-shadow: 6px 6px 20px #e6dcdc;
+	border-radius : 5px;
+	padding : 1% 1% 1% 1% ;
+}
+.pricedetails
+{
+	margin: -2% 0% 1% 33%;
+    float: left;
+	
+}
+.free
+{
+	color: #864f4f;
+    background-color: #dee7e0;
+   padding: 1% 3% 1% 3%;
+    border-radius: 15px;
+	margin : 0% 0% 0% 5% ;
+}
+.deleverycharges
+{
+	float:left;
+	margin-left: 2%;
+    margin-right: 11%;
+}
+.amountpayable
+{
+	float:left;
+	    float: left;
+    margin: 0% 0% 7% 3%;
+}

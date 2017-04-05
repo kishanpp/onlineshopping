@@ -1,0 +1,40 @@
+button[name=buymore]
+{
+	display: inline-block;
+	margin-left: 2%;
+	padding : 1%;
+	
+	
+}
+
+.details-area
+{
+	
+	
+	
+	padding : 0% 1% 0% 1% ;
+	width :100%;
+	height : auto;
+	display: inline-block;
+	margin: 0% 1% 2% 1%;
+	 
+	 min-height : 40%;
+	border-left: 2px;
+    border-right: 0px;
+	border-top: 0px;
+	border-bottom: 0px;
+    border-color: #ece2e2;
+    border-style: solid;
+	
+
+}
+.final-area{
+	margin: 2% 0% 2% 19%;
+    padding: 1% 1% 1% 2%;
+    width: 70%;
+    height: auto;
+    display: inline-block;
+    box-shadow: 3px 4px 10px 0px #bfabab;
+    border-radius: 10px;
+	
+}
