@@ -5,8 +5,8 @@
 	<cfset	this.clientmanagement=true />
 	<cfset	this.sessionmanagement=true /> 
 	<cfset	this.setclientcookies=true />
-	<cfset	this.sessiontimeout="#createTimeSpan(0,0,3,20)#" />
-	<cfset	this.applicationtimeout="#createTimeSpan(0,0,5,10)#" />
+	<cfset	this.sessiontimeout="#createTimeSpan(0,0,5,20)#" />
+	<cfset	this.applicationtimeout="#createTimeSpan(0,0,10,10)#" />
 
 	<cffunction name="onApplicationStart" hint="Executes when the application is first created.">
 		<cfset Application.currentUsers = "" />

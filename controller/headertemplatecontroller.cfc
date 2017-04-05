@@ -25,9 +25,9 @@
 <cfparam name="username" type="string">
 <cfparam name="password" type="string">
 <cfparam name="phone" type="string">
-	<cfset logged = loginObject.register("#arguments.username#","#arguments.password#","#arguments.phonenumber#")>
+	<cfset logged = loginObject.register("#arguments.username#","#arguments.password#","#arguments.phone#")>
 	<cfif logged EQ false>
-		<script>alert("Phonenumber already taken..");</script>
+		
 	</cfif>
 </cffunction>
 

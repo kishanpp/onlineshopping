@@ -35,26 +35,27 @@
 
 <!--- Register code--->
 <cffunction name="register" returnType="boolean" output="false" access="public">
-<cfargument name="username" type="string" required="true">
-<cfargument name="password" type="string" required="true">
-<cfargument name="phone" type="string" required="true">
+	<cfargument name="username" type="string" required="true">
+	<cfargument name="password" type="string" required="true">
+	<cfargument name="phone" type="string" required="true">
 
-<cfquery name="loginquery" datasource="OnlineShopping"> 
-select * from UserAccount where phoneNumber LIKE <cfqueryparam value='#phone#' cfsqltype="cf_sql_varchar"> 
-</cfquery>
-<cfif loginquery.recordCount EQ 0>
-<cfset arguments.password = HASH(#arguments.password#)>
-<cfquery name="registerquery" datasource="OnlineShopping"> 
-INSERT INTO dbo.UserAccount (UserId,Password,phoneNumber) VALUES ('#arguments.username#','#arguments.password#','#arguments.phone#')
-</cfquery>
-<cfset logged = true />
-<cfset session.isLogged = true/>
-<cfset session.userPhoneNumber=#arguments.phone#>
-<cfset session.userName = #arguments.username# />
-<cfelse>
-<cfset logged = false />
-</cfif>
-<cfreturn logged>
+	<cfquery name="loginquery" > 
+		select * from UserAccount where phoneNumber LIKE <cfqueryparam value='#phone#' cfsqltype="cf_sql_varchar"> 
+	</cfquery>
+	<cfif loginquery.recordCount EQ 0>
+	<cfset application.currentUsers=listAppend(application.currentUsers, #arguments.phone#)>
+		<cfset arguments.password = HASH(#arguments.password#)>
+		<cfquery > 
+			INSERT INTO dbo.UserAccount (UserId,Password,phoneNumber) VALUES ('#arguments.username#','#arguments.password#','#arguments.phone#')
+		</cfquery>
+		<cfset logged = true />
+		<cfset session.isLogged = true/>
+		<cfset session.userPhoneNumber=#arguments.phone#>
+		<cfset session.userName = #arguments.username# />
+	<cfelse>
+		<cfset logged = false />
+	</cfif>
+	<cfreturn logged>
 </cffunction>
 
 
