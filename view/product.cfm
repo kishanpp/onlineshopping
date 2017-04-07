@@ -19,8 +19,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfset getproducts = controllerObject.getproducts(id="#URL.id#") >
 
 	<cfif getproducts.recordCount GT 0>
-		<cfset newvar1 = controllerObject.getdatabyid(getproductdetails="#URL.id#") />
-		<cfset newvar2 = controllerObject.getproductqty(id="#URL.id#") />
+		<cfset newvar1 = controllerObject.getdatabyid(productId="#URL.id#") />
+		<cfset newvar2 = controllerObject.getproductqty(productId="#URL.id#") />
 		
 		<img src="data:image/jpg;base64,#toBase64(newvar1.Photo)#"   />
 		

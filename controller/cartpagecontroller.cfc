@@ -1,4 +1,4 @@
-<component>
+<cfcomponent displayname="OnlineShopping" hint="Handles the Database connectivity for cart page">
 <cfset modelComponentObject = CreateObject("component","model.components") />
 <cfset loginObject = CreateObject("component","model.login") />
 
@@ -20,4 +20,4 @@
 </cffunction>
 
 
-</component>
+</cfcomponent>

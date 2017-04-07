@@ -1,38 +1,40 @@
 
 <html>
 <head>
-<link rel="shortcut icon" href="../assets/css/favicon.ico" type="image/x-icon">
+
 <title> Shop Online </title>
-<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
+<link rel="shortcut icon" href="../assets/css/favicon.ico" type="image/x-icon">
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
 <link href="../assets/css/animate.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="../assets/css/headertemplate.css">
-  
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 </head>
 <body>
 <cfset controllerObject = CreateObject("component","controller.headertemplatecontroller") />
 <cfif StructKeyExists(form,"loginbtn")>
-	<cfset logged = controllerObject.loginUser(phone="#form.phonenumber#",password="#form.password#")>
+	<cfset VARIABLE.logged = controllerObject.loginUser(phonenumber="#form.phonenumber#",password="#form.password#")>
 	
-	<cfif logged EQ false>
+	<cfif VARIABLE.logged EQ false>
 		<script>alert("Invalid user");</script>
 	</cfif>
 </cfif>
 	
 <cfif StructKeyExists(form,"logoutbtn")>
-	<cfset logged = controllerObject.logoutUser()>	
+	<cfset VARIABLE.logged = controllerObject.logoutUser()>	
 </cfif>
 
 <cfif StructKeyExists(form,"registerbtn")>
-	<cfset logged = controllerObject.registerUser(username="#form.username#",password="#form.password#",phone="#form.phonenumber#")>
+	<cfset VARIABLE.logged = controllerObject.registerUser(username="#form.username#",password="#form.password#",phone="#form.phonenumber#")>
+	<cfif VARIABLE.logged EQ false>
+		<script>alert("User already exists");</script>
+	</cfif>
 </cfif>
 
 	<div class="navbar-inner">
@@ -106,7 +108,7 @@
 							
 							<div class="dropdownregister" >
 								<cfform > 
-								<cfinput name="username" id="username" type="text" placeholder="Username" > 
+								<cfinput name="username" id="username" type="text" placeholder="Username" maxlength="20" > 
 								<cfinput name="password" id="password" type="password" placeholder="Password" ><br>
 								<cfinput name="phonenumber" id="phonennumber" type="text" maxlength="10" placeholder="PhoneNumber" ><br>
 								<cfinput type="submit" id="btnRegister" class="btn" name="registerbtn" value="Register"><br />

@@ -15,9 +15,6 @@
 	<cfset SESSION.CurrentTransaction = true />
 		<cfif SESSION.CurrentTransaction EQ true>
 			<cfset SESSION.id = "#URL.id#" />
-			
-							
-			<!--- <cfset SESSION.CurrentTransaction = true /> --->
 		<cfelse>
 			<cfset update = controllerObject.updateorder(id="#URL.id#",orderid="#SESSION.OrderId#")>
 		</cfif>
@@ -59,24 +56,15 @@
 	<cfinput type="text" name="zip" id="zip"    maxlength="6" required>
 	</div>
 	
-	<cfset checkaddress = controllerObject.checkaddress()>
 	
-	<cfif checkaddress.recordCount EQ 0>
 	<button type="submit" name="address" class="btn btn-info btn-lg">
         <span class="glyphicon glyphicon-home"></span> SAVE ADDRESS
     </button>
-	<cfelse>
-	<script>
-		document.getElementById("name").value = "#checkaddress.Name#" ;
-		document.getElementById("add").value = "#checkaddress.Address#" ;
-		document.getElementById("city").value = "#checkaddress.City#" ;
-		document.getElementById("state").value = "#checkaddress.State#" ;
-		document.getElementById("zip").value = "#checkaddress.Zip#" ;
-	</script>
+	
 	<button type="submit" name="updateaddress" class="btn btn-info btn-lg">
         <span class="glyphicon glyphicon-home"></span> UPDATE ADDRESS
     </button>
-	</cfif>
+	
 	
 	</cfform>
 	

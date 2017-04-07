@@ -8,7 +8,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 
 <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext" rel="stylesheet">
-<link href="assets/css/trendingproducts.css" rel="stylesheet">
+<link href="../assets/css/trendingproducts.css" rel="stylesheet">
 
 
 

@@ -4,11 +4,11 @@ function 		: This file adds new products on the product category by the admin lo
 date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 --->
-
+<cfinclude template="admin.cfm">
 <link href="../assets/css/additem.css" rel="stylesheet">
 
 <cfif session.userPhoneNumber NEQ "">
-<cfinclude template="admin.cfm">
+
 <cfset controllerObject = CreateObject("component","controller.additemcontroller") />
 <cfif structKeyExists(form,"additem")>
 <script>alert("Added successfully to Database");</script>

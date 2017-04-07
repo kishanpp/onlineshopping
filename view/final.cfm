@@ -21,6 +21,7 @@
 				<cfset SESSION.cartpurchase = FALSE />
 				<cfset updateVal = controllerObject.buyallfromcart(date = "#DateFormat(Now(),"mm/dd/yy")#") >
 				<cfset SESSION.cartnumber = #updateVal#>
+				<cflocation url="final.cfm">
 			</cfif>
 			<cfif  SESSION.CurrentTransaction EQ true>
 				<cfset storeaddress = controllerObject.addorder(id="#SESSION.id#",date="#(DateFormat(Now(),"mm/dd/yy"))#")>

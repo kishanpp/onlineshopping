@@ -1,9 +1,10 @@
-<link rel="shortcut icon" href="../assets/css/favicon.ico" type="image/x-icon">
-<link rel="stylesheet" href="../assets/css/product.css">
-<link rel="stylesheet" href="../assets/css/paymentdetails.css">
-<link rel="stylesheet" href="../assets/css/buyproduct.css">
-<body>
 <cfinclude template="headertemplate.cfm">
+
+<link rel="shortcut icon" href="../assets/css/favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="../assets/css/paymentdetails.css">
+
+<body>
+
 <cfset controllerObject = CreateObject("component","controller.paymentdetailscontroller") />
 <cfif session.userPhoneNumber NEQ "">
 
@@ -15,10 +16,10 @@
 	
 	
 	<cfif structKeyExists(form, "address")>
-	<cfset storeaddress = controllerObject.addressstore(name="#form.name#",address="#form.add#",city="#form.city#",state="#form.state#",zip="#form.zip#")>
+		<cfset storeaddress = controllerObject.addressstore(name="#form.name#",address="#form.add#",city="#form.city#",state="#form.state#",zip="#form.zip#")>
 	</cfif>
 	<cfif structKeyExists(form, "updateaddress")>
-	<cfset storeaddress = controllerObject.updateaddress(name="#form.name#",address="#form.add#",city="#form.city#",state="#form.state#",zip="#form.zip#")>
+		<cfset storeaddress = controllerObject.updateaddress(name="#form.name#",address="#form.add#",city="#form.city#",state="#form.state#",zip="#form.zip#")>
 	</cfif>
 	
 	

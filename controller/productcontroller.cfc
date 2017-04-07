@@ -1,25 +1,42 @@
-<component>
-<cfset modelComponentObject = CreateObject("component","model.components") />
-<cfset loginObject = CreateObject("component","model.login") />
+<cfcomponent displayname="OnlineShopping" hint="Handles the Database connectivity for product page">
+	<cfset modelComponentObject = CreateObject("component","model.components") />
+	<cfset loginObject = CreateObject("component","model.login") />
+	
+	
+	<!--- 
+	function name			 :	getdatabyid
+	description				 :	this function calls getdatabyid function in model.
+	arguments description	 :	productId - product sub category id.
+	return type 		  	 :	query
+	--->
+	<cffunction name="getdatabyid" returnType="query">
+		<cfargument name="productId" type="string" required="true">
+		<cfreturn modelComponentObject.getdatabyid(#ARGUMENTS.productId#)>
+	</cffunction>
 
 
-<cffunction name="getdatabyid" returnType="query">
-	<cfargument name="getproductdetails" type="string">
-	<cfreturn modelComponentObject.getdatabyid(getproductdetails="#id#")>
-</cffunction>
+	<!--- 
+	function name			 :	getproductqty
+	description				 :	this function calls the getproductqty function in model.
+	arguments description	 :	productId - product sub category id.
+	return type 		  	 :	boolean
+	--->
+	<cffunction name="getproductqty" returnType="boolean">
+		<cfargument name="productId" type="numeric" required="true">
+		<cfreturn modelComponentObject.getproductqty(id="#ARGUMENTS.productId#")>
+	</cffunction>
 
 
-<cffunction name="getproductqty" returnType="boolean">
-	<cfargument name="id" type="numeric">
-	<cfreturn modelComponentObject.getproductqty(id="#id#")>
-</cffunction>
+	<!--- 
+	function name			 :	getproducts
+	description				 :	this function call the getproduct function in model.
+	arguments description	 :	id - product sub category id.
+	return type 		  	 :	query
+	--->
+	<cffunction name="getproducts" returnType="query">
+		<cfargument name="id" type="numeric" required="true">
+		<cfreturn modelComponentObject.getproduct(id="#ARGUMENTS.id#")>
+	</cffunction>
 
 
-
-<cffunction name="getproducts" returnType="query">
-	<cfargument name="id" type="numeric">
-	<cfreturn modelComponentObject.getproduct(id="#id#")>
-</cffunction>
-
-
-</component>
+</cfcomponent>

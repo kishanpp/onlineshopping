@@ -4,15 +4,15 @@ function 		: This file updates the products by the admin login.
 date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 --->
-
+<cfinclude template="admin.cfm">
 
 <link href="../assets/css/updateitem.css" rel="stylesheet">
 
 <cfif session.userPhoneNumber NEQ "">
 
-<cfinclude template="admin.cfm">
+
 <cfset controllerObject = CreateObject("component","controller.updateitemcontroller") />
-<script src="../assets/js/updateitem.js"></script>
+
 
 <cfif structKeyExists(form,"updateitem")>
 
@@ -106,6 +106,6 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 </cfif>
 
 
-
+<script src="../assets/js/updateitem.js"></script>
 
 

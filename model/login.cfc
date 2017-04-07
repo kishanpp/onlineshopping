@@ -1,72 +1,75 @@
-<cfcomponent>
+<cfcomponent displayname="OnlineShoppingDatabaseConnectivity" hint="Handles the Database connectivity for login and registration">
 
 
 <!--- login code--->
-<cffunction name="login" returnType="boolean" output="false" access="public">
+<!--- 
+function name			 :	login
+description				 :	this function logs in the user with validation.
+arguments description	 :	phone - user phone number
+							password - user password
+return type 		  	 :	boolean
+--->
+<cffunction name="login" returnType="query" output="false" access="public">
 	<cfargument name="phone" type="string" required="true">
 	<cfargument name="password" type="string" required="true">
-	<cfquery name="loginquery" datasource="OnlineShopping"> 
-	<cfset arguments.password = HASH(#arguments.password#)>
-	select UserId,phoneNumber , Password from UserAccount where phoneNumber LIKE <cfqueryparam value='#phone#' cfsqltype="cf_sql_varchar"> 
-	AND
-	Password LIKE <cfqueryparam value='#arguments.password#' cfsqltype="cf_sql_varchar"> 
+	<cfquery name="loginquery"> 
+		<cfset ARGUMENTS.password = HASH(#ARGUMENTS.password#)>
+		SELECT UserId,phoneNumber , Password from UserAccount where phoneNumber LIKE <cfqueryparam value='#ARGUMENTS.phone#' cfsqltype="cf_sql_varchar"> 
+		AND
+		Password LIKE <cfqueryparam value='#ARGUMENTS.password#' cfsqltype="cf_sql_varchar"> 
 	</cfquery>
-	<cfif loginquery.recordCount EQ 1>
-		<cfif loginquery.phoneNumber EQ "0000000000">
-			<cfset SESSION.admin = TRUE />
-		</cfif>
-		<cfset session.userPhoneNumber=#arguments.phone#>
-		<cfif listFindNoCase(application.currentUsers, #arguments.phone#)> 
-			<cflocation url = "view/users.cfm">
-		<cfelse>
-			<cfset application.currentUsers=listAppend(application.currentUsers, #arguments.phone#)>
-		</cfif>
-		<cfset logged=true/>
-		<cfset session.isLogged = true/>
-		<cfset session.userName = loginquery.UserId />
-	<cfelse>
-		<cfset logged=false>
-	</cfif>
-	<cfreturn logged>
+	
+	<cfreturn loginquery>
 </cffunction>
 
 
-
-
 <!--- Register code--->
+<!--- 
+function name			 :	register
+description				 :	this function registers the user with validation.
+arguments description	 :	username - user id
+							phone - user phone number
+							password - user password
+return type 		  	 :	boolean
+--->
 <cffunction name="register" returnType="boolean" output="false" access="public">
 	<cfargument name="username" type="string" required="true">
 	<cfargument name="password" type="string" required="true">
 	<cfargument name="phone" type="string" required="true">
 
 	<cfquery name="loginquery" > 
-		select * from UserAccount where phoneNumber LIKE <cfqueryparam value='#phone#' cfsqltype="cf_sql_varchar"> 
+		SELECT * FROM UserAccount WHERE phoneNumber LIKE <cfqueryparam value='#ARGUMENTS.phone#' cfsqltype="cf_sql_varchar"> 
 	</cfquery>
 	<cfif loginquery.recordCount EQ 0>
-	<cfset application.currentUsers=listAppend(application.currentUsers, #arguments.phone#)>
-		<cfset arguments.password = HASH(#arguments.password#)>
+	<cfset APPLICATION.currentUsers = listAppend(APPLICATION.currentUsers, #ARGUMENTS.phone#)>
+		<cfset ARGUMENTS.password = HASH(#ARGUMENTS.password#)>
 		<cfquery > 
-			INSERT INTO dbo.UserAccount (UserId,Password,phoneNumber) VALUES ('#arguments.username#','#arguments.password#','#arguments.phone#')
+			INSERT INTO dbo.UserAccount (UserId,Password,phoneNumber) VALUES ('#ARGUMENTS.username#','#ARGUMENTS.password#','#ARGUMENTS.phone#')
 		</cfquery>
-		<cfset logged = true />
-		<cfset session.isLogged = true/>
-		<cfset session.userPhoneNumber=#arguments.phone#>
-		<cfset session.userName = #arguments.username# />
+		<cfset LOCAL.logged = true />
+		<cfset SESSION.isLogged = true/>
+		<cfset SESSION.userPhoneNumber=#ARGUMENTS.phone#>
+		<cfset SESSION.userName = #ARGUMENTS.username# />
 	<cfelse>
-		<cfset logged = false />
+		<cfset LOCAL.logged = false />
 	</cfif>
-	<cfreturn logged>
+	<cfreturn LOCAL.logged>
 </cffunction>
 
 
 <!--- logout code--->
+<!--- 
+function name			 :	logout
+description				 :	this function logs out the user.
+arguments description	 :	no arguments.
+return type 		  	 :	void
+--->
 <cffunction name="logout" returnType="void" output="false" access="public">
-<cfset session.isLogged = false />
-
-<cfset session.userName = "" />
-<cfset application.currentUsers = listDeleteAt(application.currentUsers,listFind(application.currentUsers, session.userPhoneNumber) )>
-<cfset session.userPhoneNumber="" />
-<cflocation url="https://www.shoponline.com">
+	<cfset SESSION.isLogged = false />
+	<cfset SESSION.userName = "" />
+	<cfset application.currentUsers = listDeleteAt(APPLICATION.currentUsers,listFind(APPLICATION.currentUsers, SESSION.userPhoneNumber) )>
+	<cfset SESSION.userPhoneNumber="" />
+	<cflocation url="https://www.shoponline.com">
 </cffunction>
 
 
