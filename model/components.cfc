@@ -20,13 +20,13 @@ description				 :	this function retrieves the inventory sub category details.
 arguments description	 :	arg - id of product category.
 return type 		  	 :	query
 --->
-<cffunction name="getinventorysubcategory" output="true" returntype="query" access="public" hint="get product sub category to display in index.cfm left pane">
-	<cfargument name="arg" type="numeric" required="true" >
-	<cfquery name="productSubCategoryDetails" >
+<cffunction name = "getinventorysubcategory" output = "true" returntype = "query" access = "public" hint = "get product sub category to display in index.cfm left pane">
+	<cfargument name = "arg" type = "numeric" required = "true" >
+	<cfquery name = "productSubCategoryDetails" >
 		SELECT * FROM dbo.ProductSubCategory 
 		INNER JOIN dbo.ProductCategory
 		ON dbo.ProductSubCategory.InventoryCategoryId = dbo.ProductCategory.InventoryCategoryId
-		WHERE dbo.ProductCategory.InventoryCategoryId = #ARGUMENTS.arg#
+		WHERE dbo.ProductCategory.InventoryCategoryId = <cfqueryparam value = '#ARGUMENTS.arg#' cfsqltype = "cf_sql_numeric"> 
 	</cfquery>
 	<cfreturn productSubCategoryDetails>
 </cffunction>	
@@ -38,13 +38,13 @@ description				 :	this function retrieves name of product sub category and match
 arguments description	 :	value - product sub category name.
 return type 		  	 :	numeric
 --->
-<cffunction name="getproductbyname" output="true" returntype="numeric" access="remote">
-	<cfparam name="value" type="string">
-	<cfquery name="result" >
-		SELECT * FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = '#value#'
+<cffunction name = "getproductbyname" output = "true" returntype = "numeric" access = "remote">
+	<cfparam name = "value" type = "string">
+	<cfquery name = "productSubCategoryDetails" >
+		SELECT * FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = <cfqueryparam value='#ARGUMENTS.value#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
-	<cfif result.recordCount EQ 1>
-		<cfreturn  result.InventorySubCategoryId>
+	<cfif productSubCategoryDetails.recordCount EQ 1>
+		<cfreturn  productSubCategoryDetails.InventorySubCategoryId>
 	<cfelse>
 		<cfreturn 0>
 	</cfif>
@@ -57,11 +57,11 @@ description				 :	this function retrieves the product sub category details of id
 arguments description	 :	no arguments
 return type 		  	 :	query
 --->
-<cffunction name="retrieve_data1" output="true" returntype="query" access="public">
-	<cfquery name="product_details"  >
+<cffunction name = "retrieve_data1" output = "true" returntype = "query" access = "public">
+	<cfquery name = "product_details"  >
 		SELECT *
 		FROM dbo.ProductSubCategory
-		WHERE InventorySubCategoryId=13
+		WHERE InventorySubCategoryId = 13
 	</cfquery>
 	<cfreturn product_details>
 </cffunction>
@@ -73,11 +73,11 @@ description				 :	this function retrieves the product sub category details of id
 arguments description	 :	no arguments
 return type 		  	 :	query
 ---> 
-<cffunction name="retrieve_data2" output="true" returntype="query" access="public">
-	<cfquery name="product_details"  >
+<cffunction name = "retrieve_data2" output = "true" returntype = "query" access = "public">
+	<cfquery name = "product_details"  >
 		SELECT *
 		FROM dbo.ProductSubCategory
-		WHERE InventorySubCategoryId=15
+		WHERE InventorySubCategoryId = 15
 	</cfquery>
 	<cfreturn product_details>
 </cffunction>
@@ -89,11 +89,11 @@ description				 :	this function retrieves the product sub category details of id
 arguments description	 :	no arguments
 return type 		  	 :	query
 --->
-<cffunction name="retrieve_data3" output="true" returntype="query" access="public">
-	<cfquery name="product_details" >
-	SELECT *
-	FROM dbo.ProductSubCategory
-	WHERE InventorySubCategoryId=17
+<cffunction name = "retrieve_data3" output = "true" returntype = "query" access = "public">
+	<cfquery name = "product_details" >
+		SELECT *
+		FROM dbo.ProductSubCategory
+		WHERE InventorySubCategoryId = 17
 	</cfquery>
 	<cfreturn product_details>
 </cffunction>
@@ -105,11 +105,11 @@ description				 :	this function retrieves the product sub category details of id
 arguments description	 :	no arguments
 return type 		  	 :	query
 --->
-<cffunction name="retrieve_data4" output="true" returntype="query" access="public">
-	<cfquery name="product_details" >
+<cffunction name = "retrieve_data4" output = "true" returntype = "query" access = "public">
+	<cfquery name = "product_details" >
 		SELECT *
 		FROM dbo.ProductSubCategory
-		WHERE InventorySubCategoryId=23
+		WHERE InventorySubCategoryId = 23
 	</cfquery>
 	<cfreturn product_details>
 </cffunction>
@@ -121,11 +121,11 @@ description				 :	this function retrieves the product sub category details of id
 arguments description	 :	no arguments
 return type 		  	 :	query
 --->
-<cffunction name="retrieve_data5" output="true" returntype="query" access="public">
-	<cfquery name="product_details" >
+<cffunction name = "retrieve_data5" output = "true" returntype = "query" access = "public">
+	<cfquery name = "product_details" >
 		SELECT *
 		FROM dbo.ProductSubCategory
-		WHERE InventorySubCategoryId=14
+		WHERE InventorySubCategoryId = 14
 	</cfquery>
 	<cfreturn product_details>
 </cffunction>
@@ -137,11 +137,11 @@ description				 :	this function retrieves the product sub category details of id
 arguments description	 :	no arguments
 return type 		  	 :	query
 --->
-<cffunction name="retrieve_data6" output="true" returntype="query" access="public">
-	<cfquery name="product_details" >
+<cffunction name = "retrieve_data6" output = "true" returntype = "query" access = "public">
+	<cfquery name = "product_details" >
 		SELECT *
 		FROM dbo.ProductSubCategory
-		WHERE InventorySubCategoryId=16
+		WHERE InventorySubCategoryId = 16
 	</cfquery>
 	<cfreturn product_details>
 </cffunction>
@@ -153,11 +153,11 @@ description				 :	this function retrieves the product sub category details of id
 arguments description	 :	no arguments
 return type 		  	 :	query
 --->
-<cffunction name="retrieve_data7" output="true" returntype="query" access="public">
-	<cfquery name="product_details" >
+<cffunction name = "retrieve_data7" output = "true" returntype = "query" access = "public">
+	<cfquery name = "product_details" >
 		SELECT *
 		FROM dbo.ProductSubCategory
-		WHERE InventorySubCategoryId=18
+		WHERE InventorySubCategoryId = 18
 	</cfquery>
 	<cfreturn product_details>
 </cffunction>
@@ -169,11 +169,11 @@ description				 :	this function retrieves the product sub category details of id
 arguments description	 :	no arguments
 return type 		  	 :	query
 --->
-<cffunction name="retrieve_data8" output="true" returntype="query" access="public">
-	<cfquery name="product_details" >
+<cffunction name = "retrieve_data8" output = "true" returntype = "query" access = "public">
+	<cfquery name = "product_details" >
 		SELECT *
 		FROM dbo.ProductSubCategory
-		WHERE InventorySubCategoryId=24
+		WHERE InventorySubCategoryId = 24
 	</cfquery>
 	<cfreturn product_details>
 </cffunction>
@@ -185,12 +185,12 @@ description				 :	this function retrieves the product sub category details by id
 arguments description	 :	productId - id of the product sub category.
 return type 		  	 :	query
 --->
-<cffunction name="getdatabyid" output="true" returntype="query" access="public">
-	<cfargument name="productId" type="any" required="true" >
-	<cfquery name="product_details" >
+<cffunction name = "getdatabyid" output = "true" returntype = "query" access = "public">
+	<cfargument name = "productId" type = "any" required = "true" >
+	<cfquery name = "product_details" >
 		SELECT *
 		FROM dbo.ProductSubCategory
-		WHERE InventorySubCategoryId=#ARGUMENTS.productId#
+		WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.productId# cfsqltype = "cf_sql_varchar">
 	</cfquery>
 	<cfreturn product_details>
 </cffunction>
@@ -202,18 +202,19 @@ description				 :	this function retrieves the product sub category quantity of t
 arguments description	 :	id - id of the product sub category.
 return type 		  	 :	boolean
 --->
-<cffunction name="getproductqty" output="true" returntype="boolean" access="public">
-	<cfargument name="id" type="any" required="true" >
-	<cfquery name="getqtyfromProductSubCategory" >
+<cffunction name = "getproductqty" output = "true" returntype = "boolean" access = "public">
+	<cfargument name = "id" type = "numeric" required = "true" >
+	<cfquery name = "getqtyfromProductSubCategory" >
 		SELECT *
 		FROM dbo.ProductSubCategory
-		WHERE InventorySubCategoryId=#ARGUMENTS.id#
+		WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">
 	</cfquery>
 
-	<cfquery name="getqtyfromCart">
+	<cfquery name = "getqtyfromCart">
 		SELECT *
 		FROM dbo.Cart
-		WHERE (InventorySubCategoryId=#ARGUMENTS.id# AND phoneNumber='#SESSION.userPhoneNumber#')
+		WHERE (InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric"> AND
+				phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar"> )
 	</cfquery>
 
 	<cfif getqtyfromCart.OrderQty LT getqtyfromProductSubCategory.ProductSubCategoryQty>
@@ -234,20 +235,20 @@ arguments description	 :	name - name of the buyer
 							zip - zip of the buyer.
 return type 		  	 :	void
 --->
-<cffunction name="addressstore" output="true" returntype="void" access="public" >
-	<cfargument name="name" type="string" required="true">
-	<cfargument name="address" type="string" required="true">
-	<cfargument name="city" type="string" required="true">
-	<cfargument name="state" type="string" required="true">
-	<cfargument name="zip" type="numeric" required="true">
+<cffunction name = "addressstore" output = "true" returntype = "void" access = "public" >
+	<cfargument name = "name" type = "string" required = "true">
+	<cfargument name = "address" type = "string" required = "true">
+	<cfargument name = "city" type = "string" required = "true">
+	<cfargument name = "state" type = "string" required = "true">
+	<cfargument name = "zip" type = "numeric" required = "true">
 	<cfquery>
 		INSERT INTO dbo.Address (Name,Address,City,State,Zip,PhoneNumber)
-							VALUES ('#ARGUMENTS.name#',
-									'#ARGUMENTS.address#',
-									'#ARGUMENTS.city#',
-									'#ARGUMENTS.state#',
-									#ARGUMENTS.zip#,
-									'#session.userPhoneNumber#')
+							VALUES (<cfqueryparam value = '#ARGUMENTS.name#' cfsqltype = "cf_sql_varchar">,
+									<cfqueryparam value = '#ARGUMENTS.address#' cfsqltype = "cf_sql_varchar">,
+									<cfqueryparam value = '#ARGUMENTS.city#' cfsqltype = "cf_sql_varchar">,
+									<cfqueryparam value = '#ARGUMENTS.state#' cfsqltype = "cf_sql_varchar">,
+									<cfqueryparam value = #ARGUMENTS.zip# cfsqltype = "cf_sql_numeric">,
+									<cfqueryparam value = '#session.userPhoneNumber#' cfsqltype = "cf_sql_varchar">)
 	</cfquery>
 </cffunction>
 
@@ -262,19 +263,19 @@ arguments description	 :	name - name of the buyer
 							zip - zip of the buyer.
 return type 		  	 :	void
 --->
-<cffunction name="updateaddress" output="true" returntype="void" access="public" >
-	<cfargument name="name" type="string" required="true">
-	<cfargument name="address" type="string" required="true">
-	<cfargument name="city" type="string" required="true">
-	<cfargument name="state" type="string" required="true">
-	<cfargument name="zip" type="numeric" required="true">
+<cffunction name = "updateaddress" output = "true" returntype = "void" access = "public" >
+	<cfargument name = "name" type = "string" required = "true">
+	<cfargument name = "address" type = "string" required = "true">
+	<cfargument name = "city" type = "string" required = "true">
+	<cfargument name = "state" type = "string" required = "true">
+	<cfargument name = "zip" type = "numeric" required = "true">
 	<cfquery>
-		UPDATE dbo.Address SET Name='#ARGUMENTS.name#',
-								Address='#ARGUMENTS.address#',
-								City='#ARGUMENTS.city#',
-								State='#ARGUMENTS.state#',
-								Zip=#ARGUMENTS.zip# 
-								WHERE PhoneNumber='#SESSION.userPhoneNumber#'
+		UPDATE dbo.Address SET Name = <cfqueryparam value = '#ARGUMENTS.name#' cfsqltype = "cf_sql_varchar">,
+								Address = <cfqueryparam value = '#ARGUMENTS.address#' cfsqltype = "cf_sql_varchar">,
+								City = <cfqueryparam value = '#ARGUMENTS.city#' cfsqltype = "cf_sql_varchar">,
+								State = <cfqueryparam value = '#ARGUMENTS.state#' cfsqltype = "cf_sql_varchar">,
+								Zip = <cfqueryparam value = #ARGUMENTS.zip# cfsqltype = "cf_sql_numeric"> 
+								WHERE PhoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
  </cffunction>
  
@@ -286,46 +287,54 @@ arguments description	 :	id - id of the product sub category.
 							date - current date / order date.
 return type 		  	 :	void
 --->
-<cffunction name="addorder" output="true" returntype="void" access="public" >
-	<cfargument name="id" type="numeric" required="true">
-	<cfargument name="date" type="date" required="true"> 
+<cffunction name = "addorder" output = "true" returntype = "void" access = "public" >
+	<cfargument name = "id" type = "numeric" required = "true">
+	<cfargument name = "date" type = "date" required = "true"> 
 	
-	<cfquery name="resultset2" >
-		SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId=#id#
+	<cfquery name = "productSubCategoryDetails" >
+		SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">
 	</cfquery> 
-	<cfset discountedvalue = #resultset2.ProductSubCategoryPrice#  - ((#resultset2.ProductDiscount#)/100)*#resultset2.ProductSubCategoryPrice#>
-	<cfquery result="result">   
+	<cfset LOCAL.discountedvalue = #productSubCategoryDetails.ProductSubCategoryPrice#  - ((#productSubCategoryDetails.ProductDiscount#)/100)*#productSubCategoryDetails.ProductSubCategoryPrice#>
+	<cfquery>   
 		INSERT INTO dbo.Orders
 		(OrderDate,TotalAmount,State,PhoneNumber)
 		VALUES 
-		('#date#',#discountedvalue#,'OrderPlaced','#session.userPhoneNumber#')
+		(	<cfqueryparam value = '#ARGUMENTS.date#' cfsqltype = "cf_sql_varchar">,
+			<cfqueryparam value = #LOCAL.discountedvalue# cfsqltype = "cf_sql_numeric">,
+			'OrderPlaced',
+			<cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
+		)
 	</cfquery>	
-	<cfquery name="resultset1" >
+	<cfquery name = "orderDetails" >
 		SELECT TOP 1 * FROM dbo.Orders ORDER BY OrderId DESC
 	</cfquery>
-	<cfset SESSION.OrderId = resultset1.OrderId>
+	<cfset SESSION.OrderId = orderDetails.OrderId>
 		
-	<cfquery name="resultset3" >
-		SELECT ProductSubCategoryQty FROM dbo.ProductSubCategory WHERE InventorySubCategoryId=#id#
+	<cfquery name = "productSubCategoryQuantity" >
+		SELECT ProductSubCategoryQty FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">
 	</cfquery>
 		
-	<cfset productqty = resultset3.ProductSubCategoryQty>
-	<cfquery name="resultset4" >
-		UPDATE dbo.ProductSubCategory SET ProductSubCategoryQty=#productqty#-1 WHERE InventorySubCategoryId=#id#
+	<cfset LOCAL.productqty = productSubCategoryQuantity.ProductSubCategoryQty>
+	<cfquery>
+		UPDATE dbo.ProductSubCategory SET ProductSubCategoryQty = #LOCAL.productqty#-1 WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">
 	</cfquery>
 		
-	<cfquery name="resultset5" >
-		SELECT * FROM dbo.OrderItem WHERE OrderId=#SESSION.OrderId# AND InventorySubCategoryId=#id#
+	<cfquery name = "orderItemDetails" >
+		SELECT * FROM dbo.OrderItem WHERE OrderId = <cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_numeric"> AND
+										InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">
 	</cfquery>
 		
-	<cfif resultset5.RecordCount EQ 0>	
-		<cfquery name="orderitem1" >
+	<cfif orderItemDetails.RecordCount EQ 0>	
+		<cfquery>
 			INSERT INTO dbo.OrderItem (OrderQty,OrderId,InventorySubCategoryId) 
-			VALUES(1,#SESSION.OrderId#,#id#)
+			VALUES(1,
+			<cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_varchar">,
+			<cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">)
 		</cfquery>
 	<cfelse>
-		<cfquery name="orderitem2" >
-			UPDATE dbo.OrderItem SET OrderQty=OrderQty+1 WHERE (OrderId=#SESSION.OrderId# AND InventorySubCategoryId=#id#)
+		<cfquery>
+			UPDATE dbo.OrderItem SET OrderQty = OrderQty+1 WHERE ( OrderId = <cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_numeric">
+															AND InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.Id# cfsqltype = "cf_sql_numeric">)
 		</cfquery>
 	</cfif>
 </cffunction>
@@ -389,13 +398,17 @@ return type 		  	 :	void
 	<cfargument name="ccnumber" type="string" required="true">
 	<cfargument name="holdername" type="string" required="true">
 	<cfargument name="expdate" type="date" required="true">
-	<cfargument name="cvvnumber" type="string" required="true">
+	<cfargument name="cvvnumber" type="numeric" required="true">
 
-	<cfquery name="resultset1" >
+	<cfquery >
 		INSERT INTO dbo.CreditCardDetails
 		(CCNumber,HolderName,ExpiryDate,CVVNumber,OrderId)
 		VALUES
-		('#ccnumber#','#holdername#','#expdate#',#cvvnumber#,#SESSION.OrderId#)
+		(<cfqueryparam value = '#ARGUMENTS.ccnumber#' cfsqltype = "cf_sql_numeric">,
+		<cfqueryparam value = '#ARGUMENTS.holdername#' cfsqltype = "cf_sql_varchar">,
+		<cfqueryparam value = '#ARGUMENTS.expdate#' cfsqltype = "cf_sql_date">,
+		<cfqueryparam value = #ARGUMENTS.cvvnumber# cfsqltype = "cf_sql_numeric">,
+		<cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_numeric">)
 	</cfquery>
 </cffunction>
 
@@ -406,11 +419,11 @@ description				 :	this function retrieves the current order details.
 arguments description	 :	no arguments.
 return type 		  	 :	query
 --->
-<cffunction name="gettotalamount" output="true" returntype="query" access="public">
-	<cfquery name="resultset1">
-		SELECT * FROM dbo.Orders WHERE OrderId = #SESSION.OrderId#
+<cffunction name = "gettotalamount" output = "true" returntype = "query" access = "public">
+	<cfquery name = "orderDetails">
+		SELECT * FROM dbo.Orders WHERE OrderId = <cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_numeric">
 	</cfquery>
-	<cfreturn resultset1>
+	<cfreturn orderDetails>
 </cffunction>
 
 
@@ -420,11 +433,11 @@ description				 :	this function retrieves the product details of the current ord
 arguments description	 :	no arguments.
 return type 		  	 :	query
 --->
-<cffunction name="getitems" output="true" returntype="query" access="public">
-	<cfquery name="currentOrderDetails">
+<cffunction name = "getitems" output = "true" returntype = "query" access = "public">
+	<cfquery name = "currentOrderDetails">
 		SELECT * FROM dbo.ProductSubCategory INNER JOIN dbo.OrderItem
 					ON dbo.OrderItem.InventorySubCategoryId=dbo.ProductSubCategory.InventorySubCategoryId
-					WHERE OrderId = #SESSION.OrderId#
+					WHERE OrderId = <cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_numeric">
 	</cfquery>
 	<cfreturn currentOrderDetails>
 </cffunction>
@@ -436,9 +449,9 @@ description				 :	this functions retrieves the address of the buyer.
 arguments description	 :	no arguments.
 return type 		  	 :	query
 --->
-<cffunction name="getaddress" output="true" returntype="query" access="public">
-	<cfquery name="userAddress" >
-		SELECT * FROM dbo.Address WHERE PhoneNumber = '#SESSION.userPhoneNumber#'
+<cffunction name ="getaddress" output = "true" returntype = "query" access = "public">
+	<cfquery name = "userAddress" >
+		SELECT * FROM dbo.Address WHERE PhoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 	<cfreturn userAddress>
 </cffunction>
@@ -450,25 +463,31 @@ description				 :	this function inserts the cart details if product not present 
 arguments description	 :	value - product sub category id.
 return type 		  	 :	numeric
 --->
-<cffunction name="updatecart" output="true" returntype="numeric" access="remote">
-	<cfargument name="value" type="numeric" required="true">
-	<cfquery name="resultset3" >
-		SELECT * FROM dbo.Cart WHERE (phoneNumber='#SESSION.userPhoneNumber#' AND InventorySubCategoryId=#value#)
+<cffunction name = "updatecart" output = "true" returntype = "numeric" access = "remote">
+	<cfargument name = "value" type = "numeric" required = "true">
+	<cfquery name = "cartDetails" >
+		SELECT * FROM dbo.Cart WHERE ( phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
+								AND	 InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.value# cfsqltype = "cf_sql_numeric">)
 	</cfquery>
-	<cfif resultset3.recordCount EQ 0>
-		<cfquery name="resultset1" >
-			INSERT INTO dbo.Cart (phoneNumber,InventorySubCategoryId,OrderQty) VALUES ('#SESSION.userPhoneNumber#',#value#,1)
+	<cfif cartDetails.recordCount EQ 0>
+		<cfquery>
+			INSERT INTO dbo.Cart (phoneNumber,InventorySubCategoryId,OrderQty) VALUES (<cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">,
+																						<cfqueryparam value = #ARGUMENTS.value# cfsqltype = "cf_sql_numeric">,
+																						1
+																					)
 		</cfquery>
 	<cfelse>
-		<cfquery name="resultset4" >
-			UPDATE dbo.Cart SET OrderQty=OrderQty+1 WHERE (phoneNumber='#SESSION.userPhoneNumber#' AND InventorySubCategoryId=#value#)
+		<cfquery >
+			UPDATE dbo.Cart SET OrderQty = OrderQty+1 WHERE ( phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
+														AND	InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.value# cfsqltype = "cf_sql_numeric">
+													)
 		</cfquery>
 	</cfif>
-	<cfquery name="resultset2" >
-		SELECT SUM(OrderQty) AS total FROM dbo.Cart WHERE phoneNumber = '#SESSION.userPhoneNumber#'
+	<cfquery name = "cartTotal" >
+		SELECT SUM(OrderQty) AS total FROM dbo.Cart WHERE phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
-	<cfif resultset2.total GTE 0>
-		<cfreturn resultset2.total>
+	<cfif cartTotal.total GTE 0>
+		<cfreturn cartTotal.total>
 	<cfelse>
 		<cfreturn 0>
 	</cfif>
@@ -481,9 +500,9 @@ description				 :	this function retrieves and returns the product sub category i
 arguments description	 :	no arguments.
 return type 		  	 :	query
 --->
-<cffunction name="getcartdataid" output="true" returntype="query" access="remote">
-	<cfquery name="cartDetails" >
-		SELECT InventorySubCategoryId,OrderQty FROM dbo.Cart WHERE phoneNumber= '#SESSION.userPhoneNumber#'
+<cffunction name = "getcartdataid" output = "true" returntype = "query" access = "remote">
+	<cfquery name = "cartDetails" >
+		SELECT InventorySubCategoryId,OrderQty FROM dbo.Cart WHERE phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 
 	<!---
@@ -513,11 +532,11 @@ arguments description	 :	id - product sub category id.
 return type 		  	 :	query
 --->
 <cffunction name = "getcartdata" output = "true" returntype = "query" access = "public">
-	<cfargument name=id type="numeric" required="true">
-	<cfquery name="resultset1" >
-		SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = #id#
+	<cfargument name = id type = "numeric" required = "true">
+	<cfquery name = "productSubCategoryDetails" >
+		SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">
 	</cfquery>
-	<cfreturn resultset1>
+	<cfreturn productSubCategoryDetails>
 </cffunction>
 
 
@@ -527,9 +546,9 @@ description				 :	this function counts and returns product quantity in the cart.
 arguments description	 :	no arguments.
 return type 		  	 :	query
 --->
-<cffunction name="getno" output="true" returnType="query" access="public">
-	<cfquery name="totalCartQuantity" >
-		SELECT SUM(OrderQty) AS total FROM dbo.Cart WHERE phoneNumber = '#SESSION.userPhoneNumber#'
+<cffunction name = "getno" output = "true" returnType = "query" access = "public">
+	<cfquery name = "totalCartQuantity" >
+		SELECT SUM(OrderQty) AS total FROM dbo.Cart WHERE phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 	<cfreturn totalCartQuantity>
 </cffunction>
@@ -541,40 +560,41 @@ description				 :	this function removes product from cart table and returns tota
 arguments description	 :	value - product sub category id.
 return type 		  	 :	JSON
 --->
-<cffunction name="removefromcart" output="true" returntype="any" access="remote">
-	<cfargument name="value" type="numeric" required="true">
+<cffunction name = "removefromcart" output = "true" returntype = "any" access = "remote">
+	<cfargument name = "value" type = "numeric" required = "true">
 	<cfquery>
 		DELETE FROM dbo.Cart
-		WHERE (phoneNumber='#SESSION.userPhoneNumber#' AND InventorySubCategoryId=#value#)
+		WHERE ( phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar"> AND 
+				InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.value# cfsqltype = "cf_sql_numeric">)
 	</cfquery>
 
-	<cfquery name="resultset1" >
-		SELECT * FROM dbo.Cart WHERE phoneNumber='#SESSION.userPhoneNumber#' 
+	<cfquery name = "cartDetails" >
+		SELECT * FROM dbo.Cart WHERE phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar"> 
 	</cfquery>
 	<cfset total = 0 />
-	<cfloop query="resultset1">
-		<cfloop from=1 to=#resultset1.OrderQty# index="i">
-			<cfquery name="resultset2" >
-				SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId=#resultset1.InventorySubCategoryId#
+	<cfloop query = "cartDetails">
+		<cfloop from = 1 to = #cartDetails.OrderQty# index = "i">
+			<cfquery name = "productSubCategoryDetails" >
+				SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = <cfqueryparam value = #cartDetails.InventorySubCategoryId# cfsqltype = "cf_sql_numeric">
 			</cfquery>
 			
-			<cfif #resultset2.ProductDiscount# EQ 0>
-				<cfset total = total  + resultset2.ProductSubCategoryPrice>
+			<cfif #productSubCategoryDetails.ProductDiscount# EQ 0>
+				<cfset total = total  + productSubCategoryDetails.ProductSubCategoryPrice>
 			<cfelse>
-				<cfset discountedvalue = #resultset2.ProductSubCategoryPrice#  - ((#resultset2.ProductDiscount#)/100)*#resultset2.ProductSubCategoryPrice#>
+				<cfset discountedvalue = #productSubCategoryDetails.ProductSubCategoryPrice#  - ((#productSubCategoryDetails.ProductDiscount#)/100)*#productSubCategoryDetails.ProductSubCategoryPrice#>
 				<cfset total = total  + #discountedvalue#>
 			</cfif>
 		</cfloop>
 	</cfloop>
-	<cfquery name="resultset2" >
-		SELECT SUM(OrderQty) AS total FROM dbo.Cart WHERE phoneNumber = '#SESSION.userPhoneNumber#'
+	<cfquery name = "cartTotal" >
+		SELECT SUM(OrderQty) AS total FROM dbo.Cart WHERE phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
-	<cfif resultset2.total GTE 0>
-		<cfset cartvalue=resultset2.total>
+	<cfif cartTotal.total GTE 0>
+		<cfset cartvalue = cartTotal.total>
 	<cfelse>
-		<cfset cartvalue=0>
+		<cfset cartvalue = 0>
 	</cfif>
-	<cfset response={totalamount = total, cart=cartvalue } />
+	<cfset response = {totalamount = total, cart = cartvalue } />
 	<cfreturn serializeJSON(response)>
 </cffunction>
 
@@ -585,17 +605,17 @@ description				 :	this function insert new order to order table when purchased f
 arguments description	 :	date - current data / order date.
 return type 		  	 :	numeric
 --->
-<cffunction name="buyallfromcart" output="true" returntype="numeric" access="remote">
-	<cfargument name="date" type="date" required="true"> 
+<cffunction name = "buyallfromcart" output = "true" returntype = "numeric" access = "remote">
+	<cfargument name = "date" type = "date" required = "true"> 
 	
-	<cfquery name="productSubCategoryDetails" >
+	<cfquery name = "productSubCategoryDetails" >
 		SELECT * FROM dbo.ProductSubCategory
 		INNER JOIN dbo.Cart
 		ON dbo.ProductSubCategory.InventorySubCategoryId = dbo.Cart.InventorySubCategoryId
-		WHERE dbo.Cart.phoneNumber = '#SESSION.userPhoneNumber#'
+		WHERE dbo.Cart.phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 	<cfset LOCAL.total = 0>
-		<cfloop query="productSubCategoryDetails">
+		<cfloop query = "productSubCategoryDetails">
 			<cfloop from = 1 to = #productSubCategoryDetails.OrderQty# index = "i">
 				<cfif #productSubCategoryDetails.ProductDiscount# EQ 0>
 					<cfset LOCAL.total = #LOCAL.total# + #productSubCategoryDetails.ProductSubCategoryPrice#>
@@ -606,38 +626,49 @@ return type 		  	 :	numeric
 			</cfloop>
 		</cfloop>
 	<cfquery>
-		INSERT INTO dbo.Orders (OrderDate,TotalAmount,State,PhoneNumber) VALUES('#ARGUMENTS.date#',#LOCAL.total#,'OrderPlaced','#SESSION.userPhoneNumber#')
+		INSERT INTO dbo.Orders (OrderDate,TotalAmount,State,PhoneNumber) VALUES(<cfqueryparam value = '#ARGUMENTS.date#' cfsqltype = "cf_sql_date">,
+																				<cfqueryparam value = #LOCAL.total# cfsqltype = "cf_sql_numeric">,
+																				'OrderPlaced',
+																				<cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
+																			)
 	</cfquery>
-	<cfquery name="OrderDetails" >
+	<cfquery name = "OrderDetails" >
 		SELECT TOP 1 * FROM dbo.Orders ORDER BY OrderId DESC
 	</cfquery>
 		
-	<cfquery name="cartDetails" >
-		SELECT * FROM dbo.Cart WHERE phoneNumber='#SESSION.userPhoneNumber#'
+	<cfquery name = "cartDetails" >
+		SELECT * FROM dbo.Cart WHERE phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 	<cfset SESSION.OrderId = #OrderDetails.OrderId# >
 	<cfloop query = "cartDetails">
 		<cfquery>
-			INSERT INTO dbo.OrderItem (OrderQty,OrderId,InventorySubCategoryId) VALUES (#cartDetails.OrderQty#,#SESSION.OrderId#,#cartDetails.InventorySubCategoryId#)
+			INSERT INTO dbo.OrderItem (OrderQty,OrderId,InventorySubCategoryId) VALUES ( <cfqueryparam value = #cartDetails.OrderQty# cfsqltype = "cf_sql_numeric">,
+																						<cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_numeric">,
+																						<cfqueryparam value = #cartDetails.InventorySubCategoryId# cfsqltype = "cf_sql_numeric">
+																					)
 		</cfquery>
 	</cfloop>
-
 	<cfquery>
-		DELETE FROM dbo.Cart WHERE phoneNumber = '#SESSION.userPhoneNumber#'
+		DELETE FROM dbo.Cart WHERE phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 
 	<cfloop query = "productSubCategoryDetails">
 		<cfquery name = "orderQuantity" >
-			SELECT OrderQty FROM dbo.OrderItem WHERE (InventorySubCategoryId = #productSubCategoryDetails.InventorySubCategoryId# AND OrderId = #SESSION.OrderId#)
+			SELECT OrderQty FROM dbo.OrderItem WHERE (InventorySubCategoryId = <cfqueryparam value = #productSubCategoryDetails.InventorySubCategoryId# cfsqltype = "cf_sql_numeric">
+												AND		OrderId = <cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_numeric">
+											)
 		</cfquery>
 		<cfset LOCAL.productqty = orderQuantity.OrderQty>
 		<cfquery >
-			UPDATE dbo.ProductSubCategory SET ProductSubCategoryQty = (ProductSubCategoryQty-#LOCAL.productqty#) WHERE InventorySubCategoryId = #productSubCategoryDetails.InventorySubCategoryId#
+			UPDATE dbo.ProductSubCategory SET 
+			ProductSubCategoryQty = (ProductSubCategoryQty-#LOCAL.productqty#) 
+			WHERE 
+			InventorySubCategoryId = <cfqueryparam value = #productSubCategoryDetails.InventorySubCategoryId# cfsqltype = "cf_sql_numeric">
 		</cfquery>
 	</cfloop>
 
 	<cfquery name="cartQuantity" >
-		SELECT COUNT(*) AS total FROM dbo.Cart WHERE phoneNumber='#SESSION.userPhoneNumber#'
+		SELECT COUNT(*) AS total FROM dbo.Cart WHERE phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 
 	<cfif cartQuantity.total GTE 0>
@@ -654,26 +685,27 @@ description				 :	this function calculates total cost of products in cart and re
 arguments description	 :	no arguments.
 return type 		  	 :	numeric
 --->
-<cffunction name="getcartitemstotalamount" output="true" returntype="numeric" access="public">
-	<cfquery name="cartDetails" >
-		SELECT * FROM dbo.Cart WHERE phoneNumber='#SESSION.userPhoneNumber#' 
+<cffunction name = "getcartitemstotalamount" output = "true" returntype = "numeric" access = "public">
+	<cfquery name = "cartDetails" >
+		SELECT * FROM dbo.Cart WHERE phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar"> 
 	</cfquery>
-	<cfset total = 0 />
-	<cfloop query="cartDetails">
-		<cfloop from=1 to=#cartDetails.OrderQty# index="i">
-			<cfquery name="productSubCategoryDetails" >
-				SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId=#cartDetails.InventorySubCategoryId#
+	<cfset LOCAL.total = 0 />
+	<cfloop query = "cartDetails">
+		<cfloop from = 1 to = #cartDetails.OrderQty# index = "i">
+			<cfquery name = "productSubCategoryDetails" >
+				SELECT * FROM dbo.ProductSubCategory WHERE
+				InventorySubCategoryId = <cfqueryparam value = #cartDetails.InventorySubCategoryId# cfsqltype = "cf_sql_numeric">
 			</cfquery>
 			
 			<cfif #productSubCategoryDetails.ProductDiscount# EQ 0>
-				<cfset total = total + #productSubCategoryDetails.ProductSubCategoryPrice#>
+				<cfset LOCAL.total = LOCAL.total + #productSubCategoryDetails.ProductSubCategoryPrice#>
 			<cfelse>
 				<cfset discountedvalue = #productSubCategoryDetails.ProductSubCategoryPrice#  - ((#productSubCategoryDetails.ProductDiscount#)/100)*#productSubCategoryDetails.ProductSubCategoryPrice#>
-				<cfset total = total + #discountedvalue#>
+				<cfset LOCAL.total = LOCAL.total + #discountedvalue#>
 			</cfif>			
 		</cfloop>
 	</cfloop>
-	<cfreturn total>
+	<cfreturn LOCAL.total>
 </cffunction>
 
 
@@ -683,30 +715,30 @@ description				 :	this function returns all the products name matching with sear
 arguments description	 :	search - product sub category name.
 return type 		  	 :	array
 --->
-<cffunction name="productname" access="remote" returntype="array">
-	<cfargument name="search" type="string" required="true" default="">
+<cffunction name = "productname" access = "remote" returntype = "array">
+	<cfargument name = "search" type = "string" required = "true" default = "">
 	<!--- Define variables --->
-	<cfset var productsname="">
-	<cfset var result=ArrayNew(1)>
+	<cfset var productsname = "">
+	<cfset LOCAL.productSubCategoryNameArray = ArrayNew(1)>
 	<!--- Do search --->
-	<cfquery  name="productsname">
+	<cfquery  name = "productsname">
 		SELECT ProductSubCategoryName
 		FROM dbo.ProductSubCategory
 		WHERE UPPER(ProductSubCategoryName) LIKE UPPER('%#ARGUMENTS.search#%')
 		ORDER BY ProductSubCategoryName
 	</cfquery>
 
-	<!--- Build result array --->
-	<cfloop query="productsname">
-		<cfset ArrayAppend(result, ProductSubCategoryName)>
+	<!--- Build productSubCategoryNameArray array --->
+	<cfloop query = "productsname">
+		<cfset ArrayAppend( LOCAL.productSubCategoryNameArray, ProductSubCategoryName)>
 	</cfloop>
 
 	<cfif productsname.RecordCount EQ 0 >
-		<cfset ArrayAppend(result, "No result found")>
-		<cfreturn result>
+		<cfset ArrayAppend( LOCAL.productSubCategoryNameArray, "No result found")>
+		<cfreturn LOCAL.productSubCategoryNameArray>
 	<cfelse>
 		<!--- And return it --->
-		<cfreturn result>
+		<cfreturn LOCAL.productSubCategoryNameArray>
 	</cfif>
 </cffunction>
 
@@ -715,17 +747,13 @@ return type 		  	 :	array
 function name			 :	inventorycategory
 description				 :	this function returns the product category names.
 arguments description	 :	no arguments.
-return type 		  	 :	array
+return type 		  	 :	query
 --->
-<cffunction name="inventorycategory" output="true" returntype="array" access="remote" >
-	<cfquery name="resultset1" >
+<cffunction name = "inventorycategory" output = "true" returntype = "query" access = "public" >
+	<cfquery name = "productCategoryDetails" >
 		SELECT * FROM dbo.ProductCategory
 	</cfquery>
-	<cfset var result=ArrayNew(1)>
-	<cfloop query="resultset1">
-		<cfset ArrayAppend(result,ProductName)>
-	</cfloop>
-	<cfreturn result>
+	<cfreturn productCategoryDetails>
 </cffunction>
  
 
@@ -741,29 +769,29 @@ arguments description	 :	pcat - product category name
 							desc - product sub category description.
 return type 		  	 :	void
 --->
-<cffunction name="adddata" output="true" returntype="void" access="public" >
-	<cfargument name="pcat" type="string" required="true" default="">
-	<cfargument name="pname" type="string" required="true" default="">
-	<cfargument name="qty" type="numeric" required="true" default="">
-	<cfargument name="pprice" type="numeric" required="true" default="">
-	<cfargument name="pimg" type="any" required="true" default="">
-	<cfargument name="pdisc" type="numeric" required="true" default="">
-	<cfargument name="desc" type="string" required="true" default="">
+<cffunction name = "adddata" output = "true" returntype = "void" access = "public" >
+	<cfargument name = "pcat" type = "string" required = "true" default = "">
+	<cfargument name = "pname" type = "string" required = "true" default = "">
+	<cfargument name = "qty" type = "numeric" required = "true" default = "">
+	<cfargument name = "pprice" type = "numeric" required = "true" default = "">
+	<cfargument name = "pimg" type = "any" required = "true" default = "">
+	<cfargument name = "pdisc" type = "numeric" required = "true" default = "">
+	<cfargument name = "desc" type = "string" required = "true" default = "">
 
-	<cfquery name="resultset1">
-		SELECT * FROM dbo.ProductCategory WHERE ProductName = '#ARGUMENTS.pcat#'
+	<cfquery name = "productCategory">
+		SELECT * FROM dbo.ProductCategory WHERE ProductName = <cfqueryparam value = '#ARGUMENTS.pcat#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 	<cfquery  >
 		INSERT INTO dbo.ProductSubCategory 
 		(InventoryCategoryId,ProductSubCategoryName,ProductSubCategoryQty,ProductSubCategoryPrice,ProductDescription,ProductDiscount,Photo) 
 		SELECT
-		#resultset1.InventoryCategoryId#,
-		'#ARGUMENTS.pname#',
-		#ARGUMENTS.qty#,
-		#ARGUMENTS.pprice#,
-		'#ARGUMENTS.desc#',
-		#ARGUMENTS.pdisc#,
-		bulkcolumn from openrowset (bulk '#ARGUMENTS.pimg#',single_blob) as BLOB 
+		<cfqueryparam value = #productCategory.InventoryCategoryId# cfsqltype = "cf_sql_numeric">,
+		<cfqueryparam value = '#ARGUMENTS.pname#' cfsqltype = "cf_sql_varchar">,
+		<cfqueryparam value = #ARGUMENTS.qty# cfsqltype = "cf_sql_numeric">,
+		<cfqueryparam value = #ARGUMENTS.pprice# cfsqltype = "cf_sql_numeric">,
+		<cfqueryparam value = '#ARGUMENTS.desc#' cfsqltype = "cf_sql_varchar">,
+		<cfqueryparam value = #ARGUMENTS.pdisc# cfsqltype = "cf_sql_numeric">,
+		bulkcolumn FROM openrowset ( BULK '#ARGUMENTS.pimg#',single_blob) as BLOB 
 	</cfquery>
 </cffunction>
  
@@ -774,22 +802,18 @@ description				 :	this function returns names of product sub category names acco
 arguments description	 :	pname - product category name.
 return type 		  	 :	array
 --->
-<cffunction name="inventorysubcategory" output="true" returntype="array" access="remote" >
-	<cfargument name="pname" type="string" required="true" default="">
+<cffunction name = "inventorysubcategory" output = "true" returntype = "query" access = "public" >
+	<cfargument name = "pname" type = "string" required = "true" default = "">
 	 
-	<cfquery name="resultset1" >
-		SELECT * FROM dbo.ProductCategory WHERE ProductName = '#ARGUMENTS.pname#'
+	<cfquery name = "productCategoryDetails" >
+		SELECT * FROM dbo.ProductCategory WHERE ProductName = <cfqueryparam value = '#ARGUMENTS.pname#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 
-	<cfquery name="resultset2" >
-		SELECT * FROM dbo.ProductSubCategory WHERE InventoryCategoryId = #resultset1.InventoryCategoryId#
+	<cfquery name = "productSubCategoryDetails" >
+		SELECT * FROM dbo.ProductSubCategory WHERE InventoryCategoryId = <cfqueryparam value = #productCategoryDetails.InventoryCategoryId# cfsqltype = "cf_sql_numeric">
 	</cfquery>
 
-	<cfset var result=ArrayNew(1)>
-	<cfloop query="resultset2">
-		<cfset ArrayAppend(result,ProductSubCategoryName)>
-	</cfloop>
-	<cfreturn result>
+	<cfreturn productSubCategoryDetails>
 </cffunction>
  
 
@@ -799,10 +823,10 @@ description				 :	this function deletes the product sub category data from the d
 arguments description	 :	psubcat - product sub category name.
 return type 		  	 :	void
 --->
-<cffunction name="deletedata" output="true" returntype="void" access="public" >
-	<cfargument name="psubcat" type="string" required="true" default="">
+<cffunction name = "deletedata" output = "true" returntype = "void" access = "public" >
+	<cfargument name = "psubcat" type = "string" required = "true" default = "">
 	<cfquery >
-		DELETE FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = '#ARGUMENTS.psubcat#'
+		DELETE FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.psubcat#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 </cffunction>
 
@@ -811,24 +835,16 @@ return type 		  	 :	void
 function name			 :	inventorysubcategorydata
 description				 :	this function returns the details of the product sub category.
 arguments description	 :	psubname - product sub category name.
-return type 		  	 :	array
+return type 		  	 :	query
 --->
-<cffunction name="inventorysubcategorydata" output="true" returntype="array" access="remote" >
-	<cfargument name="psubname" type="string" required="true" default="">
+<cffunction name = "inventorysubcategorydata" output = "true" returntype = "query" access = "public" >
+	<cfargument name = "psubname" type = "string" required = "true" default = "">
 	 
-	<cfquery name="productSubCategoryDetails" >
-		SELECT * FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = '#ARGUMENTS.psubname#'
+	<cfquery name = "productSubCategoryDetails" >
+		SELECT * FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.psubname#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 
-	<cfset var result=ArrayNew(1)>
-	<cfloop query="productSubCategoryDetails">
-		<cfset ArrayAppend(result,ProductSubCategoryName)>
-		<cfset ArrayAppend(result,ProductSubCategoryQty)>
-		<cfset ArrayAppend(result,ProductSubCategoryPrice)>
-		<cfset ArrayAppend(result,ProductDescription)>
-		<cfset ArrayAppend(result,ProductDiscount)>
-	</cfloop>
-	<cfreturn result>
+	<cfreturn productSubCategoryDetails>
 </cffunction>
  
 
@@ -844,21 +860,21 @@ arguments description	 :	psubnameselect - product sub category name
 							pimg - product sub category image.
 return type 		  	 :	void
 --->
-<cffunction name="updatedata" output="true" returntype="void" access="public" >
-	<cfargument name="psubnameselect" type="string" required="true" default="">
-	<cfargument name="psubname" type="string" required="true" default="">
-	<cfargument name="qty" type="numeric" required="true" default="">
-	<cfargument name="pprice" type="numeric" required="true" default="">
-	<cfargument name="desc" type="string" required="true" default="">
-	<cfargument name="pimg" type="any" required="true" default="">
+<cffunction name = "updatedata" output = "true" returntype = "void" access = "public" >
+	<cfargument name = "psubnameselect" type = "string" required = "true" default = "">
+	<cfargument name = "psubname" type = "string" required = "true" default = "">
+	<cfargument name = "qty" type = "numeric" required = "true" default="">
+	<cfargument name = "pprice" type = "numeric" required = "true" default = "">
+	<cfargument name = "desc" type = "string" required = "true" default = "">
+	<cfargument name = "pimg" type = "any" required = "true" default = "">
 	<cfquery>
-		UPDATE dbo.ProductSubCategory SET ProductSubCategoryName='#ARGUMENTS.psubname#',
-											ProductSubCategoryQty= #ARGUMENTS.qty# ,
-											ProductSubCategoryPrice= #ARGUMENTS.pprice#,
-											ProductDescription='#ARGUMENTS.desc#',
-											ProductDiscount=#ARGUMENTS.pdisc#,
+		UPDATE dbo.ProductSubCategory SET ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.psubname#' cfsqltype = "cf_sql_varchar">,
+											ProductSubCategoryQty = <cfqueryparam value = #ARGUMENTS.qty# cfsqltype = "cf_sql_numeric"> ,
+											ProductSubCategoryPrice = <cfqueryparam value = #ARGUMENTS.pprice# cfsqltype = "cf_sql_numeric">,
+											ProductDescription = <cfqueryparam value = '#ARGUMENTS.desc#' cfsqltype = "cf_sql_varchar">,
+											ProductDiscount = <cfqueryparam value = #ARGUMENTS.pdisc# cfsqltype = "cf_sql_numeric">,
 											Photo = bulkcolumn from openrowset (bulk '#ARGUMENTS.pimg#',single_blob) as BLOB
-											WHERE ProductSubCategoryName = '#ARGUMENTS.psubnameselect#'
+											WHERE ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.psubnameselect#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 </cffunction>
  
@@ -874,7 +890,7 @@ arguments description	 :	psubnameselect - product sub category name
 							desc - product sub category description.
 return type 		  	 :	void
 --->
-<cffunction name="updatedatawithoutimg" output="true" returntype="void" access="public" >
+<cffunction name = "updatedatawithoutimg" output = "true" returntype = "void" access = "public" >
 	<cfargument name="psubnameselect" type="string" required="true" default="">
 	<cfargument name="psubname" type="string" required="true" default="">
 	<cfargument name="qty" type="numeric" required="true" default="">
@@ -882,12 +898,12 @@ return type 		  	 :	void
 	<cfargument name="pdisc" type="numeric" required="true" default="">
 	<cfargument name="desc" type="string" required="true" default="">
 	<cfquery >
-		UPDATE dbo.ProductSubCategory SET ProductSubCategoryName='#ARGUMENTS.psubname#',
-											ProductSubCategoryQty= #ARGUMENTS.qty# ,
-											ProductSubCategoryPrice= #ARGUMENTS.pprice#,
-											ProductDiscount=#ARGUMENTS.pdisc#,
-											ProductDescription='#ARGUMENTS.desc#'
-											WHERE ProductSubCategoryName = '#ARGUMENTS.psubnameselect#'
+		UPDATE dbo.ProductSubCategory SET ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.psubname#' cfsqltype = "cf_sql_varchar">,
+											ProductSubCategoryQty = <cfqueryparam value = #ARGUMENTS.qty#  cfsqltype = "cf_sql_numeric">,
+											ProductSubCategoryPrice = <cfqueryparam value = #ARGUMENTS.pprice# cfsqltype = "cf_sql_numeric">,
+											ProductDiscount = <cfqueryparam value = #ARGUMENTS.pdisc# cfsqltype = "cf_sql_numeric">,
+											ProductDescription = <cfqueryparam value = '#ARGUMENTS.desc#' cfsqltype = "cf_sql_varchar">
+											WHERE ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.psubnameselect#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 </cffunction>
 
@@ -898,9 +914,9 @@ description				 :	this function retrieves and returns the buyers address.
 arguments description	 :	no arguments.
 return type 		  	 :	query
 --->
-<cffunction name="checkaddress" returnType="query" access="public">
-	<cfquery name="retrieveAddress" >
-		SELECT * FROM dbo.ADDRESS WHERE PhoneNumber='#SESSION.userPhoneNumber#'
+<cffunction name = "checkaddress" returnType = "query" access = "public">
+	<cfquery name = "retrieveAddress" >
+		SELECT * FROM dbo.ADDRESS WHERE PhoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 	<cfreturn retrieveAddress>
 </cffunction>
@@ -912,10 +928,10 @@ description				 :	this function retrieves and returns the product sub category d
 arguments description	 :	id - product sub category id.
 return type 		  	 :	query
 --->
-<cffunction name="getproduct" returnType="query">
-<cfargument name="id" type="numeric">
-	<cfquery name="getproduct"  >
-		SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = #ARGUMENTS.id#
+<cffunction name = "getproduct" returnType = "query">
+<cfargument name = "id" type = "numeric">
+	<cfquery name = "getproduct"  >
+		SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">
 	</cfquery>
 	<cfreturn getproduct>
 </cffunction>

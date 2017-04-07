@@ -14,7 +14,6 @@ return type 		  	 :	boolean
 <cfargument name="password" type="string" required="true">
 
 	<cfset LOCAL.login = loginObject.login(phone="#ARGUMENTS.phonenumber#",password="#ARGUMENTS.password#")>
-	
 	<cfif LOCAL.login.recordCount EQ 1>
 		<cfif LOCAL.login.phoneNumber EQ "0000000000">
 			<cfset SESSION.admin = TRUE />
@@ -23,7 +22,7 @@ return type 		  	 :	boolean
 		<cfif listFindNoCase(APPLICATION.currentUsers, #ARGUMENTS.phonenumber#)> 
 			<cflocation url = "view/users.cfm">
 		<cfelse>
-			<cfset application.currentUsers=listAppend(APPLICATION.currentUsers, #ARGUMENTS.phonenumber#)>
+			<cfset APPLICATION.currentUsers=listAppend(APPLICATION.currentUsers, #ARGUMENTS.phonenumber#)>
 		</cfif>
 		<cfset LOCAL.logged = true/>
 		<cfset session.isLogged = true/>
@@ -52,14 +51,11 @@ arguments description	 :	username - user id
 							password - user password
 return type 		  	 :	boolean
 --->
-<cffunction name="registerUser" returntype="boolean">
-<cfargument name="username" type="string" required="true">
-<cfargument name="password" type="string" required="true">
-<cfargument name="phone" type="string" required="true">
+<cffunction name = "registerUser" returntype = "boolean">
+<cfargument name = "username" type = "string" required = "true">
+<cfargument name = "password" type = "string" required = "true">
+<cfargument name = "phone" type = "string" required = "true">
 	<cfset LOCAL.register = loginObject.register("#ARGUMENTS.username#","#ARGUMENTS.password#","#ARGUMENTS.phone#")>
-	<cfif LOCAL.register EQ false>
-		
-	</cfif>
 	<cfreturn LOCAL.register>
 </cffunction>
 
@@ -97,7 +93,7 @@ description				 :	this function calls the getinventorycategory method in model.
 arguments description	 :	no arguments.
 return type 		  	 :	query
 --->
-<cffunction name="getinventorycategory" returntype="query">
+<cffunction name = "getinventorycategory" returntype = "query">
 	<cfset LOCAL.getcategory = modelComponentObject.getinventorycategory()>
 	<cfreturn LOCAL.getcategory>
 </cffunction>
@@ -109,8 +105,8 @@ description				 :	this function calls the getinventorysubcategory method in mode
 arguments description	 :	arg - product category id.
 return type 		  	 :	query
 --->
-<cffunction name="getinventorysubcategory" returntype="query">
-	<cfargument name="arg" type="numeric" required="true" >
+<cffunction name = "getinventorysubcategory" returntype = "query">
+	<cfargument name = "arg" type = "numeric" required = "true" >
 	<cfset LOCAL.getcategory = modelComponentObject.getinventorysubcategory(ARGUMENTS.arg)>
 	<cfreturn LOCAL.getcategory>
 </cffunction>

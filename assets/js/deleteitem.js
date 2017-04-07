@@ -4,9 +4,7 @@ $(document).ready(function() {
 	
 	$.ajax({
 				type:"GET",
-				url: "../model/components.cfc?method=inventorycategory&ReturnFormat=json",
-	
-				//data: {value : $("#added").text()},
+				url: "../controller/deleteitemcontroller.cfc?method=inventorycategory&ReturnFormat=json",
 				cache:false,
 				success : function(response)
 				{
@@ -33,7 +31,7 @@ $("select[name=ptype]").on('change',function(){
 	$("#ptypereq").css("display","none");
 	$.ajax({
 				type:"GET",
-				url: "../model/components.cfc?method=inventorysubcategory&ReturnFormat=json",
+				url: "../controller/deleteitemcontroller.cfc?method=inventorysubcategory&ReturnFormat=json",
 	
 				data: {pname : $("#ptype option:selected").val()},
 				cache:false,

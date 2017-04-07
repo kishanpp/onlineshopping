@@ -24,18 +24,18 @@
 	return type 		  	 :	array
 	--->
 	<cffunction name="checkaddress" returnType="array" access="remote">
-		<cfset checkaddress = modelComponentObject.checkaddress()>
-		<cfset addressDetails = ArrayNew(1)>
-		<cfif checkaddress.recordCount EQ 0>
+		<cfset LOCAL.checkaddress = modelComponentObject.checkaddress()>
+		<cfset LOCAL.addressDetails = ArrayNew(1)>
+		<cfif LOCAL.checkaddress.recordCount EQ 0>
 			<cfset ArrayAppend(addressDetails, "No address found")>
 		<cfelse>
-			<cfset ArrayAppend(addressDetails, checkaddress.Name)>
-			<cfset ArrayAppend(addressDetails, checkaddress.Address)>
-			<cfset ArrayAppend(addressDetails, checkaddress.City)>
-			<cfset ArrayAppend(addressDetails, checkaddress.State)>
-			<cfset ArrayAppend(addressDetails, checkaddress.Zip)>
+			<cfset ArrayAppend(LOCAL.addressDetails, LOCAL.checkaddress.Name)>
+			<cfset ArrayAppend(LOCAL.addressDetails, LOCAL.checkaddress.Address)>
+			<cfset ArrayAppend(LOCAL.addressDetails, LOCAL.checkaddress.City)>
+			<cfset ArrayAppend(LOCAL.addressDetails, LOCAL.checkaddress.State)>
+			<cfset ArrayAppend(LOCAL.addressDetails, LOCAL.checkaddress.Zip)>
 		</cfif>
-		<cfreturn addressDetails>
+		<cfreturn LOCAL.addressDetails>
 	</cffunction>
 	
 	

@@ -11,24 +11,18 @@ $(document).ready(function() {
 	$("form").hide().fadeIn(1000);
 	$.ajax({
 				type:"GET",
-				url: "../model/components.cfc?method=inventorycategory&ReturnFormat=json",
-	
-				//data: {value : $("#added").text()},
+				url: "../controller/updateitemcontroller.cfc?method=inventorycategory&ReturnFormat=json",
 				cache:false,
 				success : function(response)
 				{
-					
 					$.each($.parseJSON(response),function(e,v)
 					{
 						$('select[name=ptype]').append('<option value="'+v+'">'+v+'</option>')
 							
 					})
-				}
-											
+				}							
 		}); 
 			
-
-
 
 $("select[name=ptype]").on('change',function(){
 	$('select[name=psubtype]').empty();
@@ -36,7 +30,7 @@ $("select[name=ptype]").on('change',function(){
 	$("#ptypereq").css("display","none");
 	$.ajax({
 				type:"GET",
-				url: "../model/components.cfc?method=inventorysubcategory&ReturnFormat=json",
+				url: "../controller/updateitemcontroller.cfc?method=inventorysubcategory&ReturnFormat=json",
 	
 				data: {pname : $("#ptype option:selected").val()},
 				cache:false,
@@ -59,7 +53,7 @@ $("select[name=psubtype]").on('change',function(){
 											
 				$.ajax({
 				type:"GET",
-				url: "../model/components.cfc?method=inventorysubcategorydata&ReturnFormat=json",
+				url: "../controller/updateitemcontroller.cfc?method=inventorysubcategorydata&ReturnFormat=json",
 	
 				data: {psubname : $("#psubtype option:selected").val()},
 				cache:false,

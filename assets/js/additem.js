@@ -1,17 +1,11 @@
 $(document).ready(function() {
 	$("#additem").css("display","none");
-	$("#pname").attr("required","required");
-	$("#pqty").attr("required","required");
-	$("#pprice").attr("required","required");
-	$("#pimg").attr("required","required");
-	$("#desc").attr("required","required");
-	
 
 	
 	$("form").hide().fadeIn(1000);
 	$.ajax({
 				type:"GET",
-				url: "../model/components.cfc?method=inventorycategory&ReturnFormat=json",
+				url: "../controller/additemcontroller.cfc?method=inventorycategory&ReturnFormat=json",
 	
 				
 				cache:false,
@@ -27,14 +21,37 @@ $(document).ready(function() {
 											
 		}); 
 				
+$("input[type='submit']").click(function()
+{
+	if($("#pname").val() == "" || $("#qty").val() == "" || $("#pprice").val() == "" || $("#pimg").val() == "" || $("#pdisc").val() == "" || $("#desc").val() == "")
+	{
+		$("#pname").attr("required","required");
+	
+		$("#pqty").attr("required","required");
+	
+		$("#pprice").attr("required","required");
+	
+		$("#pimg").attr("required","required");
+	
+		$("#pdisc").attr("required","required");
+		$("#desc").attr("required","required");
+	}
+	
+
+	
+	
+})
+
+
 
 $("#ptype").on('change',function(){
 	
 $("#ptypereq").css("display","none");
 
 $("#additem").delay(0).fadeIn();
-})	
-			
+})
+	
+/*	
 $("#additem").click(function(){
 	
 	if( ($("#ptype option:selected").val()) == "")
@@ -46,7 +63,7 @@ $("#additem").click(function(){
 	else{
 		$("#updateitem").css("display","block");
 	}
-})			
+})*/			
 			
 
 $("#pprice").keyup(function() {

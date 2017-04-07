@@ -1,6 +1,5 @@
 <cfcomponent displayname="OnlineShopping" hint="Handles the Database connectivity for product page">
 	<cfset modelComponentObject = CreateObject("component","model.components") />
-	<cfset loginObject = CreateObject("component","model.login") />
 	
 	
 	<!--- 
@@ -9,8 +8,8 @@
 	arguments description	 :	productId - product sub category id.
 	return type 		  	 :	query
 	--->
-	<cffunction name="getdatabyid" returnType="query">
-		<cfargument name="productId" type="string" required="true">
+	<cffunction name = "getdatabyid" returnType = "query">
+		<cfargument name = "productId" type = "string" required = "true">
 		<cfreturn modelComponentObject.getdatabyid(#ARGUMENTS.productId#)>
 	</cffunction>
 
@@ -21,9 +20,9 @@
 	arguments description	 :	productId - product sub category id.
 	return type 		  	 :	boolean
 	--->
-	<cffunction name="getproductqty" returnType="boolean">
-		<cfargument name="productId" type="numeric" required="true">
-		<cfreturn modelComponentObject.getproductqty(id="#ARGUMENTS.productId#")>
+	<cffunction name = "getproductqty" returnType = "boolean">
+		<cfargument name = "productId" type = "numeric" required = "true">
+		<cfreturn modelComponentObject.getproductqty(id = "#ARGUMENTS.productId#")>
 	</cffunction>
 
 
@@ -33,9 +32,9 @@
 	arguments description	 :	id - product sub category id.
 	return type 		  	 :	query
 	--->
-	<cffunction name="getproducts" returnType="query">
-		<cfargument name="id" type="numeric" required="true">
-		<cfreturn modelComponentObject.getproduct(id="#ARGUMENTS.id#")>
+	<cffunction name = "getproducts" returnType = "query">
+		<cfargument name = "id" type = "numeric" required = "true">
+		<cfreturn modelComponentObject.getproduct(id = "#ARGUMENTS.id#")>
 	</cffunction>
 
 
