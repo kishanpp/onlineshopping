@@ -1,4 +1,4 @@
-<cfcomponent displayname="OnlineShopping" hint="Handles the Database connectivity for deleteitem page">
+<cfcomponent displayname = "OnlineShopping" hint = "Handles the Database connectivity for deleteitem page">
 	<cfset modelComponentObject = CreateObject("component","model.components") />
 	
 

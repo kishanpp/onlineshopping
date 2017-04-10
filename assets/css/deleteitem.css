@@ -6,8 +6,6 @@
 	position : absolute;
 	width : 60%;
 }
-
-
 .deleteitem>h3
 {
 	margin : 0% 0% 2% 25% ;
@@ -19,7 +17,7 @@
 .deleteitem>form input[type=submit]
 {
 	background-color: rgba(218, 223, 224, 0.2);
-        box-shadow: 2px 2px 8px 0px #cabbbb;
+    box-shadow: 2px 2px 8px 0px #cabbbb;
     border: none;
 	margin : 20% 0% 0% 5% ;
 }
@@ -31,7 +29,7 @@
 
 select[name=ptype]
 {
-	    border: none;
+	border: none;
     margin: 12% 0% 0% -24%;
 	background-color : inherit;
 }
@@ -45,29 +43,27 @@ select[name=psubtype]
 {
 	display:none;
 	margin : 1px 0% 0% -24% ;
-	    font-style: oblique;
+	font-style: oblique;
 }
 #psubtypereq
 {
 	display:none;
 	margin : 0px -15% 0% 20% ;
-	    font-style: oblique;
+	font-style: oblique;
 }
 .psubcategory
 {
 	margin : 37px 0% 0% 58% ;
 	position: absolute;
-	
 }
 body
 {
-	
-	background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh1JRVeYy_4EaHYcgAvBtBPW5t1qXpQOhKoCHiznkfOFgneiE5);
+	background: url(/assets/images/deleteItem.jpg);
     background-repeat: no-repeat;
     background-position: left bottom;
 }
 h5
 {
-	    background-color: #f8f8f8;
-		border-radius : 5px;
+	background-color: #f8f8f8;
+	border-radius : 5px;
 }

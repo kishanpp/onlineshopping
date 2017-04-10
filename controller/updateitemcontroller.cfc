@@ -1,4 +1,4 @@
-<cfcomponent displayname="OnlineShopping" hint="Handles the Database connectivity for updateitem page">
+<cfcomponent displayname = "OnlineShopping" hint = "Handles the Database connectivity for updateitem page">
 	<cfset modelComponentObject = CreateObject("component","model.components") />
 	
 
@@ -69,14 +69,14 @@
 								desc - product sub category description.
 	return type 		  	 :	void
 	--->
-	<cffunction name="updatedata" returnType="void">
-		<cfargument name="psubnameselect" type="string" required="true" >
-		<cfargument name="psubname" type="string" required="true" >
-		<cfargument name="qty" type="numeric" required="true" >
-		<cfargument name="pprice" type="numeric" required="true" >
-		<cfargument name="pimg" type="any" required="true" >
-		<cfargument name="pdisc" type="numeric" required="true" >
-		<cfargument name="desc" type="string" required="true" >
+	<cffunction name ="updatedata" returnType ="void">
+		<cfargument name = "psubnameselect" type = "string" required = "true" >
+		<cfargument name = "psubname" type = "string" required = "true" >
+		<cfargument name = "qty" type = "numeric" required = "true" >
+		<cfargument name = "pprice" type = "numeric" required = "true" >
+		<cfargument name = "pimg" type = "any" required = "true" >
+		<cfargument name = "pdisc" type ="numeric" required = "true" >
+		<cfargument name = "desc" type = "string" required = "true" >
 		<cfset LOCAL.adddata = modelComponentObject.updatedata(psubnameselect = "#ARGUMENTS.psubnameselect#",
 													psubname = "#ARGUMENTS.psubname#",
 													qty = "#ARGUMENTS.qty#",
@@ -98,13 +98,13 @@
 								desc - product sub category description.
 	return type 		  	 :	void
 	--->
-	<cffunction name="updatedatawithoutimg" returnType="void">
-		<cfargument name="psubnameselect" type="string" required="true" >
-		<cfargument name="psubname" type="string" required="true" >
-		<cfargument name="qty" type="numeric" required="true" >
-		<cfargument name="pprice" type="numeric" required="true" >
-		<cfargument name="pdisc" type="numeric" required="true" >
-		<cfargument name="desc" type="string" required="true" >
+	<cffunction name = "updatedatawithoutimg" returnType = "void">
+		<cfargument name = "psubnameselect" type = "string" required = "true" >
+		<cfargument name = "psubname" type = "string" required = "true" >
+		<cfargument name = "qty" type = "numeric" required = "true" >
+		<cfargument name = "pprice" type = "numeric" required = "true" >
+		<cfargument name = "pdisc" type = "numeric" required = "true" >
+		<cfargument name = "desc" type = "string" required = "true" >
 		<cfset LOCAL.updatedata = modelComponentObject.updatedatawithoutimg(psubnameselect = "#ARGUMENTS.psubnameselect#",
 													psubname = "#ARGUMENTS.psubname#",
 													qty = "#ARGUMENTS.qty#",

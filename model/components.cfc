@@ -436,7 +436,7 @@ return type 		  	 :	query
 <cffunction name = "getitems" output = "true" returntype = "query" access = "public">
 	<cfquery name = "currentOrderDetails">
 		SELECT * FROM dbo.ProductSubCategory INNER JOIN dbo.OrderItem
-					ON dbo.OrderItem.InventorySubCategoryId=dbo.ProductSubCategory.InventorySubCategoryId
+					ON dbo.OrderItem.InventorySubCategoryId = dbo.ProductSubCategory.InventorySubCategoryId
 					WHERE OrderId = <cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_numeric">
 	</cfquery>
 	<cfreturn currentOrderDetails>

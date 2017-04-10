@@ -24,8 +24,6 @@ $(document).ready(function()
 			
 });
 		
-	
-	
 function disabletextboxes()
 {
 	$(".payment-area").animate({

@@ -6,12 +6,12 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 --->
 
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html lang = "en-US">
 <head>
 	<title>oops  404 Page not found</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<link href='http://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
-	<style type="text/css">
+	<meta http-equiv="Content-Type" content = "text/html; charset=utf-8"/>
+	<link href = 'http://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
+	<style type = "text/css">
 		body{
 			background:url(../assets/images/bg.png);
 			margin:0;

@@ -45,9 +45,11 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 						<span class="col-xs-6 form-lbl">CVV NUMBER</span>
 						<cfinput type="text" name="cvv" id="cvv" maxlength="3" >
 					</div>
+					<div class = "payment-row">
 					<button  name="payment" id="savebtn" class="btn btn-info btn-lg">
 						<span class="glyphicon glyphicon-credit-card"></span> SAVE AND CONTINUE
 					</button>
+					</div>
 				</cfform>
 			</cfoutput>
 		</div>

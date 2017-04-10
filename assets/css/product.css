@@ -1,6 +1,6 @@
 .product-area
 {
-	    height: 60%;
+	min-height: 65%;
     width: 79%;
     display: inline-block;
     margin: -25% 2% 2% 18%;
@@ -12,33 +12,29 @@
 .product-area>img
 {
 	width : 15%;
-	height : 90%;
-	    margin : 0% 10% 0% 3% ;
+	height : auto;
+	margin : 0% 10% 0% 3% ;
 }
 
-
-
-
+.product-area>img:hover
+{
+	cursor : crosshair;
+}
 
 .info-area
 {
 	position : absolute;
-	
-	
-	padding : 1% 1% 1% 1% ;
+	padding : 1% 1% 0% 1% ;
 	width :50%;
-	height :auto;
+	min-height : auto;
 	display: inline-block;
-	 margin: 0% 2% 15% 0%;
-	 
-	 
+	margin: 0% 2% 15% 0%;
 	border-left: 1px;
     border-right: 0px;
 	border-top: 0px;
 	border-bottom: 0px;
     border-color: #ece2e2;
     border-style: solid;
-
 }
 .product-name
 {
@@ -61,9 +57,3 @@
 	font-weight:300;
 	margin-left:10px;
 }
-
-
-
-
-
-

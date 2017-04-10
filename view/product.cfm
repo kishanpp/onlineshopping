@@ -8,6 +8,10 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 <html lang="en-US">
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<cfinclude template="../view/headertemplate.cfm">
 	<link rel="stylesheet" href="../assets/css/product.css">
 </head>
@@ -69,4 +73,5 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfinclude template="../view/footer.cfm">
 </body>
 <script src="../assets/js/product.js"></script>
+<script src="../assets/js/jquery.elevatezoom.js"></script>
 </html>

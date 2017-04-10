@@ -1,23 +1,41 @@
-<cfcomponent displayname="OnlineShopping" hint="Handles the Database connectivity for cart page">
+<cfcomponent displayname = "OnlineShopping" hint = "Handles the Database connectivity for cart page">
 <cfset modelComponentObject = CreateObject("component","model.components") />
-<cfset loginObject = CreateObject("component","model.login") />
 
 
 
-<cffunction name="getcartdataid" returntype="query">
-	<cfreturn modelComponentObject.getcartdataid()>
-</cffunction>
+	<!--- 
+	function name			 :	getcartdataid
+	description				 :	this function calls getcartdataid function in model.
+	arguments description	 :	no arguments.
+	return type 		  	 :	query
+	--->
+	<cffunction name = "getcartdataid" returnType = "query">
+		<cfreturn modelComponentObject.getcartdataid()>
+	</cffunction>
 
 
-<cffunction name="getcartdata" returntype="query">
-<cfargument name="id" type="numeric">
-	<cfreturn modelComponentObject.getcartdata(id = "#ARGUMENTS.id#")>
-</cffunction>
+	
+	<!--- 
+	function name			 :	getcartdata
+	description				 :	this function calls getcartdata function in model.
+	arguments description	 :	id - product sub category id.
+	return type 		  	 :	query
+	--->
+	<cffunction name = "getcartdata" returnType = "query">
+	<cfargument name = "id" type = "numeric">
+		<cfreturn modelComponentObject.getcartdata(id = "#ARGUMENTS.id#")>
+	</cffunction>
 
 
-<cffunction name="getcartitemstotalamount" returntype="numeric">
-	<cfreturn modelComponentObject.getcartitemstotalamount()>
-</cffunction>
+	<!--- 
+	function name			 :	getcartitemstotalamount
+	description				 :	this function calls getcartitemstotalamount function in model.
+	arguments description	 :	no arguments.
+	return type 		  	 :	void
+	--->
+	<cffunction name = "getcartitemstotalamount" returnType = "numeric">
+		<cfreturn modelComponentObject.getcartitemstotalamount()>
+	</cffunction>
 
 
 </cfcomponent>

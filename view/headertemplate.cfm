@@ -5,8 +5,12 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 --->
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang = "en-US">
 <head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
 	<title> Shop Online </title>
 
 	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -38,60 +42,60 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			<script>alert("User already exists");</script>
 		</cfif>
 	</cfif>
-	<div class="navbar-inner">
-		<div class="header">
-				<a href="https://www.shoponline.com/"><img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSale-FGlTOPmjaaJPevPHT0HV16A4OUHfihKiZqc9Cb8b_qjRnkQ" ></a>
+	<div class = "navbar-inner">
+		<div class = "header">
+				<a href = "https://www.shoponline.com/"><img src = "/assets/images/logo.jpg" ></a>
 				<div class="searcharea">
 					<cfoutput>
 					<div id="searchbox">
 						<cfform >
-							<cfinput id="search"  type="text" name="artname" autosuggest="cfc:model/components.productname({cfautosuggestvalue})">
+							<cfinput id = "search"  type = "text" name = "artname" autosuggest = "cfc:model/components.productname({cfautosuggestvalue})">
 						</cfform>
-						<a><button id="submit"  name="submit" >GO</button></a>					
+						<a><button id = "submit"  name = "submit" >GO</button></a>					
 					</div>
 					</cfoutput>	
 				</div>
-			<div class="useronline">
+			<div class = "useronline">
 				<cfoutput>
 					<cfset sessions = createObject("java","coldfusion.runtime.SessionTracker")>
-					<cfset count = #sessions.getSessionCount()#>
-					Users Online #count#
+					<cfset VARIABLE.count = #sessions.getSessionCount()#>
+					#VARIABLE.count# <span class = "glyphicon glyphicon-eye-open"/>
 				</cfoutput>
 			</div>
-			<a href="../view/cartpage.cfm">
-				<div class="cart-area">
-					<span class="glyphicon glyphicon-shopping-cart"></span>Cart
-					<cfif  session.isLogged>
+			<a href = "../view/cartpage.cfm">
+				<div class = "cart-area">
+					<span class = "glyphicon glyphicon-shopping-cart"></span>Cart
+					<cfif  SESSION.isLogged>
 						<cfset SESSION.cartnumber = controllerObject.getno()>
 						<cfoutput>
-							<span class="cart-item">#SESSION.cartnumber#</span>
+							<span class = "cart-item">#SESSION.cartnumber#</span>
 						</cfoutput>
 					</cfif>
 				</div>
 			</a>	
 			<!--- login and register area starts   ---> 
-			<div class="loginarea">
-				<cfif  session.isLogged>
+			<div class = "loginarea">
+				<cfif  SESSION.isLogged>
 					<ul>
 						<cfoutput>
-							<li><span class="glyphicon glyphicon-user"></span> Hi, <div class="usernamearea">#session.userName#</div></li>
+							<li><span class = "glyphicon glyphicon-user"></span> Hi, <div class = "usernamearea">#SESSION.userName#</div></li>
 						</cfoutput>
 							<li>
 								<cfform >
-									<cfinput type="submit" class="btn"  value="Logout" name="logoutbtn" id="logoutbtn" >
+									<cfinput type = "submit" class = "btn"  value = "Logout" name = "logoutbtn" id = "logoutbtn" >
 								</cfform>
 							</li>
 					</ul>
 				<cfelse>
 					<ul>
 						<li>
-							<div class="login-header">
-								<a href="#"  id="navLogin">Login&nbsp|&nbsp</a> <br />
+							<div class = "login-header">
+								<a href = "#"  id = "navLogin">Login&nbsp|&nbsp</a> <br />
 							</div>		
-							<div class="dropdownlogin" >
+							<div class = "dropdownlogin" >
 								<cfform> 
-									<cfinput name="phonenumber" id="loginphonenumber" maxlength="10" type="text" placeholder="Phonenumber" > 
-									<cfinput name="password" id="loginpassword" type="password" placeholder="Password" ><br>
+									<cfinput name = "phonenumber" id = "loginphonenumber" maxlength = "10" type = "text" placeholder = "Phonenumber" > 
+									<cfinput name = "password" id = "loginpassword" type = "password" placeholder = "Password" ><br>
 									<cfinput name="loginbtn" type="submit" id="btnLogin" class="btn" value="Login"  >
 								</cfform>	
 							</div>
@@ -118,18 +122,18 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 	<!---left navigation starts --->
 
-	<cfset getcategory = controllerObject.getinventorycategory() >
+	<cfset VARIABLE.getcategory = controllerObject.getinventorycategory() >
 	<div class="navbar-inverse navbar-fixed-left">
 		<a class="navbar-brand" href="#">TOP CATEGORIES</a>
 		<ul class="nav navbar-nav">
-			<cfloop query="getcategory" >
+			<cfloop query="VARIABLE.getcategory" >
 				<li class="dropdown">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<cfoutput>#getcategory.ProductName#</cfoutput>
+						<cfoutput>#VARIABLE.getcategory.ProductName#</cfoutput>
 						<span class="caret"></span>
 					</a>
 					<ul class="dropdown-menu" role="menu">
-						<cfset VARIABLE.getproducts = controllerObject.getinventorysubcategory(getcategory.InventorycategoryId) />	
+						<cfset VARIABLE.getproducts = controllerObject.getinventorysubcategory(VARIABLE.getcategory.InventorycategoryId) />	
 						<cfloop query="VARIABLE.getproducts" >
 							<cfoutput>
 								<li id="#VARIABLE.getproducts.InventorySubCategoryId#">

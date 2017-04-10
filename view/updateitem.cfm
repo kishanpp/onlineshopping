@@ -6,7 +6,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 --->
 <html>
 <head>
-	<cfinclude template="admin.cfm">
+	<cfinclude template = "admin.cfm">
 	<link href="../assets/css/updateitem.css" rel="stylesheet">
 </head>
 <body>

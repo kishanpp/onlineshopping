@@ -1,6 +1,5 @@
-<cfcomponent displayname="OnlineShopping" hint="Handles the Database connectivity for buyproduct page">
+<cfcomponent displayname = "OnlineShopping" hint = "Handles the Database connectivity for buyproduct page">
 	<cfset modelComponentObject = CreateObject("component","model.components") />
-	<cfset loginObject = CreateObject("component","model.login") />
 
 
 	<!--- 
@@ -10,9 +9,9 @@
 								orderid - orderid of current transaction.
 	return type 		  	 :	void
 	--->	
-	<cffunction name="updateorder" returnType="void">
-		<cfargument name="id" type="numeric">
-		<cfargument name="orderid" type="numeric">
+	<cffunction name = "updateorder" returnType = "void">
+		<cfargument name = "id" type = "numeric">
+		<cfargument name = "orderid" type = "numeric">
 		<cfset modelComponentObject.updateorder("#ARGUMENTS.id#","#ARGUMENTS.orderid#")>
 	</cffunction>
 
@@ -23,7 +22,7 @@
 	arguments description	 :	no arguments.
 	return type 		  	 :	array
 	--->
-	<cffunction name="checkaddress" returnType="array" access="remote">
+	<cffunction name = "checkaddress" returnType = "array" access = "remote">
 		<cfset LOCAL.checkaddress = modelComponentObject.checkaddress()>
 		<cfset LOCAL.addressDetails = ArrayNew(1)>
 		<cfif LOCAL.checkaddress.recordCount EQ 0>
