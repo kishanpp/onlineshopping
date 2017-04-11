@@ -1,10 +1,10 @@
 .cart-products-area
 {
 	display: inline-block;
-    box-shadow: 3px 5px 20px 1px rgba(148, 118, 110, 0.71);
-    margin: -25% 0% 3% 17%;
+    box-shadow: 1px 3px 8px 0px rgba(148, 118, 110, 0.71);
+    margin: -345px 0% 2% 220px;
 	padding : 2% 2% 2% 2% ;
-    width: 82%;
+    width: 83%;
     min-height: 57%;
 	border-radius : 10px;
 	background: url(/assets/images/cart.jpg);

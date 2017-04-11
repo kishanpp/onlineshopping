@@ -16,10 +16,13 @@
     border-radius: 11px;
     display: inline-block;
     width: 71%;
-	height :56%;
+	height :60%;
 }
 .payment-area>form
 {
 	padding : 0% 0% 2% 0% ;
 	height : inherit;
+}
+.col-xs-6 {
+    margin-top: 6px;
 }

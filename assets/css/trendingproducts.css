@@ -1,6 +1,7 @@
 a,a:hover
 {
-	color:#000; text-decoration:none;
+	color:#fff;
+	text-decoration:none;
 }
 marquee:
 {
@@ -39,9 +40,10 @@ productbox>a
 	width : 210px;
 	border : none;
 }
-.list-inline>li:hover
+.list-inline>li>a>img:hover
 {
-	transform : scale(1.05);
+	transition: all .20s ease-in-out;
+	transform : scale(1.07);
 }
 
 .productbox img{
@@ -57,7 +59,8 @@ productbox>a
 	margin:0px 0px 0px -0% ;
 	white-space: nowrap;
 	overflow: hidden;
-	text-overflow: ellipsis;  
+	text-overflow: ellipsis; 
+	color : black;	
 }
 .producttitle a{
 	color:red;
@@ -96,7 +99,7 @@ h2
 }
 .slider
 {
-	height : 47%;
+	height : 51%;
 	overflow: hidden;
 	background : url(/assets/images/product_background.jpg);
 	background-repeat : no-repeat;
@@ -104,7 +107,7 @@ h2
 	}
 .detail
 {
-	padding : 1% 1% 1% 1% ;
+	padding : 2% 1% 1% 1% ;
 	display:inline-block;
 	width:100%;
 }

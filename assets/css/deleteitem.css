@@ -67,3 +67,12 @@ h5
 	background-color: #f8f8f8;
 	border-radius : 5px;
 }
+.updatesuccesfully
+{
+	position: fixed;
+    margin: 33% 0% 0% 75%;
+    color: coral;
+    background-attachment: fixed;
+	font-weight: 800;
+	z-index : 1000;
+}

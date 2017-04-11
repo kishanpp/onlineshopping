@@ -1,3 +1,10 @@
+<!--- 
+filename 		: productcontroller.cfc
+function 		: This file controls the product.cfm page database request from model.
+date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
+--->
+
+
 <cfcomponent displayname = "OnlineShopping" hint = "Handles the Database connectivity for product page">
 	<cfset modelComponentObject = CreateObject("component","model.components") />
 	

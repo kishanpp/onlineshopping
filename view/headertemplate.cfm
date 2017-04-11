@@ -7,28 +7,28 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 <!DOCTYPE html>
 <html lang = "en-US">
 <head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
 	
 	<title> Shop Online </title>
 
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src = "https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
+	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-	<link rel="shortcut icon" href="../assets/css/favicon.ico" type="image/x-icon">
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
-	<link href="../assets/css/animate.css" rel="stylesheet">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-	<link rel="stylesheet" href="../assets/css/headertemplate.css">
+	<link rel = "shortcut icon" href = "../assets/css/favicon.ico" type = "image/x-icon">
+	<link href = "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel = "stylesheet">
+	<link href = "../assets/css/animate.css" rel = "stylesheet">
+	<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel = "stylesheet" href = "https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+	<link rel = "stylesheet" href = "../assets/css/headertemplate.css">
 </head>
 <body>
 	<cfset controllerObject = CreateObject("component","controller.headertemplatecontroller") />
 	<cfif StructKeyExists(form,"loginbtn")>
-		<cfset VARIABLE.logged = controllerObject.loginUser(phonenumber="#form.phonenumber#",password="#form.password#")>
+		<cfset VARIABLE.logged = controllerObject.loginUser(phonenumber = "#form.phonenumber#",password = "#form.password#")>
 		<cfif VARIABLE.logged EQ false>
 			<script>alert("Invalid user");</script>
 		</cfif>
@@ -37,14 +37,14 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfset VARIABLE.logged = controllerObject.logoutUser()>	
 	</cfif>
 	<cfif StructKeyExists(form,"registerbtn")>
-		<cfset VARIABLE.logged = controllerObject.registerUser(username="#form.username#",password="#form.password#",phone="#form.phonenumber#")>
+		<cfset VARIABLE.logged = controllerObject.registerUser(username = "#form.username#",password = "#form.password#",phone = "#form.phonenumber#")>
 		<cfif VARIABLE.logged EQ false>
 			<script>alert("User already exists");</script>
 		</cfif>
 	</cfif>
 	<div class = "navbar-inner">
 		<div class = "header">
-				<a href = "https://www.shoponline.com/"><img src = "/assets/images/logo.jpg" ></a>
+				<a href = "https://www.shoponline.com/"><img src = "/assets/images/logo.gif" ></a>
 				<div class="searcharea">
 					<cfoutput>
 					<div id="searchbox">
@@ -96,20 +96,20 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								<cfform> 
 									<cfinput name = "phonenumber" id = "loginphonenumber" maxlength = "10" type = "text" placeholder = "Phonenumber" > 
 									<cfinput name = "password" id = "loginpassword" type = "password" placeholder = "Password" ><br>
-									<cfinput name="loginbtn" type="submit" id="btnLogin" class="btn" value="Login"  >
+									<cfinput name = "loginbtn" type = "submit" id = "btnLogin" class = "btn" value = "Login"  >
 								</cfform>	
 							</div>
 						</li>
 						<li>
-							<div class="login-header">
-								<a  href="#" id="navRegister" >Register</a>
+							<div class = "login-header">
+								<a  href = "#" id = "navRegister" >Register</a>
 							</div>
-							<div class="dropdownregister" >
+							<div class = "dropdownregister" >
 								<cfform > 
-									<cfinput name="username" id="username" type="text" placeholder="Username" maxlength="20" > 
-									<cfinput name="password" id="password" type="password" placeholder="Password" ><br>
-									<cfinput name="phonenumber" id="phonennumber" type="text" maxlength="10" placeholder="PhoneNumber" ><br>
-									<cfinput type="submit" id="btnRegister" class="btn" name="registerbtn" value="Register"><br />
+									<cfinput name = "username" id = "username" type = "text" placeholder = "Username" maxlength = "20" > 
+									<cfinput name = "password" id = "password" type = "password" placeholder = "Password" ><br>
+									<cfinput name = "phonenumber" id = "phonennumber" type = "text" maxlength = "10" placeholder = "PhoneNumber" ><br>
+									<cfinput type = "submit" id = "btnRegister" class = "btn" name = "registerbtn" value = "Register"><br />
 								</cfform>
 							</div>
 						</li>
@@ -123,27 +123,27 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<!---left navigation starts --->
 
 	<cfset VARIABLE.getcategory = controllerObject.getinventorycategory() >
-	<div class="navbar-inverse navbar-fixed-left">
-		<a class="navbar-brand" href="#">TOP CATEGORIES</a>
-		<ul class="nav navbar-nav">
-			<cfloop query="VARIABLE.getcategory" >
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+	<div class = "navbar-inverse navbar-fixed-left">
+		<a class = "navbar-brand" href = "#">TOP CATEGORIES</a>
+		<ul class = "nav navbar-nav">
+			<cfloop query = "VARIABLE.getcategory" >
+				<li class = "dropdown">
+					<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
 						<cfoutput>#VARIABLE.getcategory.ProductName#</cfoutput>
-						<span class="caret"></span>
+						<span class = "caret"></span>
 					</a>
-					<ul class="dropdown-menu" role="menu">
+					<ul class = "dropdown-menu" role = "menu">
 						<cfset VARIABLE.getproducts = controllerObject.getinventorysubcategory(VARIABLE.getcategory.InventorycategoryId) />	
-						<cfloop query="VARIABLE.getproducts" >
+						<cfloop query = "VARIABLE.getproducts" >
 							<cfoutput>
-								<li id="#VARIABLE.getproducts.InventorySubCategoryId#">
-									<a href="../view/product.cfm?id=#VARIABLE.getproducts.InventorySubCategoryId#">#VARIABLE.getproducts.ProductSubCategoryName#</a>
+								<li id = "#VARIABLE.getproducts.InventorySubCategoryId#">
+									<a href = "../view/product.cfm?id=#VARIABLE.getproducts.InventorySubCategoryId#">#VARIABLE.getproducts.ProductSubCategoryName#</a>
 								</li>
 							</cfoutput>
 						</cfloop>
 					</ul>
 				</li>
-				<li class="divider"></li>
+				<li class = "divider"></li>
 			</cfloop>
 		</ul> 
 	</div>

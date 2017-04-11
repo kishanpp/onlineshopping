@@ -1,3 +1,11 @@
+<!--- 
+filename 		: headertemplatecontroller.cfc
+function 		: This file controls the headertemplate.cfm page database request from model.
+date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
+--->
+
+
+
 <cfcomponent displayname = "OnlineShopping" hint = "Handles the Database connectivity of login/register of user and searching of products">
 	<cfset modelComponentObject = CreateObject("component","model.components") />
 	<cfset loginObject = CreateObject("component","model.login") />

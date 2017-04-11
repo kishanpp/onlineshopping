@@ -1,5 +1,11 @@
-<cfcomponent displayname = "ShopOnlineApplication" hint = "handle the Application file">
+<!--- 
+filename 		: Application.cfc
+function 		: This file is the application file of coldfusion.
+date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
+--->
+
+<cfcomponent displayname = "ShopOnlineApplication" hint = "handle the Application file">
 	<cfset 	this.datasource = "OnlineShopping">
 	<cfset 	this.name = "shoponlineapplication" />
 	<cfset	this.clientmanagement = true />
@@ -53,11 +59,12 @@
 	return type 		  	 :	void
 	--->
 	<cffunction name = "onError" returnType = "void" hint = "Executes when there is some database error">
-    <cfargument name = "Exception" required = true/>
-    <cfargument name = "EventName" type = "String" required = true/>
-    <cfif ARGUMENTS.Exception IS "database">
-      <cfinclude template = "../view/databaseErrorTemplate.cfm">
-    </cfif>
+		<cfargument name = "Exception" required = true/>
+		<cfargument name = "eventName" type = "String" required = true/>
+		<cfif ARGUMENTS.Exception IS "database">
+		  <cfinclude template = "../view/databaseErrorTemplate.cfm">
+		</cfif>
+		<cflog file = "onlineShoppingErrorLog" type = "error" text = "Event Name: #ARGUMENTS.eventName# ||	Message: #ARGUMENTS.Exception.message# || MessageDetails: #ARGUMENTS.Exception.detail# || Template: #arguments.exception.tagContext[1].template# || Line: #arguments.exception.tagContext[1].line# || Raw Trace: #arguments.exception.tagContext[1].raw_trace# ">
 	</cffunction>
 	
 	<!--- 

@@ -9,8 +9,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 <html lang = "en-US">
 <head>
 	<title>oops  404 Page not found</title>
-	<meta http-equiv="Content-Type" content = "text/html; charset=utf-8"/>
-	<link href = 'http://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
+	<meta http-equiv="refresh" content="6;url=https://www.shoponline.com">
+	<link href = 'https://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
 	<style type = "text/css">
 		body{
 			background:url(../assets/images/bg.png);
@@ -42,11 +43,20 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			bottom:10px;
 			font-weight:bold;
 			font-family:arial, serif;
-		}		
+		}	
+		.redirectarea
+		{
+			margin: 0% 0% 0% 39%;
+			font-family:arial, serif;
+			color: #e51c1c;
+		}
 	</style>
 </head>
 <body>
 	<img src="../assets/images/label.png"/> 
+	<div class = "redirectarea">
+		Redirecting to HomePage in <span class = "redirect"> 5</span> Seconds.
+	</div>
 	<div class="wrap">
 		<div class="logo">
 			<img src="../assets/images/woody-404.png"/>
@@ -56,4 +66,5 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		</div>
 	</div>	
 </body>
+<script src = "../assets/js/missingtemplate.js"></script>
 </html>

@@ -7,29 +7,29 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 <html>
 <head>
 	<cfinclude template = "admin.cfm">
-	<link href="../assets/css/updateitem.css" rel="stylesheet">
+	<link href = "../assets/css/updateitem.css" rel="stylesheet">
 </head>
 <body>
-	<cfif session.userPhoneNumber NEQ "">
+	<cfif SESSION.userPhoneNumber NEQ "">
 		<cfset controllerObject = CreateObject("component","controller.updateitemcontroller") />
 		<cfif structKeyExists(form,"updateitem")>
 			<cfif #form.pimg# neq "">
-				<cfset updatedata = controllerObject.updatedata(psubnameselect="#form.psubtype#",
-																psubname="#form.pname#",
-																qty="#form.pqty#",
-																pprice="#form.pprice#",
-																pimg="#form.pimg#",
-																pdisc="#form.pdisc#",
-																desc="#form.pdesc#")>  																	
+				<cfset updatedata = controllerObject.updatedata(psubnameselect = "#form.psubtype#",
+																psubname = "#form.pname#",
+																qty = "#form.pqty#",
+																pprice = "#form.pprice#",
+																pimg = "#form.pimg#",
+																pdisc = "#form.pdisc#",
+																desc = "#form.pdesc#")>  																	
 			<cfelse>
-				<cfset updatedata = controllerObject.updatedatawithoutimg(psubnameselect="#form.psubtype#",
-																			psubname="#form.pname#",
-																			qty="#form.pqty#",
-																			pprice="#form.pprice#",
-																			pdisc="#form.pdisc#",
-																			desc="#form.pdesc#")> 
+				<cfset updatedata = controllerObject.updatedatawithoutimg(psubnameselect = "#form.psubtype#",
+																			psubname = "#form.pname#",
+																			qty = "#form.pqty#",
+																			pprice = "#form.pprice#",
+																			pdisc = "#form.pdisc#",
+																			desc = "#form.pdesc#")> 
 			</cfif>
-			<script>alert("Updated Successfully");</script>
+			<span class = "updatesuccesfully">Succesfully Updated</span>
 		</cfif>
 		<div class="updateitem">
 			<h3>UPDATE PRODUCT DESCRIPTIONS</h3>

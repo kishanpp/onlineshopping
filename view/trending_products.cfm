@@ -38,7 +38,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				<div class="carousel-inner" role="listbox" >
 					<div class="item active">
 						<cfoutput>
-							<a href="view/product.cfm?id=13"><img src="data:image/jpg;base64,#toBase64(newvar[1].Photo)#"   /></a>
+							<a href="view/product.cfm?id=13"><img src = "data:image/jpg;base64,#toBase64(newvar[1].Photo)#"   /></a>
 						</cfoutput>
 						<div class="carousel-caption">
 							<h3 class="info"><cfoutput>#newvar[1].ProductSubCategoryName#</cfoutput></h3>
@@ -81,7 +81,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								<a  href="view/product.cfm?id=#newvar[products].InventorySubCategoryId#">
 									<img src="data:image/jpg;base64,#toBase64(newvar[products].Photo)#" class="img-responsive">
 									<div class="detail">
-										<span style="width:100% ;float:left;">#newvar[products].ProductSubCategoryName#</span> 
+										<span style="width:100% ;float:left;color:black;">#newvar[products].ProductSubCategoryName#</span> 
 										<cfif #newvar[products].ProductDiscount# GT 0>
 											<cfset discountedvalue = #newvar[products].ProductSubCategoryPrice#  - ((#newvar[products].ProductDiscount#)/100)*#newvar[products].ProductSubCategoryPrice#>
 											<span class="productprice">&##8377 #discountedvalue#</span>

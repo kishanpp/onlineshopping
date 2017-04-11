@@ -50,7 +50,8 @@ $(document).ready(function() {
 		}
 	})*/			
 			
-
+	$(".updatesuccesfully").delay(2000).fadeOut();
+	
 	$("#pprice").keyup(function() {
 		$("#pprice").val(this.value.match(/[0-9]*/));
 	});

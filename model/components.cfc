@@ -1,4 +1,11 @@
-<cfcomponent displayname="OnlineShoppingDatabaseConnectivity" hint="Handles the Database connectivity">
+<!--- 
+filename 		: components.cfc
+function 		: This file controls database request from controller page.
+date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
+--->
+
+
+<cfcomponent displayname = "OnlineShoppingDatabaseConnectivity" hint = "Handles the Database connectivity">
  
 <!--- 
 function name			 :	getinventorycategory
@@ -6,8 +13,8 @@ description				 :	this function retrieves the inventory category details.
 arguments description	 :	no arguments
 return type 		  	 :	query
 --->
-<cffunction name="getinventorycategory" output="true" returntype="query" access="public" hint="get product category to display in index.cfm left pane" >
-	<cfquery name="productCategoryDetails" >
+<cffunction name = "getinventorycategory" returntype = "query" access = "public" hint = "get product category to display in index.cfm left pane" >
+	<cfquery name = "productCategoryDetails" >
 		SELECT * FROM dbo.ProductCategory
 	</cfquery>
 	<cfreturn productCategoryDetails>
@@ -20,7 +27,7 @@ description				 :	this function retrieves the inventory sub category details.
 arguments description	 :	arg - id of product category.
 return type 		  	 :	query
 --->
-<cffunction name = "getinventorysubcategory" output = "true" returntype = "query" access = "public" hint = "get product sub category to display in index.cfm left pane">
+<cffunction name = "getinventorysubcategory"  returntype = "query" access = "public" hint = "get product sub category to display in index.cfm left pane">
 	<cfargument name = "arg" type = "numeric" required = "true" >
 	<cfquery name = "productSubCategoryDetails" >
 		SELECT * FROM dbo.ProductSubCategory 
@@ -41,7 +48,7 @@ return type 		  	 :	numeric
 <cffunction name = "getproductbyname" output = "true" returntype = "numeric" access = "remote">
 	<cfparam name = "value" type = "string">
 	<cfquery name = "productSubCategoryDetails" >
-		SELECT * FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = <cfqueryparam value='#ARGUMENTS.value#' cfsqltype = "cf_sql_varchar">
+		SELECT * FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.value#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
 	<cfif productSubCategoryDetails.recordCount EQ 1>
 		<cfreturn  productSubCategoryDetails.InventorySubCategoryId>
@@ -802,7 +809,7 @@ description				 :	this function returns names of product sub category names acco
 arguments description	 :	pname - product category name.
 return type 		  	 :	array
 --->
-<cffunction name = "inventorysubcategory" output = "true" returntype = "query" access = "public" >
+<cffunction name = "inventorysubcategory" returntype = "query" access = "public" hint = "return productsubcategory details">
 	<cfargument name = "pname" type = "string" required = "true" default = "">
 	 
 	<cfquery name = "productCategoryDetails" >
@@ -823,7 +830,7 @@ description				 :	this function deletes the product sub category data from the d
 arguments description	 :	psubcat - product sub category name.
 return type 		  	 :	void
 --->
-<cffunction name = "deletedata" output = "true" returntype = "void" access = "public" >
+<cffunction name = "deletedata" output = "true" returntype = "void" access = "public" hint = "delete product">
 	<cfargument name = "psubcat" type = "string" required = "true" default = "">
 	<cfquery >
 		DELETE FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.psubcat#' cfsqltype = "cf_sql_varchar">
@@ -837,9 +844,8 @@ description				 :	this function returns the details of the product sub category.
 arguments description	 :	psubname - product sub category name.
 return type 		  	 :	query
 --->
-<cffunction name = "inventorysubcategorydata" output = "true" returntype = "query" access = "public" >
+<cffunction name = "inventorysubcategorydata" output = "true" returntype = "query" access = "public" hint = "returns productSubCategoryDetails">
 	<cfargument name = "psubname" type = "string" required = "true" default = "">
-	 
 	<cfquery name = "productSubCategoryDetails" >
 		SELECT * FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.psubname#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
@@ -860,7 +866,7 @@ arguments description	 :	psubnameselect - product sub category name
 							pimg - product sub category image.
 return type 		  	 :	void
 --->
-<cffunction name = "updatedata" output = "true" returntype = "void" access = "public" >
+<cffunction name = "updatedata" output = "true" returntype = "void" access = "public" hint = "update products">
 	<cfargument name = "psubnameselect" type = "string" required = "true" default = "">
 	<cfargument name = "psubname" type = "string" required = "true" default = "">
 	<cfargument name = "qty" type = "numeric" required = "true" default="">
@@ -890,7 +896,7 @@ arguments description	 :	psubnameselect - product sub category name
 							desc - product sub category description.
 return type 		  	 :	void
 --->
-<cffunction name = "updatedatawithoutimg" output = "true" returntype = "void" access = "public" >
+<cffunction name = "updatedatawithoutimg" output = "true" returntype = "void" access = "public" hint = "update products" >
 	<cfargument name="psubnameselect" type="string" required="true" default="">
 	<cfargument name="psubname" type="string" required="true" default="">
 	<cfargument name="qty" type="numeric" required="true" default="">
@@ -914,7 +920,7 @@ description				 :	this function retrieves and returns the buyers address.
 arguments description	 :	no arguments.
 return type 		  	 :	query
 --->
-<cffunction name = "checkaddress" returnType = "query" access = "public">
+<cffunction name = "checkaddress" returnType = "query" access = "public" hint = "returns the address details">
 	<cfquery name = "retrieveAddress" >
 		SELECT * FROM dbo.ADDRESS WHERE PhoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 	</cfquery>
@@ -928,7 +934,7 @@ description				 :	this function retrieves and returns the product sub category d
 arguments description	 :	id - product sub category id.
 return type 		  	 :	query
 --->
-<cffunction name = "getproduct" returnType = "query">
+<cffunction name = "getproduct" returnType = "query" hint = "returns the productsubcategory details">
 <cfargument name = "id" type = "numeric">
 	<cfquery name = "getproduct"  >
 		SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">

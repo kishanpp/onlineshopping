@@ -36,7 +36,9 @@ $(document).ready(function() {
 					}							
 			}); 
 	})
-		
+	
+	$(".updatesuccesfully").delay(2000).fadeOut();
+	
 	$("select[name=psubtype]").on('change',function(){$("#deleteitem").delay(0).fadeIn();})	
 	$("#deleteitem").click(function(){
 		if( ($("#ptype option:selected").val()) == "")

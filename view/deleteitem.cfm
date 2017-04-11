@@ -11,11 +11,11 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<link href = "../assets/css/deleteitem.css" rel = "stylesheet">
 </head>
 <body>
-	<cfif session.userPhoneNumber NEQ "">
+	<cfif SESSION.userPhoneNumber NEQ "">
 		<cfset controllerObject = CreateObject("component","controller.deleteitemcontroller") />
 		<cfif structKeyExists(form,"deleteitem")>
-			<script>alert("Deleted Successfully from Database");</script>
 			<cfset LOCAL.deleteProduct = controllerObject.deletedata(psubcat="#form.psubtype#")>  
+			<span class = "updatesuccesfully">Succesfully Deleted</span>
 		</cfif>
 		<div class = "deleteitem">
 			<h3>SELECT PRODUCT TO DELETE</h3>

@@ -17,6 +17,11 @@ $(document).ready(function() {
 								document.getElementsByClassName("dropdownlogin")[0].style.display="block";
 							}
 						);
+	$('#navLogin').mouseout(function()
+							{
+								$("#navLogin").css("color","white");
+							}
+						);					
 	$('.dropdownlogin').mouseover(function()
 							{
 								document.getElementsByClassName("login-header")[1].style.display="none";
@@ -46,7 +51,12 @@ $(document).ready(function() {
 									$("#navRegister").css("margin-left","16%");
 									$(".dropdownregister form").css("margin-left","16%");
 							});
-
+	$('#navRegister').mouseout(function()
+							{
+								$("#navRegister").css("color","white");
+							}
+						);	
+						
 	$('.dropdownregister').mouseover(function()
 							{
 									document.getElementsByClassName("dropdownregister")[0].style.display="inline";
@@ -54,7 +64,7 @@ $(document).ready(function() {
 									$("#navRegister").css("margin-left","16%");
 							});
 
-	$('.dropdownregister').mouseout(function()
+	$('.dropdownregister form').mouseout(function()
 							{
 										
 											document.getElementsByClassName("dropdownregister")[0].style.display="none";

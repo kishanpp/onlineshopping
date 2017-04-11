@@ -2,7 +2,6 @@
 filename 		: additem.cfm
 function 		: This file adds new products on the product category by the admin login.
 date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
-
 --->
 
 <html lang = "en-US">
@@ -12,17 +11,17 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 </head>
 <body>
 	<cfif SESSION.userPhoneNumber NEQ "">
-			<cfset controllerObject = CreateObject("component","controller.additemcontroller") />
-			<cfif structKeyExists(form,"additem")>
-				<script>alert("Added successfully to Database");</script>
-					 <cfset insertdata = controllerObject.adddata(pcat = "#form.ptype#",
-																	pname = "#form.pname#",
-																	qty = "#form.pqty#",
-																	pprice = "#form.pprice#",
-																	pimg = "#form.pimg#",
-																	pdisc = "#form.pdisc#",
-																	desc = "#form.pdesc#")>  
-			</cfif>
+		<cfset controllerObject = CreateObject("component","controller.additemcontroller") />
+		<cfif structKeyExists(form,"additem")>
+			<cfset insertdata = controllerObject.adddata(pcat = "#form.ptype#",
+														pname = "#form.pname#",
+														qty = "#form.pqty#",
+														pprice = "#form.pprice#",
+														pimg = "#form.pimg#",
+														pdisc = "#form.pdisc#",
+														desc = "#form.pdesc#")>  
+			<span class = "updatesuccesfully">Succesfully Added</span>
+		</cfif>
 
 		<div class = "additem">
 			<h3>ENTER PRODUCT DESCRIPTIONS</h3>
@@ -63,7 +62,6 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				</div>
 			</cfform>
 		</div>
-
 	<cfelse>
 		<cflocation url = "/index.cfm">
 	</cfif>

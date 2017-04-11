@@ -48,7 +48,7 @@ div.autosuggestcontainer li {
     width: 87%;
     height: 110px;
     padding: 10px;
-    margin: -15px auto 0px 165px;
+    margin: -20px auto 0px 165px;
     overflow-y: visible;	
 }
 div.autosuggestcontainer .yui-ac-shadow
@@ -90,7 +90,7 @@ div.autosuggestcontainer .yui-ac-content
     border-radius: 3px 50px 50px 3px;
     border-width: 1px;
     border-style: solid;
-    height: 30px;
+    height: 31px;
     margin: -73px 0 0 335px;
     padding: 0;
     width: 90px;
@@ -121,9 +121,8 @@ div.autosuggestcontainer .yui-ac-content
 {
 	display: inline-block;
 	width : 100%;
-	height: 20%;
-	background-repeat: round;
-	background: linear-gradient(to right, white , rgba(242, 232, 230, 0.47));
+	height: 16%;
+	background-color: #441d5e;
     background-size: 100%; 
 }
 }
@@ -154,14 +153,15 @@ div.autosuggestcontainer .yui-ac-content
 .cart-area
 {
     display: inline-block;
-    position: fixed;
-    width: 10%;
-    height: 5%;
-	padding: 2px 1% 1% 1%;
+    width: 13%;
+    height: 2%;
+	position : absolute;
+	padding: 2px 0% 0% 0%;
+	color: white;
 } 
 .cart-item
 {
-	background-color: #8eff0c;
+	background-color: #f92b00;
     box-shadow: 0 0 3px #b39c9c;
     border-radius: 10px;
     padding: 2px 9px 2px 9px;
@@ -172,16 +172,18 @@ div.autosuggestcontainer .yui-ac-content
 {
 	border-radius : 5px;
 }
+
 input
 {
 	padding : 4px 4px 4px 4px ;
+	color : black;
 }
 #logoutbtn
 {
-	box-shadow: inset 0 0 17px 0px #c79;
-	margin : 3px 0px 0px 142px;
-	position:fixed;
-	
+    color: white;
+    margin: -26px 0px 0px 204px;
+    background-color: #441d5e;
+	border : none;
 }
 .after
 {
@@ -190,17 +192,18 @@ display:none;
 
 .usernamearea
 {
-	float:left;
+	position : absolute;
 	height:7%;
 	width : 150px;
-	overflow:hidden;
+	
 	display:inline-block;
-	position:fixed;
-	margin: -19px 0% 0% 38px;
+	margin: -19px 0% 0% 41px;
 	padding: 0% 1% 0% 0%;
+	color : white;
 }
 .login-header{
 	display : block;
+	color : white;
 }
 #navRegister
 {
@@ -215,18 +218,19 @@ li{
 	float: left;
 	display : inline-block;
 }
-li a{
+li a,li a:hover{
 	display: block;
 	text-decoration: none;
+	    color: white;
 }
 .loginarea
 {
 	width : 25%;
-	height  :10%;
+	height  : 3%;
 	display : inline-block;
-	margin-left : 6%;
-	position : fixed;
-	
+	color: white;
+	position : absolute;
+	margin : 0px 0px 0px 60px ;
 }
 .dropdownlogin
 {
@@ -257,10 +261,7 @@ form
 {
 	padding-left : -5%;
 }
-.login-header{
-	display : inline;
-	color: white;
-}
+
 /*---------------------------------------------- login style ends */
 
 
@@ -285,7 +286,6 @@ form
 
 .navbar-nav {
 	background-color: #effcfa;
-	
 }
 .navbar-brand, navbar-brand:hover
 {
@@ -345,9 +345,10 @@ form
 
 .useronline
 {
-	margin: -145px 0px 0px 763px;
-    position: fixed;
+	margin : -115px 0px 0px 850px;
+    position: absolute;
     border: none;
+	color : white;
     border-radius: 21px;
     padding: 0px 6px 0px 6px;
 	

@@ -1,3 +1,10 @@
+<!--- 
+filename 		: additemcontroller.cfc
+function 		: This file controls the additem.cfm page database request from model.
+date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
+--->
+
+
 <cfcomponent displayname = "OnlineShopping" hint = "Handles the Database connectivity for additem page">
 	<cfset modelComponentObject = CreateObject("component","model.components") />
 	

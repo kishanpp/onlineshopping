@@ -4,29 +4,29 @@ function 		: This file displays the final receipt with details of products purch
 date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 --->
-<!DOCTYPE HTML>
-<html lang="en-US">
+
+<html lang = "en-US">
 <head>
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	<script src="../assets/js/final.js"></script>
-	<link rel="shortcut icon" href="../assets/css/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="../assets/css/final.css">
+	<script src = "https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<script src = "../assets/js/final.js"></script>
+	<link rel = "shortcut icon" href = "../assets/css/favicon.ico" type = "image/x-icon">
+	<link rel = "stylesheet" href = "../assets/css/final.css">
 </head>
 <body>
-	<cfinclude template="headertemplate.cfm">	
+	<cfinclude template = "headertemplate.cfm">	
 	<cfset controllerObject = CreateObject("component","controller.finalcontroller") />
-	<cfif session.userPhoneNumber NEQ "">
+	<cfif SESSION.userPhoneNumber NEQ "">
 		<cfoutput>
 		<cfif structKeyExists(form, "payment")>
 			<cfif #SESSION.cartpurchase# EQ TRUE>
 				<cfset SESSION.cartpurchase = FALSE />
 				<cfset VARIABLE.buyFromCart = controllerObject.buyallfromcart(date = "#DateFormat(Now(),"mm/dd/yy")#") >
 				<cfset SESSION.cartnumber = #VARIABLE.buyFromCart#>
-				<cflocation url="final.cfm">
+				<cflocation url = "final.cfm">
 			</cfif>
 			<cfif  SESSION.CurrentTransaction EQ true>
-				<cfset VARIABLE.addOrder = controllerObject.addorder(id="#SESSION.id#",date="#(DateFormat(Now(),"mm/dd/yy"))#")>
+				<cfset VARIABLE.addOrder = controllerObject.addorder(id = "#SESSION.id#",date = "#(DateFormat(Now(),"mm/dd/yy"))#")>
 				<cfset SESSION.CurrentTransaction = false />
 			</cfif>
 			<cfif structKeyExists(form,"ccnumber")>
