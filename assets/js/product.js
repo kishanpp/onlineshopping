@@ -16,7 +16,10 @@ $(document).ready(function() {
 							$("#added").delay(400).fadeIn();
 							document.getElementsByClassName("cart-item")[0].innerHTML = response;
 						}
-			}); 
+			}).fail(function(jqXHR , textStatus )
+				{
+							alert("database error");		
+				}); 
 			
 	});
  

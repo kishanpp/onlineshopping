@@ -28,17 +28,17 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 <body>
 	<cfset controllerObject = CreateObject("component","controller.headertemplatecontroller") />
 	<cfif StructKeyExists(form,"loginbtn")>
-		<cfset VARIABLE.logged = controllerObject.loginUser(phonenumber = "#form.phonenumber#",password = "#form.password#")>
-		<cfif VARIABLE.logged EQ false>
+		<cfset VARIABLES.logged = controllerObject.loginUser(phonenumber = "#form.phonenumber#",password = "#form.password#")>
+		<cfif VARIABLES.logged EQ false>
 			<div class = "invalidUser"> Invalid userId / Password </div>
 		</cfif>
 	</cfif>
 	<cfif StructKeyExists(form,"logoutbtn")>
-		<cfset VARIABLE.logged = controllerObject.logoutUser()>	
+		<cfset VARIABLES.logged = controllerObject.logoutUser()>	
 	</cfif>
 	<cfif StructKeyExists(form,"registerbtn")>
-		<cfset VARIABLE.logged = controllerObject.registerUser(username = "#form.username#",password = "#form.password#",phone = "#form.phonenumber#")>
-		<cfif VARIABLE.logged EQ false>
+		<cfset VARIABLES.logged = controllerObject.registerUser(username = "#form.username#",password = "#form.password#",phone = "#form.phonenumber#")>
+		<cfif VARIABLES.logged EQ false>
 			<div class = "invalidUser"> User already exists </div>
 		</cfif>
 	</cfif>
@@ -49,10 +49,10 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<cfoutput>
 					<div id = "searchbox">
 						<cfform >
-							<cfinput id = "search"  type = "text" name = "artname" autosuggest = "cfc:model/components.productname({cfautosuggestvalue})">
+							<cfinput id = "search"  type = "text" name = "artname" placeholder = "Phones,PowerBanks,Cases,Cameras and more" autosuggest = "cfc:model/components.productname({cfautosuggestvalue})">
 						</cfform>
 						<a>
-							<button id = "submit"  name = "submit" >GO</button>
+							<button id = "submit"  name = "submit" >SEARCH</button>
 						</a>					
 					</div>
 					</cfoutput>	
@@ -60,8 +60,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			<div class = "useronline">
 				<cfoutput>
 					<cfset sessions = createObject("java","coldfusion.runtime.SessionTracker")>
-					<cfset VARIABLE.count = #sessions.getSessionCount()#>
-					#VARIABLE.count# <span class = "glyphicon glyphicon-eye-open"/>
+					<cfset VARIABLES.count = #sessions.getSessionCount()#>
+					#VARIABLES.count# <span class = "glyphicon glyphicon-eye-open"/>
 				</cfoutput>
 			</div>
 			<a href = "../view/cartpage.cfm">
@@ -124,22 +124,22 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 	<!---left navigation starts --->
 
-	<cfset VARIABLE.getcategory = controllerObject.getinventorycategory() >
+	<cfset VARIABLES.getcategory = controllerObject.getinventorycategory() >
 	<div class = "navbar-inverse navbar-fixed-left">
 		<a class = "navbar-brand" href = "#">TOP CATEGORIES</a>
 		<ul class = "nav navbar-nav">
-			<cfloop query = "VARIABLE.getcategory" >
+			<cfloop query = "VARIABLES.getcategory" >
 				<li class = "dropdown">
 					<a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">
-						<cfoutput>#VARIABLE.getcategory.ProductName#</cfoutput>
+						<cfoutput>#VARIABLES.getcategory.ProductName#</cfoutput>
 						<span class = "caret"></span>
 					</a>
 					<ul class = "dropdown-menu" role = "menu">
-						<cfset VARIABLE.getproducts = controllerObject.getinventorysubcategory(VARIABLE.getcategory.InventorycategoryId) />	
-						<cfloop query = "VARIABLE.getproducts" >
+						<cfset VARIABLES.getproducts = controllerObject.getinventorysubcategory(VARIABLES.getcategory.InventorycategoryId) />	
+						<cfloop query = "VARIABLES.getproducts" >
 							<cfoutput>
-								<li id = "#VARIABLE.getproducts.InventorySubCategoryId#">
-									<a href = "../view/product.cfm?id=#VARIABLE.getproducts.InventorySubCategoryId#">#VARIABLE.getproducts.ProductSubCategoryName#</a>
+								<li id = "#VARIABLES.getproducts.InventorySubCategoryId#">
+									<a href = "../view/product.cfm?id=#VARIABLES.getproducts.InventorySubCategoryId#">#VARIABLES.getproducts.ProductSubCategoryName#</a>
 								</li>
 							</cfoutput>
 						</cfloop>

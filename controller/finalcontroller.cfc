@@ -17,7 +17,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	date - current date / order date.
 	return type 		  	 :	numeric
 	--->
-	<cffunction name = "buyallfromcart" returnType = "numeric">
+	<cffunction name = "buyallfromcart" returnType = "numeric" access = "public">
 		<cfargument name = "date" type = "date" required = "true" >
 		<cfreturn modelComponentObject.buyallfromcart("#ARGUMENTS.date#")>
 	</cffunction>
@@ -30,7 +30,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								date - current date / order date.
 	return type 		  	 :	void
 	--->
-	<cffunction name = "addorder" returnType = "void">
+	<cffunction name = "addorder" returnType = "void" access = "public">
 		<cfargument name = "id" type = "numeric" required = "true" >
 		<cfargument name = "date" type = "date" required = "true" >
 		<cfset LOCAL.addorder = modelComponentObject.addorder(id = ARGUMENTS.id,date = "#ARGUMENTS.date#")>
@@ -43,7 +43,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	query
 	--->
-	<cffunction name = "gettotalamount" returnType = "query">
+	<cffunction name = "gettotalamount" returnType = "query" access = "public">
 		<cfreturn modelComponentObject.gettotalamount()>
 	</cffunction>
 
@@ -54,7 +54,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	query
 	--->
-	<cffunction name = "getitems" returnType = "query">
+	<cffunction name = "getitems" returnType = "query" access = "public">
 		<cfreturn modelComponentObject.getitems()>
 	</cffunction>
 
@@ -65,7 +65,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	query
 	--->
-	<cffunction name = "getaddress" returnType = "query">
+	<cffunction name = "getaddress" returnType = "query" access = "public">
 		<cfreturn modelComponentObject.getaddress()>
 	</cffunction>
 

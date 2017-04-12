@@ -12,7 +12,10 @@ $(document).ready(function() {
 					$('select[name=ptype]').append('<option value="'+v+'">'+v+'</option>')		
 				})
 			}								
-		}); 
+		}).fail(function(jqXHR , textStatus )
+				{
+							alert("database error");		
+				}); 
 		
 	$("select[name=psubtype]").on('change',function(){	
 	$("#psubtypereq").css("display","none");
@@ -34,7 +37,10 @@ $(document).ready(function() {
 							$('select[name=psubtype]').append('<option value="'+v+'">'+v+'</option>')	
 						})		
 					}							
-			}); 
+			}).fail(function(jqXHR , textStatus )
+				{
+							alert("database error");		
+				}); 
 	})
 	
 	$(".updatesuccesfully").delay(2000).fadeOut();

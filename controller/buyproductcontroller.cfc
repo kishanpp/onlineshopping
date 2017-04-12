@@ -16,10 +16,10 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								orderid - orderid of current transaction.
 	return type 		  	 :	void
 	--->	
-	<cffunction name = "updateorder" returnType = "void">
+	<cffunction name = "updateorder" returnType = "void" access = "public" hint = "calls updateorder function in model and updates the order details">
 		<cfargument name = "id" type = "numeric">
 		<cfargument name = "orderid" type = "numeric">
-		<cfset modelComponentObject.updateorder("#ARGUMENTS.id#","#ARGUMENTS.orderid#")>
+		<cfset LOCAL.updateOrder = modelComponentObject.updateorder("#ARGUMENTS.id#","#ARGUMENTS.orderid#")>
 	</cffunction>
 
 
@@ -29,7 +29,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	array
 	--->
-	<cffunction name = "checkaddress" returnType = "array" access = "remote">
+	<cffunction name = "checkaddress" returnType = "array" access = "remote" >
 		<cfset LOCAL.checkaddress = modelComponentObject.checkaddress()>
 		<cfset LOCAL.addressDetails = ArrayNew(1)>
 		<cfif LOCAL.checkaddress.recordCount EQ 0>

@@ -9,8 +9,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 <html lang = "en-US">
 <head>
 	<title>oops  404 Page not found</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
-	<meta http-equiv="refresh" content="6;url=https://www.shoponline.com">
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
+	<meta http-equiv = "refresh" content="6;url=https://www.shoponline.com">
 	<link href = 'https://fonts.googleapis.com/css?family=Amarante' rel='stylesheet' type='text/css'>
 	<style type = "text/css">
 		body{

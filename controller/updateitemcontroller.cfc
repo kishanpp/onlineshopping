@@ -77,7 +77,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								desc - product sub category description.
 	return type 		  	 :	void
 	--->
-	<cffunction name ="updatedata" returnType ="void">
+	<cffunction name = "updatedata" returnType = "void" access = "public">
 		<cfargument name = "psubnameselect" type = "string" required = "true" >
 		<cfargument name = "psubname" type = "string" required = "true" >
 		<cfargument name = "qty" type = "numeric" required = "true" >
@@ -106,7 +106,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								desc - product sub category description.
 	return type 		  	 :	void
 	--->
-	<cffunction name = "updatedatawithoutimg" returnType = "void">
+	<cffunction name = "updatedatawithoutimg" returnType = "void" access = "public">
 		<cfargument name = "psubnameselect" type = "string" required = "true" >
 		<cfargument name = "psubname" type = "string" required = "true" >
 		<cfargument name = "qty" type = "numeric" required = "true" >

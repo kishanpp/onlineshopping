@@ -31,7 +31,10 @@ $(document).ready(function() {
 															
 														});			
 								}
-		}); 
+		}).fail(function(jqXHR , textStatus )
+				{
+							alert("database error");		
+				}); 
 		  
 	});
 

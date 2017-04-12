@@ -15,7 +15,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	productId - product sub category id.
 	return type 		  	 :	query
 	--->
-	<cffunction name = "getdatabyid" returnType = "query">
+	<cffunction name = "getdatabyid" returnType = "query" access = "public">
 		<cfargument name = "productId" type = "string" required = "true">
 		<cfreturn modelComponentObject.getdatabyid(#ARGUMENTS.productId#)>
 	</cffunction>
@@ -27,7 +27,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	productId - product sub category id.
 	return type 		  	 :	boolean
 	--->
-	<cffunction name = "getproductqty" returnType = "boolean">
+	<cffunction name = "getproductqty" returnType = "boolean" access = "public">
 		<cfargument name = "productId" type = "numeric" required = "true">
 		<cfreturn modelComponentObject.getproductqty(id = "#ARGUMENTS.productId#")>
 	</cffunction>
@@ -39,7 +39,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	id - product sub category id.
 	return type 		  	 :	query
 	--->
-	<cffunction name = "getproducts" returnType = "query">
+	<cffunction name = "getproducts" returnType = "query" access = "public">
 		<cfargument name = "id" type = "numeric" required = "true">
 		<cfreturn modelComponentObject.getproduct(id = "#ARGUMENTS.id#")>
 	</cffunction>

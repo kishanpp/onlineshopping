@@ -20,7 +20,10 @@ $(document).ready(function() {
 							
 					})
 				}							
-		}); 
+		}).fail(function(jqXHR , textStatus )
+				{
+							alert("database error");		
+				}); 
 			
 	$("select[name=ptype]").on('change',function(){
 		$('select[name=psubtype]').empty();
@@ -38,7 +41,10 @@ $(document).ready(function() {
 							$('select[name=psubtype]').append('<option value="'+v+'">'+v+'</option>')	
 						})
 					}								
-			}); 
+			}).fail(function(jqXHR , textStatus )
+				{
+							alert("database error");		
+				}); 
 	})
 
 	$("select[name=psubtype]").on('change',function()
@@ -69,7 +75,10 @@ $(document).ready(function() {
 									})
 									$("#updateitem").delay(0).fadeIn();
 								}									
-						})
+						}).fail(function(jqXHR , textStatus )
+								{
+											alert("database error");		
+								})
 		})
 
 			

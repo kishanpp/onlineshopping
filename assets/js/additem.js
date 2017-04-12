@@ -13,7 +13,10 @@ $(document).ready(function() {
 						$('select').append('<option value="'+v+'">'+v+'</option>')	
 					})
 				}							
-		}); 
+		}).fail(function(jqXHR , textStatus )
+				{
+							alert("database error");		
+				}); 
 				
 	$("input[type='submit']").click(function()
 	{

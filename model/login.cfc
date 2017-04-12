@@ -21,9 +21,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfargument name = "password" type = "string" required = "true">
 		<cfquery name = "loginquery"> 
 			<cfset ARGUMENTS.password = HASH(#ARGUMENTS.password#)>
-			SELECT UserId,phoneNumber , Password from UserAccount where phoneNumber LIKE <cfqueryparam value='#ARGUMENTS.phone#' cfsqltype="cf_sql_varchar"> 
+			SELECT UserId,phoneNumber , Password FROM UserAccount WHERE phoneNumber = <cfqueryparam value='#ARGUMENTS.phone#' cfsqltype="cf_sql_varchar"> 
 			AND
-			Password LIKE <cfqueryparam value = '#ARGUMENTS.password#' cfsqltype = "cf_sql_varchar"> 
+			Password = <cfqueryparam value = '#ARGUMENTS.password#' cfsqltype = "cf_sql_varchar"> 
 		</cfquery>
 		<cfreturn loginquery>
 	</cffunction>
@@ -44,7 +44,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfargument name = "phone" type = "string" required = "true">
 
 		<cfquery name = "loginquery" > 
-			SELECT * FROM UserAccount WHERE phoneNumber LIKE <cfqueryparam value = '#ARGUMENTS.phone#' cfsqltype = "cf_sql_varchar"> 
+			SELECT * FROM UserAccount WHERE phoneNumber = <cfqueryparam value = '#ARGUMENTS.phone#' cfsqltype = "cf_sql_varchar"> 
 		</cfquery>
 		<cfif loginquery.recordCount EQ 0>
 		<cfset APPLICATION.currentUsers = listAppend(APPLICATION.currentUsers, #ARGUMENTS.phone#)>
@@ -75,9 +75,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cffunction name = "logout" returnType = "void" output = "false" access = "public" hint = "clears the session variables and remove current user from array after logout">
 		<cfset SESSION.isLogged = false />
 		<cfset SESSION.userName = "" />
-		<cfset application.currentUsers = listDeleteAt(APPLICATION.currentUsers,listFind(APPLICATION.currentUsers, SESSION.userPhoneNumber) )>
+		<cfset APPLICATION.currentUsers = listDeleteAt(APPLICATION.currentUsers,listFind(APPLICATION.currentUsers, SESSION.userPhoneNumber) )>
 		<cfset SESSION.userPhoneNumber = "" />
-		<cflocation url = "https://www.shoponline.com">
+		<cflocation url = "https://www.shoponline.com" addtoken = "false">
 	</cffunction>
 
 

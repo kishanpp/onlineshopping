@@ -6,12 +6,11 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 <html lang = "en-US">
 <head>
-	<cfinclude template = "headertemplate.cfm">
 	<link rel = "shortcut icon" href = "../assets/css/favicon.ico" type = "image/x-icon">
 	<link rel = "stylesheet" href = "../assets/css/buyproduct.css">
 </head>
 <body>
-
+	<cfinclude template = "headertemplate.cfm">
 	<cfset controllerObject = CreateObject("component","controller.buyproductcontroller") />
 	<cfif SESSION.userPhoneNumber NEQ "">
 		<div class = "address-area">
@@ -21,7 +20,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				<cfif SESSION.CurrentTransaction EQ true>
 					<cfset SESSION.id = "#URL.id#" />
 				<cfelse>
-					<cfset update = controllerObject.updateorder(id = "#URL.id#",orderid = "#SESSION.OrderId#")>
+					<cfset VARIABLES.update = controllerObject.updateorder(id = "#URL.id#",orderid = "#SESSION.OrderId#")>
 				</cfif>
 			</cfif>
 			<cfset SESSION.cartpurchase = FALSE />

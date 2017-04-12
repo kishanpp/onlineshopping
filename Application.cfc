@@ -47,7 +47,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	return type 		  	 :	void
 	--->
 	<cffunction name = "onMissingTemplate" access = "public" returntype = "void" hint = "Executes when unavailable template is accessed.">
-		<cflocation url = "../view/missingtemplate.cfm">
+		<cflocation url = "../view/missingtemplate.cfm" addtoken = "false">
 	</cffunction>
 
 	
@@ -77,8 +77,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cffunction name = "onSessionEnd"  returnType = "void" hint = "Executes when session is timeout">
 		<cfargument name = "SessionScope" required = "true" >
 		<cfargument name = "ApplicationScope" required = "true">
-		<cfset Arguments.ApplicationScope.currentUsers = listDeleteAt(Arguments.ApplicationScope.currentUsers,listFind(Arguments.ApplicationScope.currentUsers,#Arguments.SessionScope.userPhoneNumber#) )>
-		<cflocation url = "https://www.shoponline.com">
+		<cfset ApplicationScope.currentUsers = listDeleteAt(ApplicationScope.currentUsers,listFind(ApplicationScope.currentUsers,#SessionScope.userPhoneNumber#) )>
+		<cflocation url = "https://www.shoponline.com" addtoken = "false">
 	</cffunction>
 
 </cfcomponent>

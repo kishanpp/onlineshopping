@@ -17,7 +17,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								password - user password
 	return type 		  	 :	boolean
 	--->
-	<cffunction name = "loginUser" returnType = "boolean">
+	<cffunction name = "loginUser" returnType = "boolean" access = "public">
 	<cfargument name = "phonenumber" type = "string" required = "true">
 	<cfargument name = "password" type = "string" required = "true">
 
@@ -30,11 +30,11 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			<cfif listFindNoCase(APPLICATION.currentUsers, #ARGUMENTS.phonenumber#)> 
 				<cflocation url = "view/users.cfm">
 			<cfelse>
-				<cfset APPLICATION.currentUsers=listAppend(APPLICATION.currentUsers, #ARGUMENTS.phonenumber#)>
+				<cfset APPLICATION.currentUsers = listAppend(APPLICATION.currentUsers, #ARGUMENTS.phonenumber#)>
 			</cfif>
 			<cfset LOCAL.logged = true/>
-			<cfset session.isLogged = true/>
-			<cfset session.userName = LOCAL.login.UserId />
+			<cfset SESSION.isLogged = true/>
+			<cfset SESSION.userName = LOCAL.login.UserId />
 		<cfelse>
 			<cfset LOCAL.logged = false>
 		</cfif>
@@ -44,7 +44,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfelse>
 				
 			<cfif #SESSION.admin# EQ TRUE>
-				<cflocation url="https://www.shoponline.com/view/admin.cfm">
+				<cflocation url = "https://www.shoponline.com/view/admin.cfm" addtoken = "false">
 			</cfif>
 		</cfif>
 		<cfreturn LOCAL.logged>
@@ -59,7 +59,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								password - user password
 	return type 		  	 :	boolean
 	--->
-	<cffunction name = "registerUser" returntype = "boolean">
+	<cffunction name = "registerUser" returntype = "boolean" access = "public">
 	<cfargument name = "username" type = "string" required = "true">
 	<cfargument name = "password" type = "string" required = "true">
 	<cfargument name = "phone" type = "string" required = "true">
@@ -74,18 +74,18 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	void
 	--->
-	<cffunction name="logoutUser" returntype="void">
+	<cffunction name = "logoutUser" returntype = "void" access = "public">
 		<cfset LOCAL.logged = loginObject.logout()>	
 	</cffunction>
 
 
 	<!--- 
 	function name			 :	getno
-	description				 :	this function calls the getno method in model.
+	description				 :	this function calls the getno method in model and returns number of products in cart.
 	arguments description	 :	no arguments.
 	return type 		  	 :	numeric
 	--->
-	<cffunction name="getno" returntype="numeric">
+	<cffunction name = "getno" returntype = "numeric" access = "public">
 		<cfset LOCAL.getno = modelComponentObject.getno() >
 		<cfif LOCAL.getno.total GTE 0>
 			<cfreturn LOCAL.getno.total>
@@ -101,7 +101,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	query
 	--->
-	<cffunction name = "getinventorycategory" returntype = "query">
+	<cffunction name = "getinventorycategory" returntype = "query" access = "public">
 		<cfset LOCAL.getcategory = modelComponentObject.getinventorycategory()>
 		<cfreturn LOCAL.getcategory>
 	</cffunction>
@@ -113,7 +113,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	arg - product category id.
 	return type 		  	 :	query
 	--->
-	<cffunction name = "getinventorysubcategory" returntype = "query">
+	<cffunction name = "getinventorysubcategory" returntype = "query" access = "public">
 		<cfargument name = "arg" type = "numeric" required = "true" >
 		<cfset LOCAL.getcategory = modelComponentObject.getinventorysubcategory(ARGUMENTS.arg)>
 		<cfreturn LOCAL.getcategory>

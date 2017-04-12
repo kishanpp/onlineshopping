@@ -7,14 +7,14 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 <html lang = "en-US">
 <head>
-	<cfinclude template = "admin.cfm">
 	<link href = "../assets/css/deleteitem.css" rel = "stylesheet">
 </head>
 <body>
+	<cfinclude template = "admin.cfm">
 	<cfif SESSION.userPhoneNumber NEQ "">
 		<cfset controllerObject = CreateObject("component","controller.deleteitemcontroller") />
 		<cfif structKeyExists(form,"deleteitem")>
-			<cfset LOCAL.deleteProduct = controllerObject.deletedata(psubcat="#form.psubtype#")>  
+			<cfset VARIABLES.deleteProduct = controllerObject.deletedata(psubcat="#form.psubtype#")>  
 			<span class = "updatesuccesfully">Succesfully Deleted</span>
 		</cfif>
 		<div class = "deleteitem">

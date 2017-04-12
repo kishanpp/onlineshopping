@@ -16,7 +16,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	query
 	--->
-	<cffunction name = "getcartdataid" returnType = "query">
+	<cffunction name = "getcartdataid" returnType = "query" access = "public">
 		<cfreturn modelComponentObject.getcartdataid()>
 	</cffunction>
 
@@ -28,7 +28,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	id - product sub category id.
 	return type 		  	 :	query
 	--->
-	<cffunction name = "getcartdata" returnType = "query">
+	<cffunction name = "getcartdata" returnType = "query" access = "public">
 	<cfargument name = "id" type = "numeric">
 		<cfreturn modelComponentObject.getcartdata(id = "#ARGUMENTS.id#")>
 	</cffunction>
@@ -40,7 +40,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	void
 	--->
-	<cffunction name = "getcartitemstotalamount" returnType = "numeric">
+	<cffunction name = "getcartitemstotalamount" returnType = "numeric" access = "public">
 		<cfreturn modelComponentObject.getcartitemstotalamount()>
 	</cffunction>
 

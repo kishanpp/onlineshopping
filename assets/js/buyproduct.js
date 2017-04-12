@@ -30,7 +30,10 @@ $(document).ready(function() {
 						}			
 					})
 				}									
-		}); 
+		}).fail(function(jqXHR , textStatus )
+				{
+							alert("database error");		
+				}); 
 				
 	$("#zip").keyup(function() {
 		$("#zip").val(this.value.match(/[0-9]*/));

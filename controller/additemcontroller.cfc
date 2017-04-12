@@ -8,8 +8,6 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 <cfcomponent displayname = "OnlineShopping" hint = "Handles the Database connectivity for additem page">
 	<cfset modelComponentObject = CreateObject("component","model.components") />
 	
-
-	
 	
 	<!--- 
 	function name			 :	inventorycategory
@@ -17,7 +15,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	array
 	--->
-	<cffunction name = "inventorycategory" output = "true" returntype = "array" access = "remote" >
+	<cffunction name = "inventorycategory" output = "true" returntype = "array" access = "remote" hint = "calls the inventorycategory function in model and creates array of product names" >
 		<cfset LOCAL.inventorycategory = modelComponentObject.inventorycategory ()>
 		<cfset LOCAL.productnames = ArrayNew(1)>
 		<cfloop query = "LOCAL.inventorycategory">
@@ -34,7 +32,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								orderid - orderid of current transaction.
 	return type 		  	 :	void
 	--->	
-	<cffunction name = "adddata" returnType = "void" access = "remote">
+	<cffunction name = "adddata" returnType = "void" access = "remote" hint = "call the adddata function in model to store new product sub category">
 		<cfargument name = "pcat" type = "string" required = "true" >
 		<cfargument name = "pname" type = "string" required = "true" >
 		<cfargument name = "qty" type = "numeric" required = "true" >
@@ -42,7 +40,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfargument name = "pimg" type = "any" required = "true" >
 		<cfargument name = "pdisc" type = "numeric" required = "true" >
 		<cfargument name = "desc" type = "string" required = "true" >
-		<cfset adddata = modelComponentObject.adddata("#ARGUMENTS.pcat#",
+		<cfset LOCAL.adddata = modelComponentObject.adddata("#ARGUMENTS.pcat#",
 														"#ARGUMENTS.pname#",
 														#ARGUMENTS.qty#,
 														ARGUMENTS.pprice,

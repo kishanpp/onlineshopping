@@ -20,7 +20,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								zip - zip of the buyer.
 	return type 		  	 :	void
 	--->
-	<cffunction name = "addressstore" returnType = "void">
+	<cffunction name = "addressstore" returnType = "void" access = "public">
 		<cfargument name = "name" type = "string">
 		<cfargument name = "address" type = "string">
 		<cfargument name = "city" type = "string">
@@ -44,7 +44,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								zip - zip of the buyer.
 	return type 		  	 :	void
 	--->
-	<cffunction name = "updateaddress" returnType = "void">
+	<cffunction name = "updateaddress" returnType = "void" access = "public">
 		<cfargument name = "name" type = "string">
 		<cfargument name = "address" type = "string">
 		<cfargument name = "city" type = "string">

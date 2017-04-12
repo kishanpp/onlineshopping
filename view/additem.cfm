@@ -6,14 +6,14 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 <html lang = "en-US">
 <head>
-	<cfinclude template = "admin.cfm">
 	<link href = "../assets/css/additem.css" rel="stylesheet">
 </head>
 <body>
+	<cfinclude template = "admin.cfm">
 	<cfif SESSION.userPhoneNumber NEQ "">
 		<cfset controllerObject = CreateObject("component","controller.additemcontroller") />
 		<cfif structKeyExists(form,"additem")>
-			<cfset insertdata = controllerObject.adddata(pcat = "#form.ptype#",
+			<cfset VARIABLES.insertdata = controllerObject.adddata(pcat = "#form.ptype#",
 														pname = "#form.pname#",
 														qty = "#form.pqty#",
 														pprice = "#form.pprice#",

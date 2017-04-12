@@ -100,6 +100,9 @@ $(document).ready(function() {
 										else
 											alert("Product not found");	
 									}
+				}).fail(function(jqXHR , textStatus )
+				{
+							alert("database error");		
 				});
 		}
 	})
@@ -162,11 +165,10 @@ $(document).ready(function() {
 
 	var pp;    
 		$("#username").keydown(function(event) {
-			pp =$("#username").val();          
-				if( event.keyCode == 32 && document.getElementById("username").selectionStart === 0) {
-
-					return false;
-				}
+			pp = $("#username").val();          
+			if( event.keyCode == 32 && document.getElementById("username").selectionStart === 0) {
+				return false;
+			}
 		});
 
 	$('#loginphonenumber').keydown(function( e ) {

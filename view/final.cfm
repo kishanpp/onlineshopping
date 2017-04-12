@@ -21,36 +21,36 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfif structKeyExists(form, "payment")>
 			<cfif #SESSION.cartpurchase# EQ TRUE>
 				<cfset SESSION.cartpurchase = FALSE />
-				<cfset VARIABLE.buyFromCart = controllerObject.buyallfromcart(date = "#DateFormat(Now(),"mm/dd/yy")#") >
-				<cfset SESSION.cartnumber = #VARIABLE.buyFromCart#>
-				<cflocation url = "final.cfm">
+				<cfset VARIABLES.buyFromCart = controllerObject.buyallfromcart(date = "#DateFormat(Now(),"mm/dd/yy")#") >
+				<cfset SESSION.cartnumber = #VARIABLES.buyFromCart#>
+				<cflocation url = "final.cfm" addtoken = "false">
 			</cfif>
 			<cfif  SESSION.CurrentTransaction EQ true>
-				<cfset VARIABLE.addOrder = controllerObject.addorder(id = "#SESSION.id#",date = "#(DateFormat(Now(),"mm/dd/yy"))#")>
+				<cfset VARIABLES.addOrder = controllerObject.addorder(id = "#SESSION.id#",date = "#(DateFormat(Now(),"mm/dd/yy"))#")>
 				<cfset SESSION.CurrentTransaction = false />
 			</cfif>
 			<cfif structKeyExists(form,"ccnumber")>
-				<cfset VARIABLE.storeCreditCardDetails = controllerObject.paymentdetails(ccnumber = "#form.ccnumber#",holdername = "#form.holdername#",expdate = "#form.expdate#",cvvnumber = "#form.cvv#")>
+				<cfset VARIABLES.storeCreditCardDetails = controllerObject.paymentdetails(ccnumber = "#form.ccnumber#",holdername = "#form.holdername#",expdate = "#form.expdate#",cvvnumber = "#form.cvv#")>
 			</cfif>
 		</cfif>
 		<div class = "final-area">
 			<h3>TRANSACTION SUCCESSFULLY</h3>
 			<div class = "details-area">
-				<cfset VARIABLE.totalAmount = controllerObject.gettotalamount() />
-				<span class = "totalamount">You purchased items worth Rs.<strong>#VARIABLE.totalAmount.TotalAmount#</strong></span>
+				<cfset VARIABLES.totalAmount = controllerObject.gettotalamount() />
+				<span class = "totalamount">You purchased items worth Rs.<strong>#VARIABLES.totalAmount.TotalAmount#</strong></span>
 				<h4>You purchased Items </h4>
-				<cfset VARIABLE.getItems = controllerObject.getitems() />
-				<cfloop query = "VARIABLE.getItems">
-					- #VARIABLE.getItems.ProductSubCategoryName# Qty : #VARIABLE.getItems.OrderQty# <br/>
+				<cfset VARIABLES.getItems = controllerObject.getitems() />
+				<cfloop query = "VARIABLES.getItems">
+					- #VARIABLES.getItems.ProductSubCategoryName# Qty : #VARIABLES.getItems.OrderQty# <br/>
 				</cfloop>
 				<h4>Shipping Address</h4>
-				<cfset VARIABLE.getAddress = controllerObject.getaddress()>
-				<span class = "delevery-address"><strong>SHIPPING NAME : #VARIABLE.getAddress.Name#</strong></span><br />
-				ADDRESS : #VARIABLE.getAddress.Address#<br />
-				CITY : #VARIABLE.getAddress.City# <br />
-				STATE : #VARIABLE.getAddress.State# <br />
-				ZIP : #VARIABLE.getAddress.Zip# <br />
-				PHONE NUMBER : #VARIABLE.getAddress.PhoneNumber#					
+				<cfset VARIABLES.getAddress = controllerObject.getaddress()>
+				<span class = "delevery-address"><strong>SHIPPING NAME : #VARIABLES.getAddress.Name#</strong></span><br />
+				ADDRESS : #VARIABLES.getAddress.Address#<br />
+				CITY : #VARIABLES.getAddress.City# <br />
+				STATE : #VARIABLES.getAddress.State# <br />
+				ZIP : #VARIABLES.getAddress.Zip# <br />
+				PHONE NUMBER : #VARIABLES.getAddress.PhoneNumber#					
 			</div>			
 			<cfform action = "../index.cfm" method = "POST">
 				<button class = "btn btn-info btn-lg" name = "buymore" >

@@ -15,7 +15,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments
 	return type 		  	 :	query
 	---> 
-	<cffunction name = "retrieve_data1" returntype = "query">
+	<cffunction name = "retrieve_data1" returntype = "query" access = "public">
 		<cfreturn modelComponentObject.retrieve_data1()>
 	</cffunction>
 
@@ -26,7 +26,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments
 	return type 		  	 :	query
 	---> 
-	<cffunction name = "retrieve_data2" returntype = "query">
+	<cffunction name = "retrieve_data2" returntype = "query" access = "public">
 		<cfreturn modelComponentObject.retrieve_data2()>
 	</cffunction>
 
@@ -37,7 +37,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments
 	return type 		  	 :	query
 	---> 
-	<cffunction name = "retrieve_data3" returntype = "query">
+	<cffunction name = "retrieve_data3" returntype = "query" access = "public">
 		<cfreturn modelComponentObject.retrieve_data3()>
 	</cffunction>
 
@@ -48,7 +48,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments
 	return type 		  	 :	query
 	---> 
-	<cffunction name = "retrieve_data4" returntype = "query">
+	<cffunction name = "retrieve_data4" returntype = "query" access = "public">
 		<cfreturn modelComponentObject.retrieve_data4()>
 	</cffunction>
 
@@ -59,7 +59,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments
 	return type 		  	 :	query
 	---> 
-	<cffunction name = "retrieve_data5" returntype = "query">
+	<cffunction name = "retrieve_data5" returntype = "query" access = "public">
 		<cfreturn modelComponentObject.retrieve_data5()>
 	</cffunction>
 
@@ -70,7 +70,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments
 	return type 		  	 :	query
 	---> 
-	<cffunction name = "retrieve_data6" returntype = "query">
+	<cffunction name = "retrieve_data6" returntype = "query" access = "public">
 		<cfreturn modelComponentObject.retrieve_data6()>
 	</cffunction>
 
@@ -81,7 +81,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments
 	return type 		  	 :	query
 	---> 
-	<cffunction name = "retrieve_data7" returntype = "query">
+	<cffunction name = "retrieve_data7" returntype = "query" access = "public">
 		<cfreturn modelComponentObject.retrieve_data7()>
 	</cffunction>
 
@@ -93,7 +93,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments
 	return type 		  	 :	query
 	---> 
-	<cffunction name = "retrieve_data8" returntype = "query">
+	<cffunction name = "retrieve_data8" returntype = "query" access = "public">
 		<cfreturn modelComponentObject.retrieve_data8()>
 	</cffunction>
 	
