@@ -31,7 +31,7 @@ productbox>a
 .carousel>.carousel-inner>.item>a>img {
     height: 60%;
     width: 20%;
-	margin : 2% 0% 0% 40%;
+	margin : 2% 0% 0% 42%;
 }
 
 .list-inline>li
@@ -80,6 +80,10 @@ productbox>a
 {
 	background-image: linear-gradient(to right,rgba(255, 255, 255, 0) 0,rgba(36, 36, 36, 0.0001) 100%);
 }
+.carousel-caption>h3
+{
+	margin-left : 28px;
+}
 .containers
 {
 	background-color : white;
@@ -99,7 +103,7 @@ h2
 }
 .slider
 {
-	height : 51%;
+	height : 47%;
 	overflow: hidden;
 	background : url(/assets/images/product_background.jpg);
 	background-repeat : no-repeat;

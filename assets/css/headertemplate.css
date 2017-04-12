@@ -153,7 +153,7 @@ div.autosuggestcontainer .yui-ac-content
 .cart-area
 {
     display: inline-block;
-    width: 13%;
+    width: 10%;
     height: 2%;
 	position : absolute;
 	padding: 2px 0% 0% 0%;
@@ -162,9 +162,8 @@ div.autosuggestcontainer .yui-ac-content
 .cart-item
 {
 	background-color: #f92b00;
-    box-shadow: 0 0 3px #b39c9c;
     border-radius: 10px;
-    padding: 2px 9px 2px 9px;
+    padding: 2px 7px 2px 5px;
 }
 
 /* -------------------------------------------login style starts */
@@ -184,6 +183,20 @@ input
     margin: -26px 0px 0px 204px;
     background-color: #441d5e;
 	border : none;
+}
+
+#logoutbtn:hover
+{
+	color : red;
+}
+.invaliduser
+{
+	margin: 2% 0% 0% 72%;
+    position: absolute;
+    padding: 1%;
+    border-radius: 26px;
+    color: white;
+    background-color: #3d1a97;
 }
 .after
 {
@@ -345,7 +358,7 @@ form
 
 .useronline
 {
-	margin : -115px 0px 0px 850px;
+	margin : -120px 0px 0px 850px;
     position: absolute;
     border: none;
 	color : white;

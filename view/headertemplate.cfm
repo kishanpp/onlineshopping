@@ -30,7 +30,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfif StructKeyExists(form,"loginbtn")>
 		<cfset VARIABLE.logged = controllerObject.loginUser(phonenumber = "#form.phonenumber#",password = "#form.password#")>
 		<cfif VARIABLE.logged EQ false>
-			<script>alert("Invalid user");</script>
+			<div class = "invalidUser"> Invalid userId / Password </div>
 		</cfif>
 	</cfif>
 	<cfif StructKeyExists(form,"logoutbtn")>
@@ -39,19 +39,21 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfif StructKeyExists(form,"registerbtn")>
 		<cfset VARIABLE.logged = controllerObject.registerUser(username = "#form.username#",password = "#form.password#",phone = "#form.phonenumber#")>
 		<cfif VARIABLE.logged EQ false>
-			<script>alert("User already exists");</script>
+			<div class = "invalidUser"> User already exists </div>
 		</cfif>
 	</cfif>
 	<div class = "navbar-inner">
 		<div class = "header">
 				<a href = "https://www.shoponline.com/"><img src = "/assets/images/logo.gif" ></a>
-				<div class="searcharea">
+				<div class = "searcharea">
 					<cfoutput>
-					<div id="searchbox">
+					<div id = "searchbox">
 						<cfform >
 							<cfinput id = "search"  type = "text" name = "artname" autosuggest = "cfc:model/components.productname({cfautosuggestvalue})">
 						</cfform>
-						<a><button id = "submit"  name = "submit" >GO</button></a>					
+						<a>
+							<button id = "submit"  name = "submit" >GO</button>
+						</a>					
 					</div>
 					</cfoutput>	
 				</div>
@@ -64,7 +66,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			</div>
 			<a href = "../view/cartpage.cfm">
 				<div class = "cart-area">
-					<span class = "glyphicon glyphicon-shopping-cart"></span>Cart
+					<span class = "glyphicon glyphicon-shopping-cart"> </span> Cart 
 					<cfif  SESSION.isLogged>
 						<cfset SESSION.cartnumber = controllerObject.getno()>
 						<cfoutput>
@@ -72,8 +74,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 						</cfoutput>
 					</cfif>
 				</div>
-			</a>	
-			<!--- login and register area starts   ---> 
+			</a>
+			<!--- login and register area starts  ---> 
 			<div class = "loginarea">
 				<cfif  SESSION.isLogged>
 					<ul>

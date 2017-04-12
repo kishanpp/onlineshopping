@@ -17,15 +17,15 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfset controllerObject = CreateObject("component","controller.trendingproductcontroller") />
 		<div class=" container-area">
 			<h4> TRENDING PRODUCTS</h4>
-			<cfset newvar=arrayNew(1)>
-			<cfset arrayAppend(newvar,controllerObject.retrieve_data1())/>
-			<cfset arrayAppend(newvar,controllerObject.retrieve_data2())/>
-			<cfset arrayAppend(newvar,controllerObject.retrieve_data3())/>
-			<cfset arrayAppend(newvar,controllerObject.retrieve_data4())/>
-			<cfset arrayAppend(newvar,controllerObject.retrieve_data5())/>
-			<cfset arrayAppend(newvar,controllerObject.retrieve_data6())/>
-			<cfset arrayAppend(newvar,controllerObject.retrieve_data7())/>
-			<cfset arrayAppend(newvar,controllerObject.retrieve_data8())/>
+			<cfset getProductSubCategory=arrayNew(1)>
+			<cfset arrayAppend(getProductSubCategory,controllerObject.retrieve_data1())/>
+			<cfset arrayAppend(getProductSubCategory,controllerObject.retrieve_data2())/>
+			<cfset arrayAppend(getProductSubCategory,controllerObject.retrieve_data3())/>
+			<cfset arrayAppend(getProductSubCategory,controllerObject.retrieve_data4())/>
+			<cfset arrayAppend(getProductSubCategory,controllerObject.retrieve_data5())/>
+			<cfset arrayAppend(getProductSubCategory,controllerObject.retrieve_data6())/>
+			<cfset arrayAppend(getProductSubCategory,controllerObject.retrieve_data7())/>
+			<cfset arrayAppend(getProductSubCategory,controllerObject.retrieve_data8())/>
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!--- Indicators --->
 				<ol class="carousel-indicators">
@@ -38,19 +38,19 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				<div class="carousel-inner" role="listbox" >
 					<div class="item active">
 						<cfoutput>
-							<a href="view/product.cfm?id=13"><img src = "data:image/jpg;base64,#toBase64(newvar[1].Photo)#"   /></a>
+							<a href="view/product.cfm?id=13"><img src = "data:image/jpg;base64,#toBase64(getProductSubCategory[1].Photo)#"   /></a>
 						</cfoutput>
 						<div class="carousel-caption">
-							<h3 class="info"><cfoutput>#newvar[1].ProductSubCategoryName#</cfoutput></h3>
+							<h3 class="info"><cfoutput>#getProductSubCategory[1].ProductSubCategoryName#</cfoutput></h3>
 				 		</div>
 					</div>
 					<cfloop from="2" to="4" index="products">
 						<div class="item">				
 							<cfoutput>
-							<a href="view/product.cfm?id=#newvar[products].InventorySubCategoryId#"> <img src="data:image/jpg;base64,#toBase64(newvar[products].Photo)#"   /></a>
+							<a href="view/product.cfm?id=#getProductSubCategory[products].InventorySubCategoryId#"> <img src="data:image/jpg;base64,#toBase64(getProductSubCategory[products].Photo)#"   /></a>
 							</cfoutput>				
 							<div class="carousel-caption info" >
-								<h3 class="info"><cfoutput>#newvar[products].ProductSubCategoryName#</cfoutput></h3>
+								<h3 class="info"><cfoutput>#getProductSubCategory[products].ProductSubCategoryName#</cfoutput></h3>
 							</div>
 						</div>		
 					</cfloop>
@@ -78,17 +78,17 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<ul class=" marque slideContainer list-inline list-unstyled " id="money_start" >
 						<cfloop from="1" to="8" index="products">
 							<li class="productbox slideItem">
-								<a  href="view/product.cfm?id=#newvar[products].InventorySubCategoryId#">
-									<img src="data:image/jpg;base64,#toBase64(newvar[products].Photo)#" class="img-responsive">
+								<a  href="view/product.cfm?id=#getProductSubCategory[products].InventorySubCategoryId#">
+									<img src="data:image/jpg;base64,#toBase64(getProductSubCategory[products].Photo)#" class="img-responsive">
 									<div class="detail">
-										<span style="width:100% ;float:left;color:black;">#newvar[products].ProductSubCategoryName#</span> 
-										<cfif #newvar[products].ProductDiscount# GT 0>
-											<cfset discountedvalue = #newvar[products].ProductSubCategoryPrice#  - ((#newvar[products].ProductDiscount#)/100)*#newvar[products].ProductSubCategoryPrice#>
+										<span style="width:100% ;float:left;color:black;">#getProductSubCategory[products].ProductSubCategoryName#</span> 
+										<cfif #getProductSubCategory[products].ProductDiscount# GT 0>
+											<cfset discountedvalue = #getProductSubCategory[products].ProductSubCategoryPrice#  - ((#getProductSubCategory[products].ProductDiscount#)/100)*#getProductSubCategory[products].ProductSubCategoryPrice#>
 											<span class="productprice">&##8377 #discountedvalue#</span>
-											<span class="oldprice"> &##8377 #newvar[products].ProductSubCategoryPrice#</span> 
-											<span class="discount">#newvar[products].ProductDiscount#%off</span>	
+											<span class="oldprice"> &##8377 #getProductSubCategory[products].ProductSubCategoryPrice#</span> 
+											<span class="discount">#getProductSubCategory[products].ProductDiscount#%off</span>	
 										<cfelse>
-											<span class="oldprice" style="font-weight:500;	font-size:16px;text-decoration:none;color:black;float:left;margin-left:0px; "> &##8377 #newvar[products].ProductSubCategoryPrice#</span> 
+											<span class="oldprice" style="font-weight:500;	font-size:16px;text-decoration:none;color:black;float:left;margin-left:0px; "> &##8377 #getProductSubCategory[products].ProductSubCategoryPrice#</span> 
 										</cfif>
 									</div>	
 								</a>

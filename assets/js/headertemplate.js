@@ -186,4 +186,6 @@ $(document).ready(function() {
 	$("#loginphonenumber").keyup(function() {
 		$("#loginphonenumber").val(this.value.match(/[0-9]*/));
 	});
+	
+	$(".invalidUser").delay(2000).fadeOut();
 })
