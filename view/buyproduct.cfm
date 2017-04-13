@@ -10,9 +10,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<link rel = "stylesheet" href = "../assets/css/buyproduct.css">
 </head>
 <body>
-	<cfinclude template = "headertemplate.cfm">
-	<cfset controllerObject = CreateObject("component","controller.buyproductcontroller") />
 	<cfif SESSION.userPhoneNumber NEQ "">
+		<cfinclude template = "headertemplate.cfm">
+		<cfset controllerObject = CreateObject("component","controller.buyproductcontroller") />
 		<div class = "address-area">
 			<cfoutput>
 			<cfif structKeyExists(form,"buy-product")>
@@ -60,7 +60,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		</div>
 		<cfinclude template = "footer.cfm">
 	<cfelse>
-		<cflocation url = "../index.cfm">
+		<cfdump var = "#SESSION.userPhoneNumber#">
+		<cflocation url = "/index.cfm" addtoken = "false">
 	</cfif>
 	<script src  = "../assets/js/buyproduct.js"></script>
 </body>

@@ -9,9 +9,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<link rel="stylesheet" href="../assets/css/paymentdetails.css">
 <head>
 <body>
-	<cfinclude template = "headertemplate.cfm">
-	<cfset controllerObject = CreateObject("component","controller.paymentdetailscontroller") />
 	<cfif SESSION.userPhoneNumber NEQ "">
+		<cfinclude template = "headertemplate.cfm">
+		<cfset controllerObject = CreateObject("component","controller.paymentdetailscontroller") />
 		<div class = "payment-area">
 			<cfoutput>
 				<cfif structKeyExists(form, "address")>
@@ -25,25 +25,25 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<div class = "payment-row">
 						<cfselect name = "paytype" id="paytype" onChange = "disabletextboxes()">
 							<option value = "" selected disabled >Select Pay type</option>	
-							<option value= " cod">Cash On Delevery</option>	
+							<option value= "cod">Cash On Delevery</option>	
 							<option value = "cc">Credit Card</option>	
 						</cfselect>
 					</div>
 					<div class = "payment-row">
 						<span class = "col-xs-6 form-lbl">CC Number</span>
-						<cfinput type = "text" name = "ccnumber" id = "ccnumber" maxlength = "16" >
+						<cfinput type = "text" name = "ccnumber" id = "ccnumber" title = "Must be 16 digits" maxlength = "16" > <span class = "hint">Must be 16 digits</span>
 					</div>
 					<div class = "payment-row">
 						<span class = "col-xs-6 form-lbl">HOLDER NAME</span>
-						<cfinput type = "text" name = "holdername" id = "holdername">
+						<cfinput type = "text" name = "holdername" id = "holdername"> <span class = "hint">Name on the card</span>
 					</div>
 					<div class = "payment-row">
 						<span class = "col-xs-6 form-lbl">EXPIRY DATE</span>
-						<cfinput type = "date" name = "expdate" id = "expdate" >
+						<cfinput type = "date" name = "expdate" id = "expdate" > <span class = "hint">Expiry date on card</span>
 					</div>
 					<div class = "payment-row">
 						<span class = "col-xs-6 form-lbl">CVV NUMBER</span>
-						<cfinput type = "text" name = "cvv" id = "cvv" maxlength = "3" >
+						<cfinput type = "text" name = "cvv" id = "cvv" title = "Must be 3 digits" maxlength = "3" > <span class = "hint">Must be of 3 digits</span>
 					</div>
 					<div class = "payment-row">
 					<button  name = "payment" id = "savebtn" class = "btn btn-info btn-lg">
@@ -55,7 +55,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		</div>
 		<cfinclude template = "footer.cfm">
 	<cfelse>
-		<cflocation url = "/index.cfm">
+		<cflocation url = "/index.cfm" addtoken = "false">
 	</cfif>
 	<script  src = "../assets/js/paymentdetails.js"></script>
 </body>

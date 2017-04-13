@@ -1,9 +1,17 @@
 .footer-detail
 {
-	padding : 2% 2% 2% 2% ;
+	padding : 1% 2% 3px 2% ;
 	background-image : url(/assets/images/background.svg);
+	
 }
-
+.footer-detail>p,
+{
+	font-size : 11px;
+}
+.footer>span
+{
+	font-size : 11px;
+}
 .footer
 {
 	margin : -14px 0px 0px 0px;

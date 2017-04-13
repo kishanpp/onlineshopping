@@ -1,11 +1,8 @@
 $(document).ready(function()
 {
-  $("form").hide().fadeIn(600);
-  
-	$("#ccnumber").attr("disabled","disabled");
-	$("#holdername").attr("disabled","disabled");
-	$("#expdate").attr("disabled","disabled");
-	$("#cvv").attr("disabled","disabled");
+	$("form").hide().fadeIn(600);
+	$(".hint").css("display","none");
+	$("#ccnumber, #holdername, #expdate, #cvv").attr("disabled","disabled");
 	$("#savebtn").css("display","none");
 		
 	$("#ccnumber").keyup(function() {
@@ -23,7 +20,7 @@ $(document).ready(function()
 	$(".header img").css('margin-top','1%');	
 			
 });
-		
+			
 function disabletextboxes()
 {
 	$(".payment-area").animate({
@@ -35,15 +32,15 @@ function disabletextboxes()
 	
 	if( $("#paytype").val()  == "cod")
 	{
-		$("#ccnumber").attr("disabled","disabled");
-		$("#holdername").attr("disabled","disabled");
-		$("#expdate").attr("disabled","disabled");
-		$("#cvv").attr("disabled","disabled");
+		$("#ccnumber, #holdername, #expdate, #cvv").attr("disabled","disabled");
 	}
 	else
 	{
 		$("#ccnumber").removeAttr("disabled");
 		$("#ccnumber").attr("required","required");
+		$("#ccnumber").attr("pattern",".{16,16}");
+		$(".hint").css("display","inline-block");
+	
 		
 		$("#holdername").removeAttr("disabled");
 		$("#holdername").attr("required","required");
@@ -53,6 +50,7 @@ function disabletextboxes()
 		
 		$("#cvv").removeAttr("disabled");
 		$("#cvv").attr("required","required");
+		$("#cvv").attr("pattern",".{3,3}");
 	}
 	
 }	

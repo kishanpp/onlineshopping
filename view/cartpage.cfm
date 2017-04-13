@@ -11,15 +11,15 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 </head>
 <body>
 	<cfinclude template = "headertemplate.cfm">
-	<cfset controllerObject = CreateObject("component","controller.cartpagecontroller") />
 	<div class = "cart-products-area">
-		<cfset VARIABLES.getcart = controllerObject.getcartdataid()>		
 		<cfoutput>
 		<cfif #SESSION.userPhoneNumber# EQ "">
 			<div class = "products">
 				<strong> LOG IN TO SEE YOUR CART </strong>
 			</div>
 		<cfelse>
+			<cfset controllerObject = CreateObject("component","controller.cartpagecontroller") />
+			<cfset VARIABLES.getcart = controllerObject.getcartdataid()>	
 			<cfif #VARIABLES.getcart.recordcount# EQ 0>
 				<div class = "products">
 					<strong>NO ITEMS IN THE CART</strong>

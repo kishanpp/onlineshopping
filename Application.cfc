@@ -11,7 +11,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfset	this.clientmanagement = true />
 	<cfset	this.sessionmanagement = true /> 
 	<cfset	this.setclientcookies = true />
-	<cfset	this.sessiontimeout = "#createTimeSpan(0,0,5,20)#" />
+	<cfset	this.sessiontimeout = "#createTimeSpan(0,0,5,10)#" />
 	<cfset	this.applicationtimeout = "#createTimeSpan(0,0,10,10)#" />
 
 	

@@ -14,9 +14,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<link rel = "stylesheet" href = "../assets/css/final.css">
 </head>
 <body>
-	<cfinclude template = "headertemplate.cfm">	
-	<cfset controllerObject = CreateObject("component","controller.finalcontroller") />
 	<cfif SESSION.userPhoneNumber NEQ "">
+		<cfinclude template = "headertemplate.cfm">	
+		<cfset controllerObject = CreateObject("component","controller.finalcontroller") />
 		<cfoutput>
 		<cfif structKeyExists(form, "payment")>
 			<cfif #SESSION.cartpurchase# EQ TRUE>
@@ -61,7 +61,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		</cfoutput>
 		<cfinclude template = "footer.cfm">
 	<cfelse>
-		<cflocation url = "../index.cfm">
+		<cflocation url = "../index.cfm" addtoken = "false">
 	</cfif>
 </body>
 </html>

@@ -7,7 +7,7 @@ $(document).ready(function() {
 	$("#desc").attr("required","required");
 	
 	
-	$("form").hide().fadeIn(1000);
+	$(".updateitem form").hide().fadeIn(1000);
 	$.ajax({
 				type:"GET",
 				url: "../controller/updateitemcontroller.cfc?method=inventorycategory&ReturnFormat=json",

@@ -82,7 +82,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			</cfform>
 		</div>
 	<cfelse>
-		<cflocation url = "/index.cfm">
+		<cflocation url = "/index.cfm" addtoken = "false">
 	</cfif>
 
 	<script src = "../assets/js/updateitem.js"></script>

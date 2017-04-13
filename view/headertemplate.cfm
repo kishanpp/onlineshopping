@@ -30,7 +30,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfif StructKeyExists(form,"loginbtn")>
 		<cfset VARIABLES.logged = controllerObject.loginUser(phonenumber = "#form.phonenumber#",password = "#form.password#")>
 		<cfif VARIABLES.logged EQ false>
-			<div class = "invalidUser"> Invalid userId / Password </div>
+			<div class = "invalidUser"> Invalid userPhone number / Password </div>
 		</cfif>
 	</cfif>
 	<cfif StructKeyExists(form,"logoutbtn")>
@@ -39,7 +39,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfif StructKeyExists(form,"registerbtn")>
 		<cfset VARIABLES.logged = controllerObject.registerUser(username = "#form.username#",password = "#form.password#",phone = "#form.phonenumber#")>
 		<cfif VARIABLES.logged EQ false>
-			<div class = "invalidUser"> User already exists </div>
+			<div class = "invalidUser"> Phone number already registered </div>
 		</cfif>
 	</cfif>
 	<div class = "navbar-inner">
@@ -50,10 +50,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<div id = "searchbox">
 						<cfform >
 							<cfinput id = "search"  type = "text" name = "artname" placeholder = "Phones,PowerBanks,Cases,Cameras and more" autosuggest = "cfc:model/components.productname({cfautosuggestvalue})">
-						</cfform>
-						<a>
-							<button id = "submit"  name = "submit" >SEARCH</button>
-						</a>					
+							<button id = "submit" type = "submit"  name = "submit" >SEARCH</button>
+						</cfform>					
 					</div>
 					</cfoutput>	
 				</div>
@@ -96,7 +94,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 							</div>		
 							<div class = "dropdownlogin" >
 								<cfform> 
-									<cfinput name = "phonenumber" id = "loginphonenumber" maxlength = "10" type = "text" placeholder = "Phonenumber" > 
+									<cfinput name = "phonenumber" id = "loginphonenumber" maxlength = "10" type = "text" title = "phone number must be of 10 digits" placeholder = "Phonenumber" > 
 									<cfinput name = "password" id = "loginpassword" type = "password" placeholder = "Password" ><br>
 									<cfinput name = "loginbtn" type = "submit" id = "btnLogin" class = "btn" value = "Login"  >
 								</cfform>	
@@ -110,7 +108,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								<cfform > 
 									<cfinput name = "username" id = "username" type = "text" placeholder = "Username" maxlength = "20" > 
 									<cfinput name = "password" id = "password" type = "password" placeholder = "Password" ><br>
-									<cfinput name = "phonenumber" id = "phonennumber" type = "text" maxlength = "10" placeholder = "PhoneNumber" ><br>
+									<cfinput name = "phonenumber" id = "phonennumber" type = "text" maxlength = "10" title = "phone number must be of 10 digits" placeholder = "PhoneNumber" ><br>
 									<cfinput type = "submit" id = "btnRegister" class = "btn" name = "registerbtn" value = "Register"><br />
 								</cfform>
 							</div>

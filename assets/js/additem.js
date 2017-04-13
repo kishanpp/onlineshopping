@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	$("#additem").css("display","none");
 
-	$("form").hide().fadeIn(1000);
+	$(".additem form").hide().fadeIn(1000);
 	$.ajax({
 				type:"GET",
 				url: "../controller/additemcontroller.cfc?method=inventorycategory&ReturnFormat=json",

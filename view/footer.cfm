@@ -26,10 +26,7 @@ date created 	: ?Friday, ?03 ?March, ?2017, ??2:10:49 PM
 				  all you need is a mobile phone or laptop or tablet with Internet connection to get started. 
 				  Simply log into Shoponline.com and browse through the wide assortment of products across categories.
 				  Once you have zeroed in on your favourite products, simply place the order by filling in the details; the products will be 
-				  delivered right at your doorstep. Fulfil Your Entrepreneurial Dreams! Sell Today at shoponline Thanks to easy-to-understand, 
-				  flexible policies and SD Advisors to help sellers at each step. Begin your entrepreneurial journey with Snapdeal as a seller by
-				  filling a simple registration form here. Once the registration process is done, you can start selling your products to the 
-				  entire country by sitting at your home or office. Doesn't it sound thrilling? Of course, it is and the excitement will build up 
+				  delivered right at your doorstep.Doesn't it sound thrilling? Of course, it is and the excitement will build up 
 				  with every order you receive!. 
 			</p>
 		</div>

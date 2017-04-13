@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$("#deleteitem").css("display","none");
-	$("form").hide().fadeIn(1000);
+	$(".deleteitem form").hide().fadeIn(1000);
 	$.ajax({
 			type:"GET",
 			url: "../controller/deleteitemcontroller.cfc?method=inventorycategory&ReturnFormat=json",

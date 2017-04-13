@@ -250,29 +250,38 @@ li a,li a:hover{
 	margin-top : -10%;
 	display : none;
 	margin-left : -3%;
-	width : 100%;
-	height: 200%;
-	padding : 3% 3% 3% 3% ;
-	
+	width : auto;
+	height: auto;
+	padding : 3% 15% 3% 3% ;
 }
 .dropdownlogin >form > .btn
 {
-	box-shadow: inset 0 0 17px 0px #c79;
+	box-shadow: inset 0 0 20px 12px #441d5e;
+    color: white;
 }
 .dropdownregister >form > .btn
 {
-	box-shadow: inset 0 0 17px 0px #c79;
+	box-shadow: inset 0 0 20px 12px #441d5e;
+    color: white;
 }
 .dropdownregister
 {
 	margin : -20% 0% 0% 0% ;
 	display : none;
-	height : 20%;
+	height : auto;
 	width : auto;
 }
 form
 {
 	padding-left : -5%;
+}
+.dropdownregister>form>input,
+.dropdownregister>form>#btnRegister,
+.dropdownlogin>form>input,
+.dropdownlogin>form>#btnlogin
+{
+	width : 80%;
+	margin-bottom : 1%;
 }
 
 /*---------------------------------------------- login style ends */
@@ -358,7 +367,7 @@ form
 
 .useronline
 {
-	margin : -120px 0px 0px 850px;
+	margin : -122px 0px 0px 850px;
     position: absolute;
     border: none;
 	color : white;

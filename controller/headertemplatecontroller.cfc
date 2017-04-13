@@ -21,6 +21,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfargument name = "phonenumber" type = "string" required = "true">
 	<cfargument name = "password" type = "string" required = "true">
 
+		<cfset SessionRotate()>
 		<cfset LOCAL.login = loginObject.login(phone = "#ARGUMENTS.phonenumber#",password = "#ARGUMENTS.password#")>
 		<cfif LOCAL.login.recordCount EQ 1>
 			<cfif LOCAL.login.phoneNumber EQ "0000000000">
@@ -63,6 +64,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfargument name = "username" type = "string" required = "true">
 	<cfargument name = "password" type = "string" required = "true">
 	<cfargument name = "phone" type = "string" required = "true">
+		<cfset SessionRotate()>
 		<cfset LOCAL.register = loginObject.register("#ARGUMENTS.username#","#ARGUMENTS.password#","#ARGUMENTS.phone#")>
 		<cfreturn LOCAL.register>
 	</cffunction>
@@ -70,12 +72,19 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 	<!--- 
 	function name			 :	logoutUser
-	description				 :	this function calls the log out method in model.
+	description				 :	this function log out the current user and also removes from the array
 	arguments description	 :	no arguments.
 	return type 		  	 :	void
 	--->
 	<cffunction name = "logoutUser" returntype = "void" access = "public">
-		<cfset LOCAL.logged = loginObject.logout()>	
+		<cfif SESSION.userPhoneNumber NEQ "">
+			<cfset APPLICATION.currentUsers = listDeleteAt(APPLICATION.currentUsers,listFind(APPLICATION.currentUsers, SESSION.userPhoneNumber) )>
+		</cfif>
+		<cfset SESSION.isLogged = false />
+		<cfset SESSION.userName = "" />
+		<cfset SESSION.userPhoneNumber = "" />
+		<cflocation url = "https://www.shoponline.com" addtoken = "false">
+		<cfset SessionInvalidate()>
 	</cffunction>
 
 

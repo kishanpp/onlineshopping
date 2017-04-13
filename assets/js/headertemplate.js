@@ -1,16 +1,6 @@
 $(document).ready(function() {
 	var productid=0;
 
-	$('#btnLogin').attr("disabled","true");
-	$("#loginphonenumber").keyup(function(){
-		if(this.value.length != 10){
-			$("#btnLogin").attr("disabled","true");
-		}
-		else{
-			$("#btnLogin").removeAttr("disabled");
-		}
-	})
-		
 	$('#navLogin').click(function()
 							{
 								document.getElementsByClassName("login-header")[1].style.display="none";
@@ -22,30 +12,11 @@ $(document).ready(function() {
 								$("#navLogin").css("color","white");
 							}
 						);					
-	$('.dropdownlogin').mouseover(function()
-							{
-								document.getElementsByClassName("login-header")[1].style.display="none";
-								document.getElementsByClassName("dropdownlogin")[0].style.display="block";	
-							}
-						);		
-	$('.dropdownlogin').mouseout(function()
-		{
-			document.getElementsByClassName("dropdownlogin")[0].style.display="none";
-			document.getElementsByClassName("login-header")[1].style.display="block";
-		}
-	);
-	$('#btnRegister').attr("disabled","true");
-	$("#phonennumber").keyup(function(){
-		if(this.value.length != 10){
-			$("#btnRegister").attr("disabled","true");
-		}
-		else{
-			$("#btnRegister").removeAttr("disabled");
-		}
-	})
+	
 	$('#navRegister').click(function()
 							{
-									document.getElementsByClassName("dropdownregister")[0].style.display="inline";
+								
+									document.getElementsByClassName("dropdownregister")[0].style.display="inline";	
 									document.getElementsByClassName("login-header")[0].style.display="none";
 									document.getElementsByClassName("dropdownregister")[0].style.margin.left="38%";
 									$("#navRegister").css("margin-left","16%");
@@ -59,27 +30,23 @@ $(document).ready(function() {
 						
 	$('.dropdownregister').mouseover(function()
 							{
-									document.getElementsByClassName("dropdownregister")[0].style.display="inline";
-									document.getElementsByClassName("login-header")[0].style.display="none";
-									$("#navRegister").css("margin-left","16%");
+								$("#navRegister").css("margin-left","16%");
 							});
 
-	$('.dropdownregister form').mouseout(function()
-							{
-										
-											document.getElementsByClassName("dropdownregister")[0].style.display="none";
-											document.getElementsByClassName("login-header")[0].style.display="block";
-											$("#navRegister").css("margin-left","0%");
-							});
+
 									
+	$(document).mouseup(function (e)
+		{
+			var container = $(".dropdownlogin, .dropdownregister");
 
-
-	$(document).keypress(function(e){
-		if (e.which == 13){
-			$("#submit").click();
-		}
-	})
-						
+			if (!container.is(e.target) // if the target of the click isn't the container...
+				&& container.has(e.target).length === 0) // ... nor a descendant of the container
+			{
+				container.hide();
+				$(".login-header").css("display","block");
+				$("#navRegister").css("margin-left","0%");
+			}
+		});
 									
 	$("#submit").click(function(){
 		if($("#search").val().trim() == "")
@@ -110,47 +77,17 @@ $(document).ready(function() {
 
 	$("#btnRegister").click(function()
 	{
-		if( $("#username").val().trim() == "" )
-		{
-			alert("Enter username");
-			return false;
-		}
-		
-		else if( $("#password").val().trim() == "" )
-		{
-			
-			alert("Enter password");
-			return false;
-		}
-		else if( $("#phonennumber").val().trim() == "" )
-		{
-			alert("Enter Phone Number");
-			return false;
-		}
-		else
-		{
-			
-		}
+		$("#username, #password, #phonennumber").attr("required","required");
+		$("#phonennumber").attr("pattern",".{10,10}");
 	})
 
 
 
 	$("#btnLogin").click(function()
 	{
-		if( $("#loginphonenumber").val().trim() == "" )
-		{
-			alert("Enter Phone Number");
-			return false;
-		}
-		else if( $("#loginpassword").val().trim() == "" )
-		{
-			alert("Enter password");
-			return false;
-		}
-		else
-		{
-			
-		}
+		$("#loginphonenumber, #loginpassword").attr("required","required");
+		$("#loginphonenumber").attr("pattern",".{10,10}");
+		
 	})
 
 
@@ -164,12 +101,12 @@ $(document).ready(function() {
 	})
 
 	var pp;    
-		$("#username").keydown(function(event) {
-			pp = $("#username").val();          
-			if( event.keyCode == 32 && document.getElementById("username").selectionStart === 0) {
-				return false;
-			}
-		});
+	$("#username").keydown(function(event) {
+		pp = $("#username").val();          
+		if( event.keyCode == 32 && document.getElementById("username").selectionStart === 0) {
+			return false;
+		}
+	});
 
 	$('#loginphonenumber').keydown(function( e ) {
 			if(e.which == 32) 
@@ -190,4 +127,6 @@ $(document).ready(function() {
 	});
 	
 	$(".invalidUser").delay(2000).fadeOut();
+	
+	
 })

@@ -47,7 +47,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			SELECT * FROM UserAccount WHERE phoneNumber = <cfqueryparam value = '#ARGUMENTS.phone#' cfsqltype = "cf_sql_varchar"> 
 		</cfquery>
 		<cfif loginquery.recordCount EQ 0>
-		<cfset APPLICATION.currentUsers = listAppend(APPLICATION.currentUsers, #ARGUMENTS.phone#)>
+			<cfset APPLICATION.currentUsers = listAppend(APPLICATION.currentUsers, #ARGUMENTS.phone#)>
 			<cfset ARGUMENTS.password = HASH(#ARGUMENTS.password#)>
 			<cfquery > 														
 				INSERT INTO dbo.UserAccount (UserId,Password,phoneNumber) VALUES (<cfqueryparam value = '#ARGUMENTS.username#' cfsqltype = "cf_sql_varchar">,
@@ -62,22 +62,6 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			<cfset LOCAL.logged = false />
 		</cfif>
 		<cfreturn LOCAL.logged>
-	</cffunction>
-
-
-	<!--- logout code--->
-	<!--- 
-	function name			 :	logout
-	description				 :	this function logs out the user.
-	arguments description	 :	no arguments.
-	return type 		  	 :	void
-	--->
-	<cffunction name = "logout" returnType = "void" output = "false" access = "public" hint = "clears the session variables and remove current user from array after logout">
-		<cfset SESSION.isLogged = false />
-		<cfset SESSION.userName = "" />
-		<cfset APPLICATION.currentUsers = listDeleteAt(APPLICATION.currentUsers,listFind(APPLICATION.currentUsers, SESSION.userPhoneNumber) )>
-		<cfset SESSION.userPhoneNumber = "" />
-		<cflocation url = "https://www.shoponline.com" addtoken = "false">
 	</cffunction>
 
 
