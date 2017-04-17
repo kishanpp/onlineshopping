@@ -25,7 +25,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<div class = "payment-row">
 						<cfselect name = "paytype" id="paytype" onChange = "disabletextboxes()">
 							<option value = "" selected disabled >Select Pay type</option>	
-							<option value= "cod">Cash On Delevery</option>	
+							<option value= "cod">Cash On Delivery</option>	
 							<option value = "cc">Credit Card</option>	
 						</cfselect>
 					</div>

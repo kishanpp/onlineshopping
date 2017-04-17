@@ -333,10 +333,12 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			
 		<cfif orderItemDetails.RecordCount EQ 0>	
 			<cfquery>
-				INSERT INTO dbo.OrderItem (OrderQty,OrderId,InventorySubCategoryId) 
+				INSERT INTO dbo.OrderItem (OrderQty,OrderId,InventorySubCategoryId,ProductSubCategoryPrice) 
 				VALUES(1,
-				<cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_varchar">,
-				<cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">)
+						<cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_varchar">,
+						<cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">,
+						<cfqueryparam value = #LOCAL.discountedvalue# cfsqltype = "cf_sql_numeric">
+				)
 			</cfquery>
 		<cfelse>
 			<cfquery>
@@ -476,11 +478,16 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			SELECT * FROM dbo.Cart WHERE ( phoneNumber = <cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
 									AND	 InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.value# cfsqltype = "cf_sql_numeric">)
 		</cfquery>
+		<cfquery name = "productSubCategoryDetails" >
+			SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.value# cfsqltype = "cf_sql_numeric">
+		</cfquery>
+		<cfset LOCAL.discountedvalue = #productSubCategoryDetails.ProductSubCategoryPrice#  - ((#productSubCategoryDetails.ProductDiscount#)/100)*#productSubCategoryDetails.ProductSubCategoryPrice#>
 		<cfif cartDetails.recordCount EQ 0>
 			<cfquery>
-				INSERT INTO dbo.Cart (phoneNumber,InventorySubCategoryId,OrderQty) VALUES (<cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">,
+				INSERT INTO dbo.Cart (phoneNumber,InventorySubCategoryId,OrderQty,ProductSubCategoryPrice) VALUES (<cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">,
 																							<cfqueryparam value = #ARGUMENTS.value# cfsqltype = "cf_sql_numeric">,
-																							1
+																							1,
+																							<cfqueryparam value = #LOCAL.discountedvalue# cfsqltype = "cf_sql_numeric">
 																						)
 			</cfquery>
 		<cfelse>
@@ -649,9 +656,10 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfset SESSION.OrderId = #OrderDetails.OrderId# >
 		<cfloop query = "cartDetails">
 			<cfquery>
-				INSERT INTO dbo.OrderItem (OrderQty,OrderId,InventorySubCategoryId) VALUES ( <cfqueryparam value = #cartDetails.OrderQty# cfsqltype = "cf_sql_numeric">,
+				INSERT INTO dbo.OrderItem (OrderQty,OrderId,InventorySubCategoryId,ProductSubCategoryPrice) VALUES ( <cfqueryparam value = #cartDetails.OrderQty# cfsqltype = "cf_sql_numeric">,
 																							<cfqueryparam value = #SESSION.OrderId# cfsqltype = "cf_sql_numeric">,
-																							<cfqueryparam value = #cartDetails.InventorySubCategoryId# cfsqltype = "cf_sql_numeric">
+																							<cfqueryparam value = #cartDetails.InventorySubCategoryId# cfsqltype = "cf_sql_numeric">,
+																							<cfqueryparam value = #cartDetails.ProductSubCategoryPrice# cfsqltype = "cf_sql_numeric">
 																						)
 			</cfquery>
 		</cfloop>
@@ -942,4 +950,53 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfreturn getproduct>
 	</cffunction>
 
+	
+	<!--- 
+	function name			 :	getOrder
+	description				 :	this function retrieves and returns the customers orders.
+	arguments description	 :	no arguments.
+	return type 		  	 :	query
+	--->
+	<cffunction name = "getOrder" returnType = "query" hint = "returns the Orders of current user">
+		<cfquery name = "getOrder"  >
+			SELECT * FROM dbo.Orders WHERE PhoneNumber = <cfqueryparam value = #SESSION.userPhoneNumber# cfsqltype = "cf_sql_varchar">
+		</cfquery>
+		<cfreturn getOrder>
+	</cffunction>
+	
+	
+	<!--- 
+	function name			 :	getOrderDetails
+	description				 :	this function retrieves and returns the customers orders details.
+	arguments description	 :	no arguments.
+	return type 		  	 :	query
+	--->
+	<cffunction name = "getOrderDetails" returnType = "query" hint = "returns the OrdersDetails of current user">
+		<cfargument name = "orderId" type = "numeric">
+		<cfquery name = "getOrderDetails"  >
+			SELECT * FROM dbo.OrderItem WHERE Orderid = <cfqueryparam value = #ARGUMENTS.orderId# cfsqltype = "cf_sql_numeric">
+		</cfquery>
+		<cfreturn getOrderDetails>
+	</cffunction>
+	
+	
+	
+	
+	<!--- 
+	function name			 :	getProductDetails
+	description				 :	this function retrieves the product Details.
+	arguments description	 :	productId.
+	return type 		  	 :	query
+	--->
+	<cffunction name = "getProductDetails" returnType = "query" hint = "returns the Orders of current user">
+		<cfargument name = "productId" type = "numeric">
+		<cfquery name = "getProductDetails"  >
+			SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.productId# cfsqltype = "cf_sql_numeric">
+		</cfquery>
+		<cfreturn getProductDetails>
+	</cffunction>
+	
+	
+	
+	
 </cfcomponent>

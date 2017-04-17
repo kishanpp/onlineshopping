@@ -4,6 +4,7 @@ $(document).ready(function()
 	$(".hint").css("display","none");
 	$("#ccnumber, #holdername, #expdate, #cvv").attr("disabled","disabled");
 	$("#savebtn").css("display","none");
+	$(".myOrders").css("margin","0px 0px 0px 47%");
 		
 	$("#ccnumber").keyup(function() {
 		$("#ccnumber").val(this.value.match(/[0-9]*/));

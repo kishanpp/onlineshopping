@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var productid=0;
+	var productid = 0;
 
 	$('#navLogin').click(function()
 							{
@@ -15,12 +15,11 @@ $(document).ready(function() {
 	
 	$('#navRegister').click(function()
 							{
-								
-									document.getElementsByClassName("dropdownregister")[0].style.display="inline";	
-									document.getElementsByClassName("login-header")[0].style.display="none";
-									document.getElementsByClassName("dropdownregister")[0].style.margin.left="38%";
-									$("#navRegister").css("margin-left","16%");
-									$(".dropdownregister form").css("margin-left","16%");
+								document.getElementsByClassName("dropdownregister")[0].style.display="inline";	
+								document.getElementsByClassName("login-header")[0].style.display="none";
+								document.getElementsByClassName("dropdownregister")[0].style.margin.left="38%";
+								$("#navRegister").css("margin-left","16%");
+								$(".dropdownregister form").css("margin-left","16%");
 							});
 	$('#navRegister').mouseout(function()
 							{
@@ -95,6 +94,7 @@ $(document).ready(function() {
 			if(e.which == 32) 
 			return false;
 	})
+	
 	$('#phonennumber').keydown(function( e ) {
 			if(e.which == 32) 
 			return false;
@@ -129,4 +129,10 @@ $(document).ready(function() {
 	$(".invalidUser").delay(2000).fadeOut();
 	
 	
+	
+	
+	
+	//password strength check//
+	$('#password').passwordStrength();
+
 })

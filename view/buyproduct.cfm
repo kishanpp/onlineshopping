@@ -31,29 +31,29 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				<h3>DELIVERY ADDRESS</h3>
 				<div class = "address-row">
 					<span name = "name" class = "col-xs-6 form-lbl">NAME</span>
-					<cfinput type = "text" id = "name" name = "name" required>
+					<cfinput type = "text" id = "name" name = "name" >
 				</div>
 				<div class = "address-row">
 					<span name = "add" class = "col-xs-6 form-lbl">ADDRESS</span>
-					<cfinput name = "add" type = "text" id = "add" required>
+					<cfinput name = "add" type = "text" id = "add" >
 				</div>
 				<div class = "address-row">
 					<span name = "city" class = "col-xs-6 form-lbl">CITY</span>
-					<cfinput type = "text" name = "city" id = "city" required>
+					<cfinput type = "text" name = "city" id = "city" >
 				</div>
 				<div class = "address-row">
 					<span name = "state" class = "col-xs-6 form-lbl">STATE</span>
-					<cfinput type = "text" name = "state" id = "state" required>
+					<cfinput type = "text" name = "state" id = "state" >
 				</div>
 				<div class = "address-row">
 					<span name = "zip" class = "col-xs-6 form-lbl">PIN</span>
-					<cfinput type = "text" name = "zip" id = "zip"    maxlength = "6" required>
+					<cfinput type = "text" name = "zip" id = "zip"  title = "must be of 8 digits"  maxlength = "6" > *must be of 8 digits
 				</div>
 				<button type = "submit" name = "address" class = "btn btn-info btn-lg">
 					<span class = "glyphicon glyphicon-home"></span> SAVE ADDRESS
 				</button>
 				<button type = "submit" name = "updateaddress" class = "btn btn-info btn-lg">
-					<span class = "glyphicon glyphicon-home"></span> UPDATE ADDRESS
+					<span class = "glyphicon glyphicon-home"></span> SAVE & CONTINUE
 				</button>
 			</cfform>
 			</cfoutput>

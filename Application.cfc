@@ -41,8 +41,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	 
 	 
 	<!--- 
-	function name			 :	onSessionStart
-	description				 :	this function executes on start of a session.
+	function name			 :	onMissingTemplate
+	description				 :	this function executes on access of invalid template.
 	arguments description	 :	no arguments.
 	return type 		  	 :	void
 	--->

@@ -1,6 +1,9 @@
 $(document).ready(function() {
 	$("button[name=address]").css("display","none");
 	$("button[name=updateaddress]").css("display","none");
+	$("#name, #add, #city, #state, #zip").attr("required","required");
+	$(".myOrders").css("margin","0px 0px 0px 47%");
+	
 
 	$.ajax({
 				type:"GET",
@@ -37,19 +40,10 @@ $(document).ready(function() {
 				
 	$("#zip").keyup(function() {
 		$("#zip").val(this.value.match(/[0-9]*/));
-		if(this.value.length != 6){
-			$("button").attr("disabled","true");
-		}
-		else{
-			$("button").removeAttr("disabled");
-		}
+		
 	});
 
-	$("#zip").focusout(function(){
-		if(this.value.length != 6){
-			alert("Pin code should be minimum 6 digits");
-		}
-	});
+	$("#zip").attr("pattern",".{6,6}");
 
 
 	$(".navbar-inverse").hide();

@@ -1,0 +1,80 @@
+.Orders
+{
+	
+	margin : 5px 20px 5px 20px ;
+	border-radius : 10px;
+	border : 1px solid #c4a6a6;
+	background-color : white;
+}
+.orderid
+{
+	margin : 1% 0% 14px 3% ;
+	background-color : c4c4c4;
+	padding : 8px 15px 8px 15px ;
+	display : inline-block;
+	
+}
+.orderidarea
+{
+	background-color : #e6e6e6;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+	border-bottom: 1px solid #c4a6a6;
+	
+}
+.ordertotal
+{
+	margin : 0% 0% 0% 80% ;
+	display : inline-block;
+}
+.orderDetails
+{
+	background-color : white;
+	padding : 1% 1% 0% 1% ;
+	display : inline;
+}
+.productdetails
+{
+	display : inline-block;
+	width : auto;
+	
+	height : 14%;
+	width : 39%;
+	margin : 0% 0% 1% 0% ;
+}
+.productimagearea
+{
+	width : 10%;
+    height : 20%;
+	display : inline-block;
+	margin : 1% 0% 0% 0% ;
+}
+.productimagearea>img
+{
+	width : 41%;
+	
+}
+.orderdate
+{
+	margin : 0% -15% 0% 3% ;
+	
+}
+.textdesign
+{
+	color : grey;
+}
+.footerdetails
+{
+	width : 100%;
+	background-color : white;
+	display: inline-flex;
+	padding : 1% 0% 1% 0% ;
+	border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+	border-top: 1px solid #c4a6a6;
+	margin : -3% 0% 0% 0% ;
+}
+.productprice
+{
+	margin : 0% 0% 0% 50% ;
+}
