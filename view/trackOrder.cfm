@@ -6,15 +6,14 @@ date created 	: Friday, ?03 ?March, ?2017, ??2:10:49 PM
 --->
 
 <html lang = "en-US">
-	<head>
+	<head>		
 		<link rel = "stylesheet"  href = "../assets/css/trackOrder.css"> 
 	</head>
 	<body>
+		<div class="se-pre-con"></div>
 		<cfinclude template = "headertemplate.cfm">
 		<cfset controllerObject = CreateObject("component","controller.trackordercontroller") />
-		
-		
-		
+				
 		<cfset VARIABLES.getOrders = controllerObject.getOrder()>
 		<cfoutput>
 		<cfif VARIABLES.getOrders.recordCount NEQ 0>
@@ -36,8 +35,15 @@ date created 	: Friday, ?03 ?March, ?2017, ??2:10:49 PM
 							</div>
 							<div class = "productdetails">								
 								<span class = "productprice">&##8377 #VARIABLES.getOrderDetails.ProductSubCategoryPrice#</span>
+								<br />
+								<cfif ( ( #DateFormat(Now())# ) - ( #DateFormat(VARIABLES.getOrders.OrderDate)# ) ) GTE 7 > 
+									<span class = "deliverydetails">Your item has been delivered</span>
+								<cfelse>
+									<span class = "deliverydetails">Your item has been shipped and will be delivered within 5-6 working days</span>
+								</cfif>
 							</div>
-						</div><hr />
+						</div>
+						<hr />
 					</cfloop>
 					<div class = "footerdetails">
 						<div class = "orderdate"><span class = "textdesign">Order On</span>  #DateFormat(VARIABLES.getOrders.OrderDate)#</div>
@@ -51,6 +57,8 @@ date created 	: Friday, ?03 ?March, ?2017, ??2:10:49 PM
 			</div>
 		</cfif>
 		</cfoutput>
+		<cfinclude template="footer.cfm">
 	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 	<script src = "../assets/js/trackOrder.js"></script>
 </html>

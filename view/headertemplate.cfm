@@ -15,7 +15,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 	<script src = "https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 	<script src = "https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>  
 	<script src = "../assets/js/passwordStrength.js"></script>
@@ -23,10 +23,10 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 	<link rel = "shortcut icon" href = "../assets/css/favicon.ico" type = "image/x-icon">
 	<link href = "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel = "stylesheet">
-	<link href = "../assets/css/animate.css" rel = "stylesheet">
 	<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel = "stylesheet" href = "https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
 	<link rel = "stylesheet" href = "../assets/css/headertemplate.css">
+	<link href = "../assets/css/animate.css" rel = "stylesheet">
 </head>
 <body>
 	<cfset controllerObject = CreateObject("component","controller.headertemplatecontroller") />
@@ -53,7 +53,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				<div id = "searchbox">
 					<cfform >
 						<cfinput id = "search"  type = "text" name = "artname" placeholder = "Phones,PowerBanks,Cases,Cameras and more" autosuggest = "cfc:model/components.productname({cfautosuggestvalue})">
-						<button id = "submit" type = "submit"  name = "submit" >SEARCH</button>
+						<button id = "submit" type = "submit"  name = "submit" >
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
 					</cfform>					
 				</div>
 				</cfoutput>	
@@ -104,7 +106,10 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 							</div>		
 							<div class = "dropdownlogin" >
 								<cfform> 
-									<cfinput name = "phonenumber" id = "loginphonenumber" maxlength = "10" type = "text" title = "phone number must be of 10 digits" placeholder = "Phonenumber" > 
+									<div class = "input-group">
+										<span class = "input-group-addon" id = "basic-addon1">+91</span>
+										<cfinput name = "phonenumber" class = "form-control" id = "loginphonenumber" maxlength = "10" type = "text" title = "phone number must be of 10 digits" placeholder = "Phonenumber" > 
+									</div>
 									<cfinput name = "password" id = "loginpassword" type = "password" placeholder = "**************" ><br>
 									<cfinput name = "loginbtn" type = "submit" id = "btnLogin" class = "btn" value = "Login"  >
 								</cfform>	
@@ -114,11 +119,14 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 							<div class = "login-header">
 								<a  href = "#" id = "navRegister" >Register</a>
 							</div>
-							<div class = "dropdownregister" >
+							<div class = "dropdownregister" >	
 								<cfform > 
 									<cfinput name = "username" id = "username" type = "text" placeholder = "Username" maxlength = "20" > 
 									<cfinput name = "password" id = "password" type = "password" placeholder = "**************" >
-									<cfinput name = "phonenumber" id = "phonennumber" type = "text" maxlength = "10" title = "phone number must be of 10 digits" placeholder = "PhoneNumber" ><br>
+									<div class = "input-group">
+										<span class = "input-group-addon" id = "basic-addon1">+91</span>
+										<cfinput name = "phonenumber" class = "form-control" id = "phonennumber" type = "text" maxlength = "10" title = "phone number must be of 10 digits" placeholder = "PhoneNumber" ><br>
+									</div>
 									<cfinput type = "submit" id = "btnRegister" class = "btn" name = "registerbtn" value = "Register"><br />
 								</cfform>
 							</div>

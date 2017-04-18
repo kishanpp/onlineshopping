@@ -1,7 +1,7 @@
 .additem
 {
 	margin : -1% 0% 0% 20% ;
-	display : inline-block;
+	display : inline-table;
 	height: 40%;
 }
 .inputdata
@@ -62,13 +62,13 @@ body
     background-position: left bottom;
 }
 #pimg{
-	margin : -4% 0% 2% 61% ;
+	margin : -38px 0% 0% 61%;
 }
 
 .updatesuccesfully
 {
 	position: fixed;
-    margin: 37% 0% 0% 75%;
+    margin: 35% 0% 0% 77%;
     color: coral;
     background-attachment: fixed;
 	font-weight: 800;

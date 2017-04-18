@@ -9,11 +9,11 @@
 	border-radius : 8px;
 	background-image: linear-gradient(to right,rgb(255, 255, 255) 0,rgba(131, 246, 234, 0.03) 75%);
 }
-.product-area>img
+.product-area>.images>img
 {
-	width : 15%;
-	height : auto;
-	margin : 0% 10% 0% 3% ;
+	width : 45%;
+	height : 100%;
+	margin : 0% 10% 0% 27% ;
 }
 
 .product-area>img:hover
@@ -56,4 +56,25 @@
 	font-size:16px;
 	font-weight:300;
 	margin-left:10px;
+}
+.images
+{
+	width :35%;
+	height : 50%;
+	display : inline-block;
+}
+#add-to-cart
+{
+	position :absolute;
+	margin : -60px 0px 0px 184px ;
+	width : 13%;
+}
+.images>form>button
+{
+	width : 49%;
+	margin : 26px 0px 0px 3px ;
+}
+.zoomWindowContainer>div
+{
+	margin-left : 60%;
 }

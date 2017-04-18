@@ -40,11 +40,11 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				<div class = "inputdata">
 					<label for = "pqty">Product Quantity</label>
 				</div>
-				<cfinput type = "text" name = "pqty" id="pqty" placeholder = "Enter Product Quantity">
+				<cfinput type = "text" name = "pqty" id = "pqty" maxlength = "3" placeholder = "Enter Product Quantity">
 				<div class = "inputdata">
 					<label for = "pprice">Product Price</label>
 				</div>
-				<cfinput type = "text" name="pprice" id = "pprice" placeholder = "Enter Product Price">
+				<cfinput type = "text" name = "pprice" id = "pprice" maxlength = "5" placeholder = "Enter Product Price">
 				<div class = "inputdata">
 					<label for = "pimg">Product Image</label>
 				</div>
@@ -56,7 +56,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				<div class = "inputdata">
 					<label for = "pdesc">Product Description</label>
 				</div>
-				<cftextarea name = "pdesc" id = "desc" placeholder = "Enter Product Description" />
+				<cftextarea name = "pdesc" id = "desc" rows = "5" placeholder = "Enter Product Description" />
 				<div class = "submit">
 					<cfinput type = "submit" name = "additem" id = "additem" value = "Add To Database">
 				</div>

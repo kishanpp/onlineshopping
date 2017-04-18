@@ -7,13 +7,14 @@ $(document).ready(function() {
 		$.ajax({
 					type:"GET",
 					url: "../model/components.cfc?method=updatecart&ReturnFormat=json",
-					data: {value : $("#added").text()},
+					data: {productId : $("#productId").text()},
 					cache:false,
 					success : function(response)
 						{
-							$("#add-to-cart").delay(0).fadeOut();
+							//$("#add-to-cart").delay(0).fadeOut();
 							document.getElementById("added").innerHTML = "ADDED TO CART";
-							$("#added").delay(400).fadeIn();
+							$("#added").delay().fadeIn();
+							$("#added").delay(400).fadeOut();
 							document.getElementsByClassName("cart-item")[0].innerHTML = response;
 						}
 			}).fail(function(jqXHR , textStatus )

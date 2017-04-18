@@ -11,6 +11,19 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 
 	<!--- 
+	function name			 :	removefromcart
+	description				 :	this function calls removefromcart function in model to remove product from cart.
+	arguments description	 :	productId.
+	return type 		  	 :	any
+	--->
+	<cffunction name = "removefromcart" returnType = "any" access = "remote">
+		<cfargument name = "productId" type = "numeric" required = "true">
+		<cfreturn modelComponentObject.removefromcart(productId = #ARGUMENTS.productId#)>
+	</cffunction>
+	
+	
+
+	<!--- 
 	function name			 :	getcartdataid
 	description				 :	this function calls getcartdataid function in model.
 	arguments description	 :	no arguments.

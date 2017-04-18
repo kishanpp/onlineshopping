@@ -470,7 +470,7 @@ if ( typeof Object.create !== 'function' ) {
 
 
 
-//				var delta = parseInt(e.originalEvent.wheelDelta || -e.originalEvent.detail);
+				//var delta = parseInt(e.originalEvent.wheelDelta || -e.originalEvent.detail);
 
 				//      $(this).empty();    
 				//    return false;
@@ -494,8 +494,8 @@ if ( typeof Object.create !== 'function' ) {
 					self.zoomContainer.add(self.$elem).bind('mousewheel DOMMouseScroll MozMousePixelScroll', function(e){
 
 
-//						in IE there is issue with firing of mouseleave - So check whether still scrolling
-//						and on mouseleave check if scrolllock          
+						//in IE there is issue with firing of mouseleave - So check whether still scrolling
+						//and on mouseleave check if scrolllock          
 						self.scrollLock = true;
 						clearTimeout($.data(this, 'timer'));
 						$.data(this, 'timer', setTimeout(function() {
@@ -1737,14 +1737,14 @@ if ( typeof Object.create !== 'function' ) {
       zoomEnabled: true, //false disables zoomwindow from showing
 			preloading: 1, //by default, load all the images, if 0, then only load images after activated (PLACEHOLDER FOR NEXT VERSION)
 			zoomLevel: 1, //default zoom level of image
-			scrollZoom: false, //allow zoom on mousewheel, true to activate
+			scrollZoom: true, //allow zoom on mousewheel, true to activate
 			scrollZoomIncrement: 0.1,  //steps of the scrollzoom
 			minZoomLevel: false,
 			maxZoomLevel: false,
-			easing: false,
+			easing: true,
 			easingAmount: 12,
-			lensSize: 200,
-			zoomWindowWidth: 400,
+			lensSize: 100,
+			zoomWindowWidth: 680,
 			zoomWindowHeight: 360,
 			zoomWindowOffetx: 0,
 			zoomWindowOffety: 0,
@@ -1758,7 +1758,7 @@ if ( typeof Object.create !== 'function' ) {
 			zoomWindowAlwaysShow: false,
 			zoomTintFadeIn: false,
 			zoomTintFadeOut: false,
-			borderSize: 4,
+			borderSize: 3,
 			showLens: true,
 			borderColour: "#888",
 			lensBorderSize: 1,

@@ -35,9 +35,9 @@ $(document).ready(function() {
 
 
 	$("#ptype").on('change',function(){
-	$("#ptypereq").css("display","none");
-	$("#additem").delay(0).fadeIn();
-	})
+										$("#ptypereq").css("display","none");
+										$("#additem").delay(0).fadeIn();
+									})
 	
 	/*	
 	$("#additem").click(function(){

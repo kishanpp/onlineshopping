@@ -21,7 +21,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	void
 	--->
-	<cffunction name = "onApplicationStart" returnType = "void" hint="Executes when the application is first created.">
+	<cffunction name = "onApplicationStart" access = "public" returnType = "void" hint = "Executes when the application is first created.">
 		<cfset Application.currentUsers = "" />
 	</cffunction>
 	 
@@ -32,7 +32,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	arguments description	 :	no arguments.
 	return type 		  	 :	void
 	--->
-	<cffunction name = "onSessionStart" returnType = "void" hint = "Executes when session is started">
+	<cffunction name = "onSessionStart" access = "public" returnType = "void" hint = "Executes when session is started">
 		<cfset SESSION.isLogged = false />
 		<cfset SESSION.CurrentTransaction = false />
 		<cfset SESSION.userPhoneNumber = "" >	
@@ -58,13 +58,13 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								EventName - name of the event.
 	return type 		  	 :	void
 	--->
-	<cffunction name = "onError" returnType = "void" hint = "Executes when there is some database error">
+	<cffunction name = "onError" access = "public" returnType = "void" hint = "Executes when there is some database error">
 		<cfargument name = "Exception" required = true/>
 		<cfargument name = "eventName" type = "String" required = true/>
-		<cfif ARGUMENTS.Exception IS "database">
-		  <cfinclude template = "../view/databaseErrorTemplate.cfm">
+		<cfif ARGUMENTS.Exception.type IS "database">
+		  <cflocation url = "../view/databaseErrorTemplate.cfm" >
 		</cfif>
-		<cflog file = "onlineShoppingErrorLog" type = "error" text = "Event Name: #ARGUMENTS.eventName# ||	Message: #ARGUMENTS.Exception.message# || MessageDetails: #ARGUMENTS.Exception.detail# || Template: #arguments.exception.tagContext[1].template# || Line: #arguments.exception.tagContext[1].line# || Raw Trace: #arguments.exception.tagContext[1].raw_trace# ">
+		<cflog file = "onlineShoppingErrorLog" type = "error" application = "yes" text = "Event Name: #ARGUMENTS.eventName# ||	Message: #ARGUMENTS.Exception.message# || MessageDetails: #ARGUMENTS.Exception.detail# || Template: #arguments.exception.tagContext[1].template# || Line: #arguments.exception.tagContext[1].line# || Raw Trace: #arguments.exception.tagContext[1].raw_trace# ">
 	</cffunction>
 	
 	<!--- 
@@ -74,7 +74,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								ApplicationScope - provides scope of application variable.
 	return type 		  	 :	void
 	--->
-	<cffunction name = "onSessionEnd"  returnType = "void" hint = "Executes when session is timeout">
+	<cffunction name = "onSessionEnd" access = "public" returnType = "void" hint = "Executes when session is timeout">
 		<cfargument name = "SessionScope" required = "true" >
 		<cfargument name = "ApplicationScope" required = "true">
 		<cfset ApplicationScope.currentUsers = listDeleteAt(ApplicationScope.currentUsers,listFind(ApplicationScope.currentUsers,#SessionScope.userPhoneNumber#) )>

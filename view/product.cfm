@@ -22,36 +22,45 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			<cfif IsDefined("URL.id") AND IsNumeric(#URL.id#)>
 				<cfset getproducts = controllerObject.getproducts(id = "#URL.id#") >
 				<cfif getproducts.recordCount GT 0>
-					<cfset newvar1 = controllerObject.getdatabyid(productId = "#URL.id#") />
-					<cfset newvar2 = controllerObject.getproductqty(productId = "#URL.id#") />
-					<img src = "data:image/jpg;base64,#toBase64(newvar1.Photo)#"   />
-					<div class = "info-area">	
-						<h3 class = "product-name">#newvar1.ProductSubCategoryName#</h3> <hr />
-						<cfif #newvar1.ProductDiscount# EQ 0>
-							<span style = "font-size: 28px;	font-weight:500;">&##8377 #newvar1.ProductSubCategoryPrice#</span>
-						<cfelse>
-							<cfset discountedvalue = #newvar1.ProductSubCategoryPrice#  - ((#newvar1.ProductDiscount#)/100)*#newvar1.ProductSubCategoryPrice#>
-							<span class = "discounted-price">&##8377 #discountedvalue#</span>
-							<span class = "product-price">&##8377 #newvar1.ProductSubCategoryPrice#</span>
-							<span class = "discount"> #newvar1.ProductDiscount#% off</span>
-						</cfif>
-						<h5 class = "product-description">#newvar1.ProductDescription#</h5>
-						<h6 class = "product-replacement">Returns: 14 days money back or replacement</h6>
-						<h6 class = "product-replacement">Guarantee: Get the item you ordered or get your money back.
-												Covers your purchase price and original shipping.
-						</h6>
+					<cfset VARIABLES.getProductDetails = controllerObject.getdatabyid(productId = "#URL.id#") />
+					<cfset VARIABLES.productQuantity = controllerObject.getproductqty(productId = "#URL.id#") />
+					<div class = "images">
+						<img src = "data:image/jpg;base64,#toBase64(VARIABLES.getProductDetails.Photo)#"   />
 						<cfif SESSION.isLogged EQ true>	
-							<cfif #newvar1.ProductSubCategoryQty# GT 0>
-								<cfif #newvar2# EQ TRUE>
+							<cfif #VARIABLES.getProductDetails.ProductSubCategoryQty# GT 0>
+								<cfif #VARIABLES.productQuantity# EQ TRUE>
 									<cfform action = "buyproduct.cfm?id=#URL.id#">
 										<button class = "btn btn-info btn-lg" name = "buy-product">
 											&##8377 BUY NOW
 										</button>
 									</cfform>
 									<button class = "btn btn-info btn-lg " id = "add-to-cart" name = "add-to-cart" style = "display:block;">
-										&##8377 ADD TO CART
+										<span class = "glyphicon glyphicon-shopping-cart"> </span> ADD TO CART
 									</button>
-									<span id = "added" style = "display:none;">#URL.id#</span>
+								</cfif>
+							</cfif>
+						</cfif>
+					</div>
+					<div class = "info-area">	
+						<h3 class = "product-name">#VARIABLES.getProductDetails.ProductSubCategoryName#</h3> <hr />
+						<cfif #VARIABLES.getProductDetails.ProductDiscount# EQ 0>
+							<span style = "font-size: 28px;	font-weight:500;">&##8377 #VARIABLES.getProductDetails.ProductSubCategoryPrice#</span>
+						<cfelse>
+							<cfset discountedvalue = #VARIABLES.getProductDetails.ProductSubCategoryPrice#  - ((#VARIABLES.getProductDetails.ProductDiscount#)/100)*#VARIABLES.getProductDetails.ProductSubCategoryPrice#>
+							<span class = "discounted-price">&##8377 #discountedvalue#</span>
+							<span class = "product-price">&##8377 #VARIABLES.getProductDetails.ProductSubCategoryPrice#</span>
+							<span class = "discount"> #VARIABLES.getProductDetails.ProductDiscount#% off</span>
+						</cfif>
+						<h5 class = "product-description">#VARIABLES.getProductDetails.ProductDescription#</h5>
+						<h6 class = "product-replacement">Returns: 14 days money back or replacement</h6>
+						<h6 class = "product-replacement">Guarantee: Get the item you ordered or get your money back.
+												Covers your purchase price and original shipping.
+						</h6>
+						<cfif SESSION.isLogged EQ true>	
+							<cfif #VARIABLES.getProductDetails.ProductSubCategoryQty# GT 0>
+								<cfif #VARIABLES.productQuantity# EQ TRUE>
+									<span id = "added" style = "display:none;"></span>
+									<span id = "productId" style = "display:none;">#URL.id#</span>
 								<cfelse>
 									<span>*You can't add more in Cart</span>
 								</cfif>

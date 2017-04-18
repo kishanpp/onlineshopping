@@ -5,13 +5,13 @@ $(document).ready(function() {
 		var element = $(this).parent(); 
 		$.ajax({
 					type:"GET",
-					url: "../model/components.cfc?method=removefromcart&ReturnFormat=json",
-					data: {value : $(this).parent().find("#id").val()},
+					url: "../controller/cartpagecontroller.cfc?method=removefromcart&ReturnFormat=json",
+					data: {productId : $(this).parent().find("#id").val()},
 					cache:false,
 					success : function(response)
 								{
 									element.remove();
-									var x= $.parseJSON(response);
+									var x = $.parseJSON(response);
 									$.each(x,function(k,v){
 															if(k == "TOTALAMOUNT")
 															{
