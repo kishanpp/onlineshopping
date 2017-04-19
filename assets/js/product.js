@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-	$(".product-area img").elevateZoom();
+	$(".product-area .images img").elevateZoom();
 	$('button[name="add-to-cart"]').on("click",function()
 	{
 		
@@ -23,5 +23,24 @@ $(document).ready(function() {
 				}); 
 			
 	});
- 
+	//price format for discounted value and without discounted value
+	var pricevalue = $(".discounted-price").text();
+	pricevalue = pricevalue.toString();
+	var lastThree = pricevalue.substring(pricevalue.length-3);
+	var otherNumbers = pricevalue.substring(0,pricevalue.length-3);
+	if(otherNumbers != '')
+		lastThree = ',' + lastThree;
+	var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+	$(".discounted-price").text(res);
+	
+	//price format for original price
+	var pricevalue = $(".product-price").text();
+	pricevalue = pricevalue.toString();
+	var lastThree = pricevalue.substring(pricevalue.length-3);
+	var otherNumbers = pricevalue.substring(0,pricevalue.length-3);
+	if(otherNumbers != '')
+		lastThree = ',' + lastThree;
+	var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+	$(".product-price").text(res);
+
 })

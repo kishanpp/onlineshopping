@@ -44,10 +44,10 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<div class = "info-area">	
 						<h3 class = "product-name">#VARIABLES.getProductDetails.ProductSubCategoryName#</h3> <hr />
 						<cfif #VARIABLES.getProductDetails.ProductDiscount# EQ 0>
-							<span style = "font-size: 28px;	font-weight:500;">&##8377 #VARIABLES.getProductDetails.ProductSubCategoryPrice#</span>
+							<span class = "discounted-price" >&##8377 #VARIABLES.getProductDetails.ProductSubCategoryPrice#</span>
 						<cfelse>
-							<cfset discountedvalue = #VARIABLES.getProductDetails.ProductSubCategoryPrice#  - ((#VARIABLES.getProductDetails.ProductDiscount#)/100)*#VARIABLES.getProductDetails.ProductSubCategoryPrice#>
-							<span class = "discounted-price">&##8377 #discountedvalue#</span>
+							<cfset discountedvalue = round (#VARIABLES.getProductDetails.ProductSubCategoryPrice#  - ((#VARIABLES.getProductDetails.ProductDiscount#)/100)*#VARIABLES.getProductDetails.ProductSubCategoryPrice# )>
+							<span class = "discounted-price-symbol">&##8377<span class = "discounted-price">#discountedvalue#</span></span>
 							<span class = "product-price">&##8377 #VARIABLES.getProductDetails.ProductSubCategoryPrice#</span>
 							<span class = "discount"> #VARIABLES.getProductDetails.ProductDiscount#% off</span>
 						</cfif>
@@ -72,10 +72,22 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 						</cfif>
 					</div>
 				<cfelse>
-					<div class = "info-area">Invalid Product</div>
+					<div class = "info-area" style = "border-left : none;margin : 0% 2% 9% 15%;">
+						<img src = "../assets/images/error-no-search-results.png">
+						<span class = "invalidproduct">
+							Sorry, no results found!
+							<p>Please check the spelling or try searching for something else</p>
+						</span>
+					</div>
 				</cfif>
 			<cfelse>
-				<div class = "info-area">Invalid Product</div>
+				<div class = "info-area" style = "border-left : none;margin : 0% 2% 9% 15%;">
+					<img src = "../assets/images/error-no-search-results.png">
+						<span class = "invalidproduct">
+							Sorry, no results found!
+							<p>Please check the spelling or try searching for something else</p>
+						</span>
+				</div>
 			</cfif>
 		</cfoutput>
 	</div>

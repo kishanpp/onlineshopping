@@ -23,9 +23,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				<cfform action = "final.cfm" method = "post">
 					<h3>PAYMENT DETAILS</h3>
 					<div class = "payment-row">
-						<cfselect name = "paytype" id="paytype" onChange = "disabletextboxes()">
+						<cfselect name = "paytype" id = "paytype" onChange = "disabletextboxes()">
 							<option value = "" selected disabled >Select Pay type</option>	
-							<option value= "cod">Cash On Delivery</option>	
+							<option value = "cod">Cash On Delivery</option>	
 							<option value = "cc">Credit Card</option>	
 						</cfselect>
 					</div>

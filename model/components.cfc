@@ -291,25 +291,28 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	function name			 :	addorder
 	description				 :	this function adds new order to the order table, and also to order details table .
 	arguments description	 :	id - id of the product sub category.
-								date - current date / order date.
+								date - current date / order date
+								paytype - type of payment done.
 	return type 		  	 :	void
 	--->
 	<cffunction name = "addorder" output = "true" returntype = "void" access = "public" hint = "adds the new order">
 		<cfargument name = "id" type = "numeric" required = "true">
 		<cfargument name = "date" type = "date" required = "true"> 
+		<cfargument name = "paytype" type = "string" required = "true">
 		
 		<cfquery name = "productSubCategoryDetails" >
 			SELECT * FROM dbo.ProductSubCategory WHERE InventorySubCategoryId = <cfqueryparam value = #ARGUMENTS.id# cfsqltype = "cf_sql_numeric">
 		</cfquery> 
-		<cfset LOCAL.discountedvalue = #productSubCategoryDetails.ProductSubCategoryPrice#  - ((#productSubCategoryDetails.ProductDiscount#)/100)*#productSubCategoryDetails.ProductSubCategoryPrice#>
+		<cfset LOCAL.discountedvalue = round(#productSubCategoryDetails.ProductSubCategoryPrice#  - ((#productSubCategoryDetails.ProductDiscount#)/100)*#productSubCategoryDetails.ProductSubCategoryPrice#)>
 		<cfquery>   
 			INSERT INTO dbo.Orders
-			(OrderDate,TotalAmount,State,PhoneNumber)
+			(OrderDate,TotalAmount,State,PhoneNumber,PaymentType)
 			VALUES 
 			(	<cfqueryparam value = '#ARGUMENTS.date#' cfsqltype = "cf_sql_varchar">,
 				<cfqueryparam value = #LOCAL.discountedvalue# cfsqltype = "cf_sql_numeric">,
-				'OrderPlaced',
-				<cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
+				<cfqueryparam value = 'OrderPlaced' cfsqltype = "cf_sql_varchar">,
+				<cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">,
+				<cfqueryparam value = '#ARGUMENTS.paytype#' cfsqltype = "cf_sql_varchar">
 			)
 		</cfquery>	
 		<cfquery name = "orderDetails" >
@@ -616,11 +619,13 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<!--- 
 	function name			 :	buyallfromcart
 	description				 :	this function insert new order to order table when purchased from cart and returns quantity of products in cart.
-	arguments description	 :	date - current data / order date.
+	arguments description	 :	date - current data / order date
+								paytype - type of payment done.
 	return type 		  	 :	numeric
 	--->
 	<cffunction name = "buyallfromcart" output = "true" returntype = "numeric" access = "remote" hint = "adds new order details on cart purchase ">
 		<cfargument name = "date" type = "date" required = "true"> 
+		<cfargument name = "paytype" type = "string" required = "true">
 		
 		<cfquery name = "productSubCategoryDetails" >
 			SELECT * FROM dbo.ProductSubCategory
@@ -634,16 +639,17 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<cfif #productSubCategoryDetails.ProductDiscount# EQ 0>
 						<cfset LOCAL.total = #LOCAL.total# + #productSubCategoryDetails.ProductSubCategoryPrice#>
 					<cfelse>
-						<cfset LOCAL.discountedvalue = #productSubCategoryDetails.ProductSubCategoryPrice#  - ((#productSubCategoryDetails.ProductDiscount#)/100)*#productSubCategoryDetails.ProductSubCategoryPrice#>
+						<cfset LOCAL.discountedvalue = round ( #productSubCategoryDetails.ProductSubCategoryPrice#  - ((#productSubCategoryDetails.ProductDiscount#)/100)*#productSubCategoryDetails.ProductSubCategoryPrice# )>
 						<cfset LOCAL.total = #LOCAL.total# + #LOCAL.discountedvalue#>
 					</cfif>	
 				</cfloop>
 			</cfloop>
 		<cfquery>
-			INSERT INTO dbo.Orders (OrderDate,TotalAmount,State,PhoneNumber) VALUES(<cfqueryparam value = '#ARGUMENTS.date#' cfsqltype = "cf_sql_date">,
+			INSERT INTO dbo.Orders (OrderDate,TotalAmount,State,PhoneNumber,PaymentType) VALUES(<cfqueryparam value = '#ARGUMENTS.date#' cfsqltype = "cf_sql_date">,
 																					<cfqueryparam value = #LOCAL.total# cfsqltype = "cf_sql_numeric">,
-																					'OrderPlaced',
-																					<cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">
+																					<cfqueryparam value = 'OrderPlaced' cfsqltype = "cf_sql_varchar">,
+																					<cfqueryparam value = '#SESSION.userPhoneNumber#' cfsqltype = "cf_sql_varchar">,
+																					<cfqueryparam value = '#ARGUMENTS.paytype#' cfsqltype = "cf_sql_varchar">
 																				)
 		</cfquery>
 		<cfquery name = "OrderDetails" >

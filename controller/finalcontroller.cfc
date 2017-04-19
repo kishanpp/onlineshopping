@@ -14,12 +14,19 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<!--- 
 	function name			 :	buyallfromcart
 	description				 :	this function calls buyallfromcart function in model.
-	arguments description	 :	date - current date / order date.
+	arguments description	 :	date - current date / order date
+								paytype - type of payment done.
 	return type 		  	 :	numeric
 	--->
 	<cffunction name = "buyallfromcart" returnType = "numeric" access = "public">
 		<cfargument name = "date" type = "date" required = "true" >
-		<cfreturn modelComponentObject.buyallfromcart("#ARGUMENTS.date#")>
+		<cfargument name = "paytype" type = "string" required = "true" >
+		<cfif #ARGUMENTS.paytype# EQ "COD">
+			<cfset ARGUMENTS.paytype = "CashOnDelivery">
+		<cfelse>
+			<cfset ARGUMENTS.paytype = "CreditCard">
+		</cfif>
+		<cfreturn modelComponentObject.buyallfromcart(date = "#ARGUMENTS.date#",paytype = "#ARGUMENTS.paytype#")>
 	</cffunction>
 
 
@@ -27,13 +34,20 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	function name			 :	addorder
 	description				 :	this function calls addorder function in model.
 	arguments description	 :	id - product sub category id
-								date - current date / order date.
+								date - current date / order date
+								paytype - type of payment done.
 	return type 		  	 :	void
 	--->
 	<cffunction name = "addorder" returnType = "void" access = "public">
 		<cfargument name = "id" type = "numeric" required = "true" >
 		<cfargument name = "date" type = "date" required = "true" >
-		<cfset LOCAL.addorder = modelComponentObject.addorder(id = ARGUMENTS.id,date = "#ARGUMENTS.date#")>
+		<cfargument name = "paytype" type = "string" required = "true" >
+		<cfif #ARGUMENTS.paytype# EQ "COD">
+			<cfset ARGUMENTS.paytype = "CashOnDelivery">
+		<cfelse>
+			<cfset ARGUMENTS.paytype = "CreditCard">
+		</cfif>
+		<cfset LOCAL.addorder = modelComponentObject.addorder(id = ARGUMENTS.id,date = "#ARGUMENTS.date#",paytype = "#ARGUMENTS.paytype#")>
 	</cffunction>
 
 

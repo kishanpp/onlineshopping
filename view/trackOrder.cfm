@@ -36,6 +36,7 @@ date created 	: Friday, ?03 ?March, ?2017, ??2:10:49 PM
 							<div class = "productdetails">								
 								<span class = "productprice">&##8377 #VARIABLES.getOrderDetails.ProductSubCategoryPrice#</span>
 								<br />
+								<span class = "paymenttype"><span>Payment Mode</span> #VARIABLES.getOrders.PaymentType#</span>  <br/>
 								<cfif ( ( #DateFormat(Now())# ) - ( #DateFormat(VARIABLES.getOrders.OrderDate)# ) ) GTE 7 > 
 									<span class = "deliverydetails">Your item has been delivered</span>
 								<cfelse>

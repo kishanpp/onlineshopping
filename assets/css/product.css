@@ -40,7 +40,7 @@
 {
 	font-size:18px;
 }
-.product-price,.discounted-price
+.product-price,.discounted-price,.discounted-price-symbol
 {
 	font-size: 28px;
 	font-weight:500;
@@ -77,4 +77,23 @@
 .zoomWindowContainer>div
 {
 	margin-left : 60%;
+}
+.info-area>img
+{
+	height : 45%;
+	width : 70%;
+	margin : 0% 0% 0% 13% ;
+	background-image: linear-gradient(to right,rgb(255, 255, 255) 0,rgb(247, 254, 253) 75%);
+}
+.invalidproduct
+{
+	font-size: 22px;
+    font-weight: 500;
+	margin : 0% 0% 0% 30%; 
+}
+.invalidproduct>p
+{
+	color : grey;
+	font-size : 15px;
+	margin : 0% 0% 0% 15% ;
 }

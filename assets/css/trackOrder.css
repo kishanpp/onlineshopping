@@ -96,3 +96,13 @@
 	z-index: 9999;
 	background: url(/assets/images/Preloader_7.gif) center no-repeat #fff;
 }
+.paymenttype
+{
+	color : grey;
+	font-weight: 700;
+}
+.paymenttype>span
+{
+	color : black;
+	font-weight : 100;
+}

@@ -48,8 +48,8 @@ $(document).ready(function() {
 		});
 									
 	$("#submit").click(function(){
-		if($("#search").val().trim() == "")
-		alert("Enter product name");
+		if($("#search").val().trim() == "")			
+			return false;
 		else
 		{
 			
@@ -127,9 +127,6 @@ $(document).ready(function() {
 	});
 	
 	$(".invalidUser").delay(2000).fadeOut();
-	
-	
-	
 	
 	
 	//password strength check//

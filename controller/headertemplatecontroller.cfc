@@ -29,7 +29,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			</cfif>
 			<cfset SESSION.userPhoneNumber = #ARGUMENTS.phonenumber#>
 			<cfif listFindNoCase(APPLICATION.currentUsers, #ARGUMENTS.phonenumber#)> 
-				<cflocation url = "view/users.cfm">
+				<cflocation url = "view/users.cfm" addtoken = "false">
 			<cfelse>
 				<cfset APPLICATION.currentUsers = listAppend(APPLICATION.currentUsers, #ARGUMENTS.phonenumber#)>
 			</cfif>

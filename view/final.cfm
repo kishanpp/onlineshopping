@@ -21,12 +21,12 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfif structKeyExists(form, "payment")>
 			<cfif #SESSION.cartpurchase# EQ TRUE>
 				<cfset SESSION.cartpurchase = FALSE />
-				<cfset VARIABLES.buyFromCart = controllerObject.buyallfromcart(date = "#DateFormat(Now(),"mm/dd/yy")#") >
+				<cfset VARIABLES.buyFromCart = controllerObject.buyallfromcart(paytype = "#form.paytype#",date = "#DateFormat(Now(),"mm/dd/yy")#") >
 				<cfset SESSION.cartnumber = #VARIABLES.buyFromCart#>
 				<cflocation url = "final.cfm" addtoken = "false">
 			</cfif>
 			<cfif  SESSION.CurrentTransaction EQ true>
-				<cfset VARIABLES.addOrder = controllerObject.addorder(id = "#SESSION.id#",date = "#(DateFormat(Now(),"mm/dd/yy"))#")>
+				<cfset VARIABLES.addOrder = controllerObject.addorder(id = "#SESSION.id#",paytype = "#form.paytype#",date = "#(DateFormat(Now(),"mm/dd/yy"))#")>
 				<cfset SESSION.CurrentTransaction = false />
 			</cfif>
 			<cfif structKeyExists(form,"ccnumber")>
@@ -34,10 +34,11 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			</cfif>
 		</cfif>
 		<div class = "final-area">
-			<h3>TRANSACTION SUCCESSFULLY</h3>
+			<h3>TRANSACTION SUCCESSFULLY</h3> 
 			<div class = "details-area">
 				<cfset VARIABLES.totalAmount = controllerObject.gettotalamount() />
-				<span class = "totalamount">You purchased items worth Rs.<strong>#VARIABLES.totalAmount.TotalAmount#</strong></span>
+				<span class = "totalamount">You purchased items worth Rs.<strong>#VARIABLES.totalAmount.TotalAmount#</strong></span><br />
+				<span class = "paymenttype">Payment Type <b>#VARIABLES.totalAmount.PaymentType#</b></span>
 				<h4>You purchased Items </h4>
 				<cfset VARIABLES.getItems = controllerObject.getitems() />
 				<cfloop query = "VARIABLES.getItems">
