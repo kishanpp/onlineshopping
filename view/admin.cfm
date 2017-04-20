@@ -12,7 +12,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 <body>
 	<cfif SESSION.userPhoneNumber NEQ "">
 		<cfinclude template = "headertemplate.cfm">
-		<cfset SESSION.admin = FALSE />
+		<!--- <cfset SESSION.admin = FALSE /> --->
 		<div class = "dropdown">
 			<button class = "dropbtn">MENU</button>
 			<div class = "dropdown-content">

@@ -77,7 +77,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				</div>
 				<cftextarea name = "pdesc" id = "desc" placeholder = "Enter Product Description" />
 				<div class = "submit">
-					<cfinput type = "submit" name = "updateitem" id = "updateitem" value = "Update Database">
+					<button type = "submit" name = "updateitem" id = "updateitem" class = "btn btn-primary">
+						<span class = "glyphicon glyphicon-save"></span> Save
+					</button>
 				</div>
 			</cfform>
 		</div>

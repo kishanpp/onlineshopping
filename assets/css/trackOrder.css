@@ -1,10 +1,21 @@
 .Orders
 {
-	
 	margin : 5px 20px 15px 20px ;
 	border-radius : 10px;
 	border : 1px solid #c4a6a6;
 	background-color : white;
+	height : auto;
+	width :97%;
+	min-height : 40%;
+	display :inline-block;
+}
+.orders>span{
+	margin: 7% 0% 3% 42%;
+    position: absolute;
+}
+.no-orders
+{
+	margin : 2% 0% 2% 0% ;
 }
 .orderid
 {
@@ -12,7 +23,6 @@
 	background-color : c4c4c4;
 	padding : 8px 15px 8px 15px ;
 	display : inline-block;
-	
 }
 .orderidarea
 {

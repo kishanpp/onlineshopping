@@ -33,11 +33,9 @@ textarea
 {
 	margin : 2% 0% 0% 35% ;
 }
-.additem>form input[type=submit]
+.submit>button
 {
-	background-color: rgba(218, 223, 224, 0.2);
     box-shadow: 2px 2px 8px 0px #cabbbb;
-    border: none;
 }
 .pcategory
 {
@@ -68,7 +66,7 @@ body
 .updatesuccesfully
 {
 	position: fixed;
-    margin: 37% 0% 0% 77%;
+    margin: 37% 0% 0% 75%;
     color: coral;
     background-attachment: fixed;
 	font-weight: 800;

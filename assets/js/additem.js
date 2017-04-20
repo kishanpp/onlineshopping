@@ -18,7 +18,7 @@ $(document).ready(function() {
 							alert("database error");		
 				}); 
 				
-	$("input[type='submit']").click(function()
+	$("#additem").click(function()
 	{
 		if($("#pname").val() == "" || $("#qty").val() == "" || $("#pprice").val() == "" || $("#pimg").val() == "" || $("#pdisc").val() == "" || $("#desc").val() == "")
 		{

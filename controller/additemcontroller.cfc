@@ -30,9 +30,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	description				 :	this function calls getdatabyid function in model.
 	arguments description	 :	id - product sub category id
 								orderid - orderid of current transaction.
-	return type 		  	 :	void
+	return type 		  	 :	boolean
 	--->	
-	<cffunction name = "adddata" returnType = "void" access = "remote" hint = "call the adddata function in model to store new product sub category">
+	<cffunction name = "adddata" returnType = "boolean" access = "public" hint = "call the adddata function in model to store new product sub category">
 		<cfargument name = "pcat" type = "string" required = "true" >
 		<cfargument name = "pname" type = "string" required = "true" >
 		<cfargument name = "qty" type = "numeric" required = "true" >
@@ -47,6 +47,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 														"#ARGUMENTS.pimg#",
 														#ARGUMENTS.pdisc#,
 														"#ARGUMENTS.desc#")>
+		<cfreturn #LOCAL.adddata#>
 	</cffunction>
 	
 	

@@ -83,6 +83,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfset SESSION.isLogged = false />
 		<cfset SESSION.userName = "" />
 		<cfset SESSION.userPhoneNumber = "" />
+		<cfset SESSION.admin = false />
 		<cflocation url = "https://www.shoponline.com" addtoken = "false">
 		<cfset SessionInvalidate()>
 	</cffunction>

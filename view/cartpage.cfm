@@ -29,7 +29,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<div class = "products">
 						<cfset VARIABLES.getcarts = controllerObject.getcartdata(id = #VARIABLES.getcart.InventorySubCategoryId#)>
 						<img src = "data:image/jpg;base64,#toBase64(VARIABLES.getcarts.Photo)#"   />
-						<div >
+						<div>
 							<span class = "pname" >#VARIABLES.getcarts.ProductSubCategoryName#</span>
 							<cfif #VARIABLES.getcarts.ProductDiscount# GT 0>
 								<cfset discountedvalue = #VARIABLES.getcarts.ProductSubCategoryPrice#  - ((#VARIABLES.getcarts.ProductDiscount#)/100)*#VARIABLES.getcarts.ProductSubCategoryPrice#>
@@ -43,7 +43,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 							</cfif>
 						</div>
 						<input type = "text" id = "id" value = "#VARIABLES.getcarts.InventorySubCategoryId#"  style = "display:none;">
-						<button class = "btn btn-info glyphicon glyphicon-remove-sign" id = "remove-from-cart" name = "remove-from-cart" ></button>
+						<button class = "btn btn-info glyphicon glyphicon-remove" id = "remove-from-cart" name = "remove-from-cart" ></button>
+						<hr />
 					</div>
 				</cfloop>
 				<span id = "date" style = "display:none;">#DateFormat(Now(),"mm/dd/yy")#</span> 

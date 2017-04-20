@@ -4,5 +4,5 @@ $(document).ready(function() {
 			$(".redirect").text(sec--);
 		},1000);
 	
-		
+	$(".navbar-inverse").hide();
 })

@@ -13,6 +13,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	
 	<title> Shop Online </title>
 
+		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 	<script src = "https://code.jquery.com/jquery-1.12.4.js"></script>
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
@@ -21,6 +23,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<script src = "../assets/js/passwordStrength.js"></script>
 	<script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+	
 	<link rel = "shortcut icon" href = "../assets/css/favicon.ico" type = "image/x-icon">
 	<link href = "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel = "stylesheet">
 	<link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -33,7 +36,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfif StructKeyExists(form,"loginbtn")>
 		<cfset VARIABLES.logged = controllerObject.loginUser(phonenumber = "#form.phonenumber#",password = "#form.password#")>
 		<cfif VARIABLES.logged EQ false>
-			<div class = "invalidUser"> Login Failed,Invalid Credentials </div>
+			<div class = "invalidUser"><span class = "glyphicon glyphicon-remove"></span> Login Failed,Invalid Credentials </div>
 		</cfif>
 	</cfif>
 	<cfif StructKeyExists(form,"logoutbtn")>
@@ -42,7 +45,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cfif StructKeyExists(form,"registerbtn")>
 		<cfset VARIABLES.logged = controllerObject.registerUser(username = "#form.username#",password = "#form.password#",phone = "#form.phonenumber#")>
 		<cfif VARIABLES.logged EQ false>
-			<div class = "invalidUser"> Phone number already registered </div>
+			<div class = "invalidUser"><span class = "glyphicon glyphicon-remove"></span> Phone number already registered </div>
+		<cfelse>
+			<div class = "invalidUser"><span class = "glyphicon glyphicon-ok"></span> Successfully registered </div>
 		</cfif>
 	</cfif>
 	<div class = "navbar-inner">
@@ -63,7 +68,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 			<cfif  SESSION.isLogged>
 				<a href = "../view/trackOrder.cfm">
 					<div class = "myOrders">
-						My orders
+						<span class = "glyphicon glyphicon-list"></span> My orders
 					</div>
 				</a>
 			</cfif>
@@ -94,7 +99,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 						</cfoutput>
 							<li>
 								<cfform >
-									<cfinput type = "submit" class = "btn"  value = "Logout" name = "logoutbtn" id = "logoutbtn" >
+									<button type = "submit" class = "btn" name = "logoutbtn" id = "logoutbtn" >
+										<span class = "glyphicon glyphicon-log-out"></span> Logout
+									</button>
 								</cfform>
 							</li>
 					</ul>
@@ -107,11 +114,16 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 							<div class = "dropdownlogin" >
 								<cfform> 
 									<div class = "input-group">
-										<span class = "input-group-addon" id = "basic-addon1">+91</span>
+										<span class = "input-group-addon glyphicon glyphicon-earphone" id = "basic-addon1"></span>
 										<cfinput name = "phonenumber" class = "form-control" id = "loginphonenumber" maxlength = "10" type = "text" title = "phone number must be of 10 digits" placeholder = "Phonenumber" > 
 									</div>
-									<cfinput name = "password" id = "loginpassword" type = "password" placeholder = "**************" ><br>
-									<cfinput name = "loginbtn" type = "submit" id = "btnLogin" class = "btn" value = "Login"  >
+									<div class = "input-group">
+										<span class = "input-group-addon glyphicon glyphicon-lock" id = "basic-addon1">  </span>
+										<cfinput name = "password"  class = "form-control" id = "loginpassword" type = "password" placeholder = "**************" ><br>
+									</div>
+									<button name = "loginbtn" type = "submit" id = "btnLogin" class = "btn" >
+										<span class = "glyphicon glyphicon-log-in"></span> Login
+									</button>
 								</cfform>	
 							</div>
 						</li>
@@ -121,10 +133,16 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 							</div>
 							<div class = "dropdownregister" >	
 								<cfform > 
-									<cfinput name = "username" id = "username" type = "text" placeholder = "Username" maxlength = "20" > 
-									<cfinput name = "password" id = "password" type = "password" placeholder = "**************" >
 									<div class = "input-group">
-										<span class = "input-group-addon" id = "basic-addon1">+91</span>
+										<span class = "input-group-addon glyphicon glyphicon-user"></span>
+										<cfinput name = "username" class = "form-control" id = "username" type = "text" placeholder = "Name" maxlength = "20" > 
+									</div>
+									<div class = "input-group">
+										<span class = "input-group-addon glyphicon glyphicon-lock" id = "basic-addon1 "></span>
+										<cfinput name = "password" class = "form-control" id = "password" type = "password" placeholder = "**************" >
+									</div>
+									<div class = "input-group">
+										<span class = "input-group-addon glyphicon glyphicon-earphone" id = "basic-addon1"></span>
 										<cfinput name = "phonenumber" class = "form-control" id = "phonennumber" type = "text" maxlength = "10" title = "phone number must be of 10 digits" placeholder = "PhoneNumber" ><br>
 									</div>
 									<cfinput type = "submit" id = "btnRegister" class = "btn" name = "registerbtn" value = "Register"><br />

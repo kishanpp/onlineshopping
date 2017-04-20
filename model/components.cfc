@@ -788,9 +788,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 								pimg - product sub category image
 								pdisc - product sub category discount
 								desc - product sub category description.
-	return type 		  	 :	void
+	return type 		  	 :	boolean
 	--->
-	<cffunction name = "adddata" output = "true" returntype = "void" access = "public" hint = "inserts new product details by admin" >
+	<cffunction name = "adddata" output = "true" returntype = "boolean" access = "public" hint = "inserts new product details by admin" >
 		<cfargument name = "pcat" type = "string" required = "true" default = "">
 		<cfargument name = "pname" type = "string" required = "true" default = "">
 		<cfargument name = "qty" type = "numeric" required = "true" default = "">
@@ -799,21 +799,29 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfargument name = "pdisc" type = "numeric" required = "true" default = "">
 		<cfargument name = "desc" type = "string" required = "true" default = "">
 
-		<cfquery name = "productCategory">
-			SELECT * FROM dbo.ProductCategory WHERE ProductName = <cfqueryparam value = '#ARGUMENTS.pcat#' cfsqltype = "cf_sql_varchar">
+		<cfquery name = "productsubcategorycheck">
+			SELECT * FROM dbo.ProductSubCategory WHERE ProductSubCategoryName = <cfqueryparam value = '#ARGUMENTS.pname#' cfsqltype = "cf_sql_varchar">
 		</cfquery>
-		<cfquery  >
-			INSERT INTO dbo.ProductSubCategory 
-			(InventoryCategoryId,ProductSubCategoryName,ProductSubCategoryQty,ProductSubCategoryPrice,ProductDescription,ProductDiscount,Photo) 
-			SELECT
-			<cfqueryparam value = #productCategory.InventoryCategoryId# cfsqltype = "cf_sql_numeric">,
-			<cfqueryparam value = '#ARGUMENTS.pname#' cfsqltype = "cf_sql_varchar">,
-			<cfqueryparam value = #ARGUMENTS.qty# cfsqltype = "cf_sql_numeric">,
-			<cfqueryparam value = #ARGUMENTS.pprice# cfsqltype = "cf_sql_numeric">,
-			<cfqueryparam value = '#ARGUMENTS.desc#' cfsqltype = "cf_sql_varchar">,
-			<cfqueryparam value = #ARGUMENTS.pdisc# cfsqltype = "cf_sql_numeric">,
-			bulkcolumn FROM openrowset ( BULK '#ARGUMENTS.pimg#',single_blob) as BLOB 
-		</cfquery>
+		<cfif #productsubcategorycheck.recordCount# EQ 1>
+			<cfreturn TRUE>
+		<cfelse>
+			<cfquery name = "productCategory">
+				SELECT * FROM dbo.ProductCategory WHERE ProductName = <cfqueryparam value = '#ARGUMENTS.pcat#' cfsqltype = "cf_sql_varchar">
+			</cfquery>
+			<cfquery  >
+				INSERT INTO dbo.ProductSubCategory 
+				(InventoryCategoryId,ProductSubCategoryName,ProductSubCategoryQty,ProductSubCategoryPrice,ProductDescription,ProductDiscount,Photo) 
+				SELECT
+				<cfqueryparam value = #productCategory.InventoryCategoryId# cfsqltype = "cf_sql_numeric">,
+				<cfqueryparam value = '#ARGUMENTS.pname#' cfsqltype = "cf_sql_varchar">,
+				<cfqueryparam value = #ARGUMENTS.qty# cfsqltype = "cf_sql_numeric">,
+				<cfqueryparam value = #ARGUMENTS.pprice# cfsqltype = "cf_sql_numeric">,
+				<cfqueryparam value = '#ARGUMENTS.desc#' cfsqltype = "cf_sql_varchar">,
+				<cfqueryparam value = #ARGUMENTS.pdisc# cfsqltype = "cf_sql_numeric">,
+				bulkcolumn FROM openrowset ( BULK '#ARGUMENTS.pimg#',single_blob) as BLOB 
+			</cfquery>
+			<cfreturn FALSE>
+		</cfif>
 	</cffunction>
 	 
 

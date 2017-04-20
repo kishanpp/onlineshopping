@@ -14,12 +14,10 @@
 {
 	margin : 2% 0% 0% 35% ;
 }
-.deleteitem>form input[type=submit]
+.submit>button
 {
-	background-color: rgba(218, 223, 224, 0.2);
     box-shadow: 2px 2px 8px 0px #cabbbb;
-    border: none;
-	margin : 20% 0% 0% 5% ;
+	margin : 20% 0% 0% 9% ;
 }
 .pcategory
 {

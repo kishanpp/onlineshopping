@@ -38,7 +38,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				<div class = "carousel-inner" role = "listbox" >
 					<div class = "item active">
 						<cfoutput>
-							<a href = "view/product.cfm?id=#getProductSubCategory[1].InventorySubCategoryId#"><img src = "data:image/jpg;base64,#toBase64(getProductSubCategory[1].Photo)#" /></a>
+							<a href = "view/product.cfm?id=#getProductSubCategory[1].InventorySubCategoryId#"><img src = "data:image/jpg;base64,#toBase64(getProductSubCategory[1].Photo)#" class = "img-responsive" /></a>
 						</cfoutput>
 						<div class = "carousel-caption">
 							<h3 class = "info"><cfoutput>#getProductSubCategory[1].ProductSubCategoryName#</cfoutput></h3>

@@ -20,7 +20,13 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 														pimg = "#form.pimg#",
 														pdisc = "#form.pdisc#",
 														desc = "#form.pdesc#")>  
-			<span class = "updatesuccesfully">Succesfully Added</span>
+			<cfoutput>
+				<cfif #VARIABLES.insertdata# EQ TRUE >
+					<span class = "updatesuccesfully">Product Already Exists</span>
+				<cfelse>
+					<span class = "updatesuccesfully">Succesfully Added</span>
+				</cfif>
+			</cfoutput>
 		</cfif>
 
 		<div class = "additem">
@@ -58,7 +64,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 				</div>
 				<cftextarea name = "pdesc" id = "desc" rows = "5" placeholder = "Enter Product Description" />
 				<div class = "submit">
-					<cfinput type = "submit" name = "additem" id = "additem" value = "Add To Database">
+					<button type = "submit" name = "additem" id = "additem" class = "btn btn-primary">
+						<span class = "glyphicon glyphicon-plus"></span> Add
+					</button>
 				</div>
 			</cfform>
 		</div>

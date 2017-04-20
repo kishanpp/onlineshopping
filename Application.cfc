@@ -77,6 +77,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	<cffunction name = "onSessionEnd" access = "public" returnType = "void" hint = "Executes when session is timeout">
 		<cfargument name = "SessionScope" required = "true" >
 		<cfargument name = "ApplicationScope" required = "true">
+		<cfset SessionScope.admin = false />
 		<cfset ApplicationScope.currentUsers = listDeleteAt(ApplicationScope.currentUsers,listFind(ApplicationScope.currentUsers,#SessionScope.userPhoneNumber#) )>
 		<cflocation url = "https://www.shoponline.com" addtoken = "false">
 	</cffunction>

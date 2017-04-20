@@ -11,7 +11,7 @@ body
 	display : inline-block;
 	height:15%;
 }
-img
+.header>a>img
 {
 	background-color : rgba(0, 128, 0, 0.05);
 	width : 8%;
@@ -91,7 +91,7 @@ div.autosuggestcontainer .yui-ac-content
     border-width: 1px;
     border-style: solid;
     height: 31px;
-    margin: -73px 0 0 335px;
+    margin: -30px 0 0 335px;
     padding: 0;
     width: 50px;
     cursor: pointer;
@@ -372,7 +372,7 @@ form
 
 .useronline
 {
-	margin : -115px 0px 0px 850px;
+	margin : -120px 0px 0px 850px;
     position: absolute;
     border: none;
 	color : white;
@@ -428,7 +428,7 @@ form
 
 .myOrders
 {
-    margin: 0px 0px 0px -10%;
+    margin: 0px 0px 0px -12%;
     display: inline-block;
     position: absolute;
 	color : white;

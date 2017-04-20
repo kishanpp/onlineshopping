@@ -7,7 +7,9 @@ date created 	: Friday, ?03 ?March, ?2017, ??2:10:49 PM
 
 <html lang = "en-US">
 	<head>		
+		<link href = "../assets/css/animate.css" rel = "stylesheet">
 		<link rel = "stylesheet"  href = "../assets/css/trackOrder.css"> 
+		<link rel = "shortcut icon" href = "../assets/css/favicon.ico" type = "image/x-icon">
 	</head>
 	<body>
 		<div class="se-pre-con"></div>
@@ -16,6 +18,7 @@ date created 	: Friday, ?03 ?March, ?2017, ??2:10:49 PM
 				
 		<cfset VARIABLES.getOrders = controllerObject.getOrder()>
 		<cfoutput>
+		
 		<cfif VARIABLES.getOrders.recordCount NEQ 0>
 			<cfloop query = "VARIABLES.getOrders">
 				<div class = "Orders">
@@ -53,8 +56,10 @@ date created 	: Friday, ?03 ?March, ?2017, ??2:10:49 PM
 				</div>
 			</cfloop>
 		<cfelse>
-			<div class = "Orders orderidarea ">
-				No transactions yet
+			<div class = "no-orders">
+				<div class = "Orders ">
+					<span class = "alert alert-info">No transactions yet</span>
+				</div>
 			</div>
 		</cfif>
 		</cfoutput>

@@ -44,11 +44,16 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<div class = "info-area">	
 						<h3 class = "product-name">#VARIABLES.getProductDetails.ProductSubCategoryName#</h3> <hr />
 						<cfif #VARIABLES.getProductDetails.ProductDiscount# EQ 0>
-							<span class = "discounted-price" >&##8377 #VARIABLES.getProductDetails.ProductSubCategoryPrice#</span>
+							<span class = "discounted-price-symbol" >&##8377</span>
+							<span class = "discounted-price" >#VARIABLES.getProductDetails.ProductSubCategoryPrice#</span>
 						<cfelse>
 							<cfset discountedvalue = round (#VARIABLES.getProductDetails.ProductSubCategoryPrice#  - ((#VARIABLES.getProductDetails.ProductDiscount#)/100)*#VARIABLES.getProductDetails.ProductSubCategoryPrice# )>
-							<span class = "discounted-price-symbol">&##8377<span class = "discounted-price">#discountedvalue#</span></span>
-							<span class = "product-price">&##8377 #VARIABLES.getProductDetails.ProductSubCategoryPrice#</span>
+							<span class = "discounted-price-symbol">&##8377
+								<span class = "discounted-price">#discountedvalue#</span>
+							</span>
+							<span class = "product-price-symbol" >&##8377
+								<span class = "product-price">#VARIABLES.getProductDetails.ProductSubCategoryPrice#</span>
+							</span>
 							<span class = "discount"> #VARIABLES.getProductDetails.ProductDiscount#% off</span>
 						</cfif>
 						<h5 class = "product-description">#VARIABLES.getProductDetails.ProductDescription#</h5>

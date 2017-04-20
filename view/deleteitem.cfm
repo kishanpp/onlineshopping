@@ -35,7 +35,9 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 					<span id = "psubtypereq" >*Select Product Sub Category </span>
 				</div>			
 				<div class = "submit">
-					<cfinput type = "submit" name = "deleteitem" id = "deleteitem" value = "Delete From Database">
+					<button type = "submit" name = "deleteitem" id = "deleteitem" class = "btn btn-danger">
+						<span class = "glyphicon glyphicon-trash"></span> Delete
+					</button>
 				</div>
 			</cfform>
 		</div>
