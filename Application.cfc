@@ -79,7 +79,8 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 		<cfargument name = "ApplicationScope" required = "true">
 		<cfset SessionScope.admin = false />
 		<cfset ApplicationScope.currentUsers = listDeleteAt(ApplicationScope.currentUsers,listFind(ApplicationScope.currentUsers,#SessionScope.userPhoneNumber#) )>
-		<cflocation url = "https://www.shoponline.com" addtoken = "false">
+		<cflocation url = "/index.cfm" addtoken = "false">
+		 <cfset structClear(ARGUMENTS.SessionScope) >
 	</cffunction>
 
 </cfcomponent>

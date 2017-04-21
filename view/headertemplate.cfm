@@ -4,6 +4,10 @@ function 		: This file display the header and left navigation informations.
 date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 --->
+<cfheader name="expiry" value="#now()#" />
+<cfheader name="pragma" value="no-cache">
+ <cfheader name="cache-control" value="no-cache, no-store, must-revalidate">
+ 
 <!DOCTYPE html>
 <html lang = "en-US">
 <head>
@@ -52,7 +56,7 @@ date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 	</cfif>
 	<div class = "navbar-inner">
 		<div class = "header">
-			<a href = "https://www.shoponline.com/"><img src = "/assets/images/logo.gif" ></a>
+			<a href = "/index.cfm"><img src = "/assets/images/logo.gif" ></a>
 			<div class = "searcharea">
 				<cfoutput>
 				<div id = "searchbox">

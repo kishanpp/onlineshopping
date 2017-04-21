@@ -4,7 +4,6 @@ function 		: This file displays the list of products added to the cart by the re
 date created 	: ‎Friday, ‎03 ‎March, ‎2017, ‏‎2:10:49 PM
 
 --->
-
 <html lang = "en-US">
 <head>
 	<link rel = "stylesheet" href = "../assets/css/cartpage.css">
